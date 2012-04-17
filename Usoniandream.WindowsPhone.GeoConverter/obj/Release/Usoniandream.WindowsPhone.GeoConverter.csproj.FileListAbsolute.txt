@@ -1,0 +1,4 @@
+C:\Users\Peter\Documents\Development\WP7\Usoniandream.StockholmParking\Usoniandream.WindowsPhone.GeoConverter\Bin\Release\Usoniandream.WindowsPhone.GeoConverter.dll
+C:\Users\Peter\Documents\Development\WP7\Usoniandream.StockholmParking\Usoniandream.WindowsPhone.GeoConverter\Bin\Release\Usoniandream.WindowsPhone.GeoConverter.pdb
+C:\Users\Peter\Documents\Development\WP7\Usoniandream.StockholmParking\Usoniandream.WindowsPhone.GeoConverter\obj\Release\Usoniandream.WindowsPhone.GeoConverter.dll
+C:\Users\Peter\Documents\Development\WP7\Usoniandream.StockholmParking\Usoniandream.WindowsPhone.GeoConverter\obj\Release\Usoniandream.WindowsPhone.GeoConverter.pdb

@@ -1,0 +1,17 @@
+C:\Users\Peter\Documents\Development\Usoniandream.WindowsPhone.OpenStockholm\Usoniandream.WindowsPhone.OpenStockholm\obj\Debug\Usoniandream.WindowsPhone.OpenStockholm.csprojResolveAssemblyReference.cache
+C:\Users\Peter\Documents\Development\Usoniandream.WindowsPhone.OpenStockholm\Usoniandream.WindowsPhone.OpenStockholm\Bin\Debug\Newtonsoft.Json.dll
+C:\Users\Peter\Documents\Development\Usoniandream.WindowsPhone.OpenStockholm\Usoniandream.WindowsPhone.OpenStockholm\Bin\Debug\RestSharp.WindowsPhone.dll
+C:\Users\Peter\Documents\Development\Usoniandream.WindowsPhone.OpenStockholm\Usoniandream.WindowsPhone.OpenStockholm\Bin\Debug\System.Reactive.dll
+C:\Users\Peter\Documents\Development\Usoniandream.WindowsPhone.OpenStockholm\Usoniandream.WindowsPhone.OpenStockholm\Bin\Debug\System.Reactive.Windows.Threading.dll
+C:\Users\Peter\Documents\Development\Usoniandream.WindowsPhone.OpenStockholm\Usoniandream.WindowsPhone.OpenStockholm\Bin\Debug\Usoniandream.WindowsPhone.Extensions.dll
+C:\Users\Peter\Documents\Development\Usoniandream.WindowsPhone.OpenStockholm\Usoniandream.WindowsPhone.OpenStockholm\Bin\Debug\Usoniandream.WindowsPhone.GeoConverter.dll
+C:\Users\Peter\Documents\Development\Usoniandream.WindowsPhone.OpenStockholm\Usoniandream.WindowsPhone.OpenStockholm\Bin\Debug\Usoniandream.WindowsPhone.Extensions.pdb
+C:\Users\Peter\Documents\Development\Usoniandream.WindowsPhone.OpenStockholm\Usoniandream.WindowsPhone.OpenStockholm\Bin\Debug\Usoniandream.WindowsPhone.GeoConverter.pdb
+C:\Users\Peter\Documents\Development\Usoniandream.WindowsPhone.OpenStockholm\Usoniandream.WindowsPhone.OpenStockholm\Bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Peter\Documents\Development\Usoniandream.WindowsPhone.OpenStockholm\Usoniandream.WindowsPhone.OpenStockholm\Bin\Debug\Newtonsoft.Json.xml
+C:\Users\Peter\Documents\Development\Usoniandream.WindowsPhone.OpenStockholm\Usoniandream.WindowsPhone.OpenStockholm\Bin\Debug\System.Reactive.xml
+C:\Users\Peter\Documents\Development\Usoniandream.WindowsPhone.OpenStockholm\Usoniandream.WindowsPhone.OpenStockholm\Bin\Debug\System.Reactive.Windows.Threading.xml
+C:\Users\Peter\Documents\Development\Usoniandream.WindowsPhone.OpenStockholm\Usoniandream.WindowsPhone.OpenStockholm\Bin\Debug\Usoniandream.WindowsPhone.OpenStockholm.Data.dll
+C:\Users\Peter\Documents\Development\Usoniandream.WindowsPhone.OpenStockholm\Usoniandream.WindowsPhone.OpenStockholm\Bin\Debug\Usoniandream.WindowsPhone.OpenStockholm.Data.pdb
+C:\Users\Peter\Documents\Development\Usoniandream.WindowsPhone.OpenStockholm\Usoniandream.WindowsPhone.OpenStockholm\obj\Debug\Usoniandream.WindowsPhone.OpenStockholm.Data.dll
+C:\Users\Peter\Documents\Development\Usoniandream.WindowsPhone.OpenStockholm\Usoniandream.WindowsPhone.OpenStockholm\obj\Debug\Usoniandream.WindowsPhone.OpenStockholm.Data.pdb

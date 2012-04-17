@@ -1,0 +1,100 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="Usoniandream.WindowsPhone.LocationServices.Tester.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768" 
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+    <shell:SystemTray.ProgressIndicator>
+        <shell:ProgressIndicator IsIndeterminate="{Binding IsDataLoading}" IsVisible="{Binding IsDataLoading}" Text="Laddar.." />
+    </shell:SystemTray.ProgressIndicator>
+
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <controls:Pivot Title="OPENSTOCKHOLM">
+            <controls:PivotItem>
+                <controls:PivotItem.Header>
+                    <StackPanel>
+                        <TextBlock Text="p-platser" />
+                        <TextBlock Text="stockholm stad" Margin="4,0" Style="{StaticResource PhoneTextSubtleStyle}" />
+                    </StackPanel>
+                </controls:PivotItem.Header>
+                <ListBox Margin="0,0,-12,0" ItemsSource="{Binding ParkingLocations}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Content}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
+                                <TextBlock Text="{Binding CityDistrict}" Style="{StaticResource PhoneTextNormalStyle}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </controls:PivotItem>
+
+            <controls:PivotItem>
+                <controls:PivotItem.Header>
+                    <StackPanel>
+                        <TextBlock Text="p-automater" />
+                        <TextBlock Text="stockholm stad" Margin="4,0" Style="{StaticResource PhoneTextSubtleStyle}" />
+                    </StackPanel>
+                </controls:PivotItem.Header>
+
+                <ListBox Margin="0,0,-12,0" ItemsSource="{Binding ParkingMeters}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Content}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
+                                <TextBlock Text="{Binding Status}" Style="{StaticResource PhoneTextNormalStyle}" />
+                            </StackPanel>
+                            </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </controls:PivotItem>
+
+            <controls:PivotItem>
+                <controls:PivotItem.Header>
+                    <StackPanel>
+                        <TextBlock Text="service" />
+                        <TextBlock Text="stockholm stad" Margin="4,0" Style="{StaticResource PhoneTextSubtleStyle}" />
+                    </StackPanel>
+                </controls:PivotItem.Header>
+                <ListBox Margin="0,0,-12,0" ItemsSource="{Binding ServiceGuides}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Content}" TextWrapping="NoWrap" Margin="12,0,0,0" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </controls:PivotItem>
+ 
+            <controls:PivotItem>
+                <controls:PivotItem.Header>
+                    <StackPanel>
+                        <TextBlock Text="places" />
+                        <TextBlock Text="nokia" Margin="4,0" Style="{StaticResource PhoneTextSubtleStyle}" />
+                    </StackPanel>
+                </controls:PivotItem.Header>
+                <ListBox Margin="0,0,-12,0" ItemsSource="{Binding Places}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="{Binding Icon}" />
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Title}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
+                                    <TextBlock Text="{Binding Vicinity}" Style="{StaticResource PhoneTextNormalStyle}" />
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </controls:PivotItem>
+        </controls:Pivot>
+    </Grid>
+</phone:PhoneApplicationPage>

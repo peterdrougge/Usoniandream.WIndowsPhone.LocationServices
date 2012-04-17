@@ -1,0 +1,38 @@
+﻿<Application 
+    x:Class="Usoniandream.WindowsPhone.LocationServices.Tester.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:usoniandream="clr-namespace:Usoniandream.WindowsPhone.LocationServices.Models;assembly=Usoniandream.WindowsPhone.LocationServices"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone">
+
+    <!--Application Resources-->
+    <Application.Resources>
+        <!-- API KEYS -->
+        <!-- STOCKHOLM DATA -->
+        <usoniandream:ServiceAPIKey x:Key="STHLM_DATA_API_KEY_SERVICEGUIDE" Value="" />
+        <usoniandream:ServiceAPIKey x:Key="STHLM_DATA_API_KEY_PARKING" Value="" />
+        <usoniandream:ServiceAPIKey x:Key="STHLM_DATA_API_KEY_PLACE" Value="" />
+        <!-- NOKIA PLACES -->
+        <usoniandream:ServiceAPIKey x:Key="NOKIA_APP_CODE" Value="" />
+        <usoniandream:ServiceAPIKey x:Key="NOKIA_APP_ID" Value="" />
+        <!-- BING -->
+        <usoniandream:ServiceAPIKey x:Key="BING_API_KEY" Value="" />
+
+        <!-- SERVICE ENDPOINTS -->
+        <usoniandream:ServiceURI x:Key="STHLM_DATA_SERVICE_URI_SERVICEGUIDE" URL="http://api.stockholm.se/ServiceGuideService" />
+        <usoniandream:ServiceURI x:Key="STHLM_DATA_SERVICE_URI_PARKINGLOCATION" URL="http://openparking.stockholm.se/LTF-Tolken/v1/" />
+        <usoniandream:ServiceURI x:Key="STHLM_DATA_SERVICE_URI_PARKINGMETER" URL="http://openstreetgs.stockholm.se/geoservice/api/" />
+        <usoniandream:ServiceURI x:Key="STHLM_DATA_SERVICE_URI_PLACE" URL="" />
+        <usoniandream:ServiceURI x:Key="NOKIA_SERVICE_URI_PLACES" URL="http://demo.places.nlp.nokia.com/places/v1/" />
+        <usoniandream:ServiceURI x:Key="BING_SERVICE_URI_LOCATION" URL="http://dev.virtualearth.net/REST/v1/" />
+    </Application.Resources>
+
+    <Application.ApplicationLifetimeObjects>
+        <!--Required object that handles lifetime events for the application-->
+        <shell:PhoneApplicationService 
+            Launching="Application_Launching" Closing="Application_Closing" 
+            Activated="Application_Activated" Deactivated="Application_Deactivated"/>
+    </Application.ApplicationLifetimeObjects>
+
+</Application>
