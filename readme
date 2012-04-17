@@ -1,5 +1,17 @@
 API keys are set in the App.xaml file (see sample windows phone 7 app for details).
 
+Location services currently available:
+            Usoniandream.WindowsPhone.LocationServices.Bing
+            Usoniandream.WindowsPhone.LocationServices.Nokia
+            Usoniandream.WindowsPhone.LocationServices.Stockholm
+
+The location services can be installed separately, but each of them rely on:
+            Usoniandream.WindowsPhone.LocationServices
+            Usoniandream.WindowsPhone.Extensions
+            Usoniandream.WindowsPhone.GeoConverter
+            RestSharp 102.7.0.0
+            Reactive Extensions 1.1
+
 
 To fetch all Stockholm City parking meters, one can use the following approach:
 
