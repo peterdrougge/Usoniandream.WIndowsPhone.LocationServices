@@ -14,7 +14,7 @@ using System.Device.Location;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Models.Stockholm
 {
-    public class ParkingMeter
+    public class ParkingMeter : ILocation
     {
         public ParkingMeter()
         {}
@@ -42,12 +42,12 @@ namespace Usoniandream.WindowsPhone.LocationServices.Models.Stockholm
                 ResidentButton = Boolean.Parse(item.properties.DESC6);
             }
             CoinFlavours = item.properties.DESC8;
-            GeoLocation = coords;
+            Location = coords;
 
         }
 
+        public virtual GeoCoordinate Location { get; set; }
         public virtual object Content { get; set; }
-        public virtual GeoCoordinate GeoLocation { get; set; }
 
         // DESC2
         public string Status { get; set; }

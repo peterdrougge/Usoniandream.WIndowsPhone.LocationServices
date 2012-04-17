@@ -9,9 +9,9 @@ using System.Resources;
 [assembly: AssemblyTitle("Usoniandream.WindowsPhone.LocationServices.Nokia")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Microsoft")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Usoniandream.WindowsPhone.LocationServices.Nokia")]
-[assembly: AssemblyCopyright("Copyright © Microsoft 2012")]
+[assembly: AssemblyCopyright("Copyright © Peter Drougge 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

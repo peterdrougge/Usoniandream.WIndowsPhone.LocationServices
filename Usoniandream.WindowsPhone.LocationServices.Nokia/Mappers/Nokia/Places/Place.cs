@@ -30,6 +30,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Nokia.Places
                         Type = item.category.type,
                         URL = item.category.href
                     },
+                    Location = new System.Device.Location.GeoCoordinate(item.position[0], item.position[1]),
                      Distance = item.distance,
                      Icon = item.icon,
                      Id = item.id,

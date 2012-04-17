@@ -16,10 +16,10 @@ using System.Device.Location;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Models.Stockholm
 {
-    public class ParkingLocation
+    public class ParkingLocation : ILocation
     {
+        public virtual GeoCoordinate Location { get; set; }
         public virtual object Content { get; set; }
-        public virtual GeoCoordinate GeoLocation { get; set; }
 
         public List<List<double>> Coordinates { get; set; }
 

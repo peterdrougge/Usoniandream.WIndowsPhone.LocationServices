@@ -8,12 +8,12 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using System.Device.Location;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Models.Nokia.Places
 {
-    public class Place
+    public class Place : ILocation
     {
-
         public int Distance { get; set; }
         public string Title { get; set; }
         public double AverageRating { get; set; }
@@ -23,6 +23,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Models.Nokia.Places
         public string URL { get; set; }
         public string Id { get; set; }
         public Category Category { get; set; }
-
+        public GeoCoordinate Location { get; set; }
+        public object Content { get; set; }
     }
 }

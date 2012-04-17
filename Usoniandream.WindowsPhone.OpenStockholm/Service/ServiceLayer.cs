@@ -79,6 +79,8 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Stockholm
                 throw new ArgumentException("missing api key, please check App.xaml.", "APIkey");
             }
 
+
+
             return criteria.Client.ExecuteAsync<Models.JSON.Stockholm.ServiceGuide.RootObject>(criteria.Request)
                             .SelectMany<Usoniandream.WindowsPhone.LocationServices.Models.JSON.Stockholm.ServiceGuide.RootObject, ServiceGuide>(x => criteria.Mapper.JSON2Model(x))
                             .ObserveOnDispatcher();
