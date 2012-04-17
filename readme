@@ -1,1 +1,28 @@
 API keys are set in the App.xaml file (see sample windows phone 7 app for details).
+
+
+To fetch all Stockholm City parking meters, one can use the following approach:
+
+            public ObservableCollection<LocationServices.Models.Stockholm.ParkingLocation> ParkingLocations { get; private set; }
+
+            var rxlocations = sthlmservicelayer.GetParkingLocationsByStreet(new Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Stockholm.Parking.ParkingLocation.ParkingLocationsByStreet("Odengatan", Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.VehicleTypeEnum.Car))
+                .ObserveOnDispatcher()
+                .Subscribe( x => { ParkingLocations.Add(x); });
+
+and, since it's observable/reactive, you're free to further extend it:
+
+            var rxlocations = sthlmservicelayer.GetParkingLocationsByStreet(new Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Stockholm.Parking.ParkingLocation.ParkingLocationsByStreet("Odengatan", Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.VehicleTypeEnum.Car))
+                .Take(20)
+                .ObserveOnDispatcher()
+                .Finally(() => IsDataLoading = false)
+                .Subscribe(
+                    // result
+                    x =>
+                    {
+                        ParkingLocations.Add(x);
+                    },
+                    // exception
+                    ex =>
+                    {
+                        MessageBox.Show(ex.Message);
+                    });
