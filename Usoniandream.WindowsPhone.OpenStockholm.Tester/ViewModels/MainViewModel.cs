@@ -80,39 +80,49 @@ namespace Usoniandream.WindowsPhone.LocationServices.Tester
         /// </summary>
         public void LoadData()
         {
-            //IsDataLoading = true;
-            //var rxlocations = sthlmservicelayer.GetParkingLocationsByStreet(new Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Stockholm.Parking.ParkingLocation.ParkingLocationsByStreet("Odengatan", Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.VehicleTypeEnum.Car))
-            //    .Take(20)
-            //    .ObserveOnDispatcher()
-            //    .Finally(() => IsDataLoading = false)
-            //    .Subscribe(
-            //        // result
-            //        x =>
-            //        {
-            //            ParkingLocations.Add(x);
-            //        },
-            //        // exception
-            //        ex =>
-            //        {
-            //            // handle exception..
-            //        });
+            IsDataLoading = true;
+            GenericPivotItem parkings = new GenericPivotItem() { Header = "p-platser", Source = "stockholm stad" };
+            var rxlocations = sthlmservicelayer.GetParkingLocationsByStreet(new Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Stockholm.Parking.ParkingLocation.ParkingLocationsByStreet("Odengatan", Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.VehicleTypeEnum.Car))
+                .Take(20)
+                .ObserveOnDispatcher()
+                .Finally(() =>
+                {
+                    PivotItems.Add(parkings);
+                    IsDataLoading = false;
+                })
+                .Subscribe(
+                // result
+                    x =>
+                    {
+                        parkings.Items.Add(x);
+                    },
+                // exception
+                    ex =>
+                    {
+                        // handle exception..
+                    });
 
-            //IsDataLoading = true;
-            //var rxmeters = sthlmservicelayer.GetParkingMeters(new Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Stockholm.Parking.ParkingMeter.ParkingMeter())
-            //    .Take(20)
-            //    .ObserveOnDispatcher()
-            //    .Finally(() => IsDataLoading = false)
-            //    .Subscribe(
-            //    // result
-            //        x =>
-            //        {
-            //            ParkingMeters.Add(x);
-            //        },
-            //    // exception
-            //        ex =>
-            //        {
-            //            // handle exception..
-            //        });
+            IsDataLoading = true;
+            GenericPivotItem parkingmeters = new GenericPivotItem() { Header = "automater", Source = "stockholm stad" };
+            var rxmeters = sthlmservicelayer.GetParkingMeters(new Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Stockholm.Parking.ParkingMeter.ParkingMeter())
+                .Take(20)
+                .ObserveOnDispatcher()
+                .Finally(() =>
+                {
+                    PivotItems.Add(parkingmeters);
+                    IsDataLoading = false;
+                })
+                .Subscribe(
+                // result
+                    x =>
+                    {
+                        parkingmeters.Items.Add(x);
+                    },
+                // exception
+                    ex =>
+                    {
+                        // handle exception..
+                    });
 
             IsDataLoading = true;
             GenericPivotItem serviceunits = new GenericPivotItem() { Header = "service", Source = "stockholm stad" };
@@ -151,24 +161,6 @@ namespace Usoniandream.WindowsPhone.LocationServices.Tester
                     x =>
                     {
                         placeserviceunits.Items.Add(x);
-                    },
-                // exception
-                    ex =>
-                    {
-                        MessageBox.Show(ex.Message);
-                    });
-
-            IsDataLoading = true;
-            var rxdetailedunit = sthlmservicelayer.GetDetailedServiceUnit(new Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Stockholm.ServiceGuide.DetailedServiceUnit("75a6c485-c8a7-4225-85f7-b6abc608f5c8"))
-                .ObserveOnDispatcher()
-                .Finally(() =>
-                {
-                    IsDataLoading = false;
-                })
-                .Subscribe(
-                // result
-                    x =>
-                    {
                     },
                 // exception
                     ex =>
@@ -244,25 +236,6 @@ namespace Usoniandream.WindowsPhone.LocationServices.Tester
                     });
 
             this.IsDataLoaded = true;
-
-            IsDataLoading = true;
-            var rxdetailedplace = nokiaservicelayer.GetNokiaPlace(new Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Nokia.Places.Place("840dr5ru-95a3fd24875e43b5830506b0b073ff82"))
-                .ObserveOnDispatcher()
-                .Finally(() =>
-                {
-                    IsDataLoading = false;
-                })
-                .Subscribe(
-                // result
-                    x =>
-                    {
-                    },
-                // exception
-                    ex =>
-                    {
-                        MessageBox.Show(ex.Message);
-                    });
-
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
