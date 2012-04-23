@@ -18,6 +18,8 @@
     <SilverlightApplication>false</SilverlightApplication>
     <ValidateXaml>true</ValidateXaml>
     <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\WP7\Usoniandream.StockholmParking\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -63,6 +65,12 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Net" />
     <Reference Include="mscorlib.extensions" />
+    <Reference Include="Usoniandream.WindowsPhone.Extensions">
+      <HintPath>..\lib\Usoniandream.WindowsPhone.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Usoniandream.WindowsPhone.GeoConverter">
+      <HintPath>..\lib\Usoniandream.WindowsPhone.GeoConverter.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Mappers\Bing\BingLocation.cs" />
@@ -76,14 +84,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Usoniandream.WindowsPhone.Extensions\Usoniandream.WindowsPhone.Extensions.csproj">
-      <Project>{F903C927-5C4D-4375-9AAB-B016163FB6E5}</Project>
-      <Name>Usoniandream.WindowsPhone.Extensions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Usoniandream.WindowsPhone.GeoConverter\Usoniandream.WindowsPhone.GeoConverter.csproj">
-      <Project>{ED67C916-8F2F-495B-AB8A-3BAC01F1E829}</Project>
-      <Name>Usoniandream.WindowsPhone.GeoConverter</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Usoniandream.WindowsPhone.LocationServices\Usoniandream.WindowsPhone.LocationServices.csproj">
       <Project>{75D42966-903A-442F-A8D3-670B31230177}</Project>
       <Name>Usoniandream.WindowsPhone.LocationServices</Name>
@@ -92,6 +92,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

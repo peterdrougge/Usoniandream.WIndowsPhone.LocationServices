@@ -17,14 +17,14 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Nokia.Place
         public Places(GeoCoordinate location)
             : base("NOKIA_SERVICE_URI_PLACES")
         {
-            Mapper = new Mappers.Nokia.Places.Place();
+            Mapper = new Mappers.Nokia.Places.Places();
             Location = location;
 
             Request.Resource = "discover/explore";
 
             APIKeyResourceName = "NOKIA_APP_CODE";
 
-            Request.AddParameter("at", string.Format("{0},{1}", Location.Latitude, Location.Longitude));
+            Request.AddParameter("at", string.Format("{0},{1}", Location.Latitude.ToString().Replace(",", "."), Location.Longitude.ToString().Replace(",", ".")));
             Request.AddParameter("app_id", AppId);
             Request.AddParameter("app_code", APIkey);
             Request.AddParameter("tf", "plain");

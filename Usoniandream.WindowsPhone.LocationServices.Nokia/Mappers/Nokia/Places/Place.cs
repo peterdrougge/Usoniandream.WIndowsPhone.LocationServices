@@ -8,61 +8,60 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
-using System.Diagnostics;
-using System.Collections.Generic;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Nokia.Places
 {
-    public class Place : IMapper<Models.Nokia.Places.Place, Models.JSON.Nokia.Places.RootObject>
+    public class Place : IMapper<Models.Nokia.Places.PlaceDetails, Models.JSON.Nokia.Place.RootObject>
     {
 
-        public System.Collections.Generic.IEnumerable<Models.Nokia.Places.Place> JSON2Model(Models.JSON.Nokia.Places.RootObject root)
+        public System.Collections.Generic.IEnumerable<Models.Nokia.Places.PlaceDetails> JSON2Model(Models.JSON.Nokia.Place.RootObject root)
         {
-            foreach (var item in root.results.items)
+            throw new NotImplementedException();
+        }
+
+        public System.Collections.Generic.IEnumerable<Models.Nokia.Places.PlaceDetails> JSON2Model(System.Collections.Generic.IEnumerable<Models.JSON.Nokia.Place.RootObject> root)
+        {
+            throw new NotImplementedException();
+        }
+
+        private Models.Nokia.Places.Category GetCategoryInformation(Models.JSON.Nokia.Place.RootObject item)
+        {
+            return new Models.Nokia.Places.Category();
+        }
+
+        public Models.Nokia.Places.PlaceDetails JSON2FirstModel(Models.JSON.Nokia.Place.RootObject root)
+        {
+            if (root.location!=null)
             {
-                yield return new Models.Nokia.Places.Place()
+                if (root.location.position != null && root.location.position.Count == 2)
                 {
-                    AverageRating = item.averageRating,
-                    Category = new Models.Nokia.Places.Category()
+                    return new Models.Nokia.Places.PlaceDetails()
                     {
-                        Id = item.category.id,
-                        Title = item.category.title,
-                        Type = item.category.type,
-                        URL = item.category.href
-                    },
-                    Location = new System.Device.Location.GeoCoordinate(item.position[0], item.position[1]),
-                     Distance = item.distance,
-                     Icon = item.icon,
-                     Id = item.id,
-                     Title = item.title,
-                     Type = item.type,
-                     URL = item.href,
-                     Vicinity = item.vicinity
-                };
+                        Content = root.name,
+                        //AverageRating = root.ratings.average,
+                        Category = GetCategoryInformation(root),
+                        Location = new System.Device.Location.GeoCoordinate(root.location.position[0], root.location.position[1]),
+                        Icon = root.icon,
+                        Id = root.placeId,
+                        Name = root.name
+                        //StreetAddress = root.location.address.street,
+                        //Phone = root.contacts.phone,
+                        //Website = root.contacts.website,
+                        //OpeningHours = root.extended.openingHours
+                    };
+                }
             }
+            return new Models.Nokia.Places.PlaceDetails();
         }
 
-        public System.Collections.Generic.IEnumerable<Models.Nokia.Places.Place> JSON2Model(System.Collections.Generic.IEnumerable<Models.JSON.Nokia.Places.RootObject> root)
+        public Models.Nokia.Places.PlaceDetails JSON2LastModel(Models.JSON.Nokia.Place.RootObject root)
         {
-            Debug.WriteLine("Hit mapper function not implemented yet");
-            return new List<Models.Nokia.Places.Place>();
-        }
-
-        public Models.Nokia.Places.Place JSON2FirstModel(Models.JSON.Nokia.Places.RootObject root)
-        {
-            Debug.WriteLine("Hit mapper function not implemented yet");
-            return new Models.Nokia.Places.Place();
-        }
-
-        public Models.Nokia.Places.Place JSON2LastModel(Models.JSON.Nokia.Places.RootObject root)
-        {
-            Debug.WriteLine("Hit mapper function not implemented yet");
-            return new Models.Nokia.Places.Place();
+            throw new NotImplementedException();
         }
 
         public void Dispose()
         {
-            //
+            throw new NotImplementedException();
         }
     }
 }

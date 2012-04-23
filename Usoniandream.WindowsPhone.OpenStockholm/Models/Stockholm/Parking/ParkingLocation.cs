@@ -46,6 +46,12 @@ namespace Usoniandream.WindowsPhone.LocationServices.Models.Stockholm
         public int? MaxMinutes { get; set; }
 
         public string OtherInfo { get; set; }
+
+        public int? Meters { get; set; }
+
+        public string Type { get; set; }
+
+        public string StartWeekDay { get; set; }
     }
 }
 

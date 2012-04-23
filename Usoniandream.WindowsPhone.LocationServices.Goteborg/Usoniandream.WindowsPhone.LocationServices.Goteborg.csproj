@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B381DFD0-6F1B-49B2-9C80-86692F5FFAB6}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Usoniandream.WindowsPhone.LocationServices.Goteborg</RootNamespace>
+    <AssemblyName>Usoniandream.WindowsPhone.LocationServices.Goteborg</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <TargetFrameworkProfile>WindowsPhone71</TargetFrameworkProfile>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\WP7\Usoniandream.StockholmParking\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Devices.Sensors" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.3\lib\sl4-windowsphone71\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp.WindowsPhone">
+      <HintPath>..\packages\RestSharp.102.7\lib\sl4-wp71\RestSharp.WindowsPhone.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Device" />
+    <Reference Include="System.Observable" />
+    <Reference Include="System.Reactive">
+      <HintPath>..\packages\Rx_Experimental-Main.1.1.11111\lib\SL3-WP\System.Reactive.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Windows.Threading">
+      <HintPath>..\packages\Rx_Experimental-Xaml.1.1.11111\lib\SL3-WP\System.Reactive.Windows.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
+    <Reference Include="mscorlib.extensions" />
+    <Reference Include="Usoniandream.WindowsPhone.Extensions">
+      <HintPath>..\lib\Usoniandream.WindowsPhone.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Usoniandream.WindowsPhone.GeoConverter">
+      <HintPath>..\lib\Usoniandream.WindowsPhone.GeoConverter.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Mappers\Goteborg\Parking\BusParkings.cs" />
+    <Compile Include="Mappers\Goteborg\Parking\CleaningZones.cs" />
+    <Compile Include="Mappers\Goteborg\Parking\CommuterParkings.cs" />
+    <Compile Include="Mappers\Goteborg\Parking\HandicapParkings.cs" />
+    <Compile Include="Mappers\Goteborg\Parking\MotorcycleParking.cs" />
+    <Compile Include="Mappers\Goteborg\Parking\PrivateParkings.cs" />
+    <Compile Include="Mappers\Goteborg\Parking\PublicPayMachines.cs" />
+    <Compile Include="Mappers\Goteborg\Parking\PublicTimeParkings.cs" />
+    <Compile Include="Mappers\Goteborg\Parking\PublicTollParkings.cs" />
+    <Compile Include="Mappers\Goteborg\Parking\ResidentialParkings.cs" />
+    <Compile Include="Mappers\Goteborg\Parking\TruckParkings.cs" />
+    <Compile Include="Models\Goteborg\Parking\BusParking.cs" />
+    <Compile Include="Models\Goteborg\Parking\CleaningZone.cs" />
+    <Compile Include="Models\Goteborg\Parking\CommuterParking.cs" />
+    <Compile Include="Models\Goteborg\Parking\HandicapParking.cs" />
+    <Compile Include="Models\Goteborg\Parking\MotorcycleParking.cs" />
+    <Compile Include="Models\Goteborg\Parking\ParkingLocationBase.cs" />
+    <Compile Include="Models\Goteborg\Parking\PrivateParking.cs" />
+    <Compile Include="Models\Goteborg\Parking\PublicPayMachine.cs" />
+    <Compile Include="Models\Goteborg\Parking\PublicTimeParking.cs" />
+    <Compile Include="Models\Goteborg\Parking\PublicTollParking.cs" />
+    <Compile Include="Models\Goteborg\Parking\ResidentialParking.cs" />
+    <Compile Include="Models\Goteborg\Parking\TruckParking.cs" />
+    <Compile Include="Models\JSON\Goteborg\BusParkings.cs" />
+    <Compile Include="Models\JSON\Goteborg\CleaningZones.cs" />
+    <Compile Include="Models\JSON\Goteborg\CommuterParkings.cs" />
+    <Compile Include="Models\JSON\Goteborg\HandicapParkings.cs" />
+    <Compile Include="Models\JSON\Goteborg\MotorcycleParkings.cs" />
+    <Compile Include="Models\JSON\Goteborg\PrivateParkings.cs" />
+    <Compile Include="Models\JSON\Goteborg\PublicPayMachines.cs" />
+    <Compile Include="Models\JSON\Goteborg\PublicTimeParkings.cs" />
+    <Compile Include="Models\JSON\Goteborg\PublicTollParkings.cs" />
+    <Compile Include="Models\JSON\Goteborg\ResidentialParkings.cs" />
+    <Compile Include="Models\JSON\Goteborg\TruckParkings.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchCriterias\Goteborg\Parking\BusParkingsByRadius.cs" />
+    <Compile Include="SearchCriterias\Goteborg\Parking\CleaningZonesByRadius.cs" />
+    <Compile Include="SearchCriterias\Goteborg\Parking\CommuterParkingsByRadius.cs" />
+    <Compile Include="SearchCriterias\Goteborg\Parking\HandicapParkingsByRadius.cs" />
+    <Compile Include="SearchCriterias\Goteborg\Parking\MotorcycleParkingsByRadius.cs" />
+    <Compile Include="SearchCriterias\Goteborg\Parking\ParkingLocationsByRadiusBase.cs" />
+    <Compile Include="SearchCriterias\Goteborg\Parking\PrivateParkingsByRadius.cs" />
+    <Compile Include="SearchCriterias\Goteborg\Parking\PublicPayMachinesByRadius.cs" />
+    <Compile Include="SearchCriterias\Goteborg\Parking\PublicTimeParkingsByRadius.cs" />
+    <Compile Include="SearchCriterias\Goteborg\Parking\PublicTollParkingsByRadius.cs" />
+    <Compile Include="SearchCriterias\Goteborg\Parking\ResidentialParkingsByRadius.cs" />
+    <Compile Include="SearchCriterias\Goteborg\Parking\TruckParkingsByRadius.cs" />
+    <Compile Include="Service\ServiceLayer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Usoniandream.WindowsPhone.LocationServices\Usoniandream.WindowsPhone.LocationServices.csproj">
+      <Project>{75D42966-903A-442F-A8D3-670B31230177}</Project>
+      <Name>Usoniandream.WindowsPhone.LocationServices</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <ProjectExtensions />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

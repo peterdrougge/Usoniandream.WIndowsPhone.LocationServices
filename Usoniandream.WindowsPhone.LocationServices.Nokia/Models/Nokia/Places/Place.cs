@@ -14,7 +14,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Models.Nokia.Places
 {
     public class Place : ILocation
     {
-        public int Distance { get; set; }
+        public double Distance { get; set; }
         public string Title { get; set; }
         public double AverageRating { get; set; }
         public string Icon { get; set; }

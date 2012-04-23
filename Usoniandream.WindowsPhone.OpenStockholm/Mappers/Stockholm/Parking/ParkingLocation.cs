@@ -28,6 +28,9 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Stockholm.Parking
                     MaxHours = item.properties.MAX_HOURS,
                     MaxMinutes = item.properties.MAX_MINUTES,
                     OtherInfo = item.properties.OTHER_INFO,
+                    Meters = item.properties.VF_METER,
+                    Type = item.properties.VF_PLATS_TYP,
+                    StartWeekDay = item.properties.START_WEEKDAY,
                     Location = new System.Device.Location.GeoCoordinate(
                         item.geometry.coordinates[0][1],
                         item.geometry.coordinates[0][0])

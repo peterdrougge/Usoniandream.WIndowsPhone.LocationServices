@@ -25,6 +25,8 @@
     <SilverlightAppEntry>Usoniandream.WindowsPhone.LocationServices.Tester.App</SilverlightAppEntry>
     <ValidateXaml>true</ValidateXaml>
     <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -81,6 +83,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\GenericPivotItem.cs" />
     <Compile Include="ViewModels\ItemViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
   </ItemGroup>
@@ -110,6 +113,10 @@
       <Project>{A90D168A-B772-491E-8A28-65C1219E9F35}</Project>
       <Name>Usoniandream.WindowsPhone.LocationServices.Bing</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Usoniandream.WindowsPhone.LocationServices.Goteborg\Usoniandream.WindowsPhone.LocationServices.Goteborg.csproj">
+      <Project>{B381DFD0-6F1B-49B2-9C80-86692F5FFAB6}</Project>
+      <Name>Usoniandream.WindowsPhone.LocationServices.Goteborg</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Usoniandream.WindowsPhone.LocationServices.Nokia\Usoniandream.WindowsPhone.LocationServices.Nokia.csproj">
       <Project>{0BCC743D-371D-478B-B756-0191591DF593}</Project>
       <Name>Usoniandream.WindowsPhone.LocationServices.Nokia</Name>
@@ -133,4 +140,5 @@
   </Target>
   -->
   <ProjectExtensions />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
 </Project>

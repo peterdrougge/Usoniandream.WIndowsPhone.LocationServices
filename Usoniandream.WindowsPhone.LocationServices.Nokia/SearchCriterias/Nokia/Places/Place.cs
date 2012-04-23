@@ -8,18 +8,43 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using System.Device.Location;
 
 namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Nokia.Places
 {
-    public class Place : SearchCriteriaBase<Models.Nokia.Places.Place, object>
+    public class Place : SearchCriteriaBase<Models.Nokia.Places.PlaceDetails, Models.JSON.Nokia.Place.RootObject>
     {
-        public Place()
-            : base("http://demo.places.nlp.nokia.com/places/v1/places/")
+        public Place(string id)
+            : base("NOKIA_SERVICE_URI_PLACES")
         {
-            //Mapper = new Mappers.Nokia.Places.Place();
+            Mapper = new Mappers.Nokia.Places.Place();
 
-            Request.Resource = "discover/explore";
+            ID = id;
 
+            Request.Resource = "places/" + ID;
+
+            APIKeyResourceName = "NOKIA_APP_CODE";
+
+            Request.AddParameter("app_id", AppId);
+            Request.AddParameter("app_code", APIkey);
+            Request.AddParameter("tf", "plain");
+            Request.AddParameter("pretty", "true");
         }
+
+        public string AppId
+        {
+            get
+            {
+                string key = ((Models.ServiceAPIKey)Application.Current.Resources["NOKIA_APP_ID"]).Value;
+                if (string.IsNullOrWhiteSpace(key))
+                {
+                    throw new ArgumentException("missing api key, please check App.xaml.", "APIkey");
+                }
+                return key;
+            }
+        }
+
+
+        public string ID { get; set; }
     }
 }

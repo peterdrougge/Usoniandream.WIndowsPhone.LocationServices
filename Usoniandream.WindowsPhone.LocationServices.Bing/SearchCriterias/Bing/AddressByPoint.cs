@@ -22,7 +22,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Bing
 
             APIKeyResourceName = "BING_API_KEY";
 
-            Request.Resource = "Locations/" + Location.Latitude + "," + Location.Longitude;
+            Request.Resource = "Locations/" + Location.Latitude.ToString().Replace(",", ".") + "," + Location.Longitude.ToString().Replace(",", ".");
 
             Request.AddParameter("includeEntityTypes", "Address");
             Request.AddParameter("o","json");

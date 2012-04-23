@@ -12,7 +12,7 @@ using Usoniandream.WindowsPhone.LocationServices.Models.Bing;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Service.Bing
 {
-    public class ServiceLayer
+    public class ServiceLayer : IService
     {
         public IObservable<BingMapLocation> GetAddressAtPoint(SearchCriterias.Bing.AddressByPoint criteria)
         {
