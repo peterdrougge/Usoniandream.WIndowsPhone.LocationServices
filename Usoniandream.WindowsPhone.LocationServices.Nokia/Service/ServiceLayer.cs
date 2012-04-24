@@ -14,6 +14,22 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Nokia
 {
     public class ServiceLayer
     {
+        public IObservable<Models.Nokia.Places.Place> SearchNokiaPlaces(SearchCriterias.Nokia.Places.SearchPlaces criteria)
+        {
+            if (String.IsNullOrWhiteSpace(criteria.Client.BaseUrl))
+            {
+                throw new ArgumentException("missing 'baseurlresourcename', please check App.xaml.", "baseurlresourcename");
+            }
+            if (String.IsNullOrWhiteSpace(criteria.APIkey))
+            {
+                throw new ArgumentException("missing api key, please check App.xaml.", "APIkey");
+            }
+
+            return criteria.Client.ExecuteAsync<Models.JSON.Nokia.Places.RootObject>(criteria.Request)
+                    .SelectMany<Usoniandream.WindowsPhone.LocationServices.Models.JSON.Nokia.Places.RootObject, Models.Nokia.Places.Place>(x => criteria.Mapper.JSON2Model(x))
+                    .ObserveOnDispatcher();
+
+        }
         public IObservable<Models.Nokia.Places.Place> GetNokiaPlaces(SearchCriterias.Nokia.Places.Places criteria)
         {
             if (String.IsNullOrWhiteSpace(criteria.Client.BaseUrl))

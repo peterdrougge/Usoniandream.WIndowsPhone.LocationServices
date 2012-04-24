@@ -35,7 +35,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>Bin\Release</OutputPath>
+    <OutputPath>..\output\release\</OutputPath>
     <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
@@ -83,6 +83,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchCriterias\Nokia\Places\Place.cs" />
     <Compile Include="SearchCriterias\Nokia\Places\Places.cs" />
+    <Compile Include="SearchCriterias\Nokia\Places\SearchPlaces.cs" />
     <Compile Include="Service\ServiceLayer.cs" />
   </ItemGroup>
   <ItemGroup>

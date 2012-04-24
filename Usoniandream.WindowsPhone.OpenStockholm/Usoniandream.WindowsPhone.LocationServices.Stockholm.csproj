@@ -35,7 +35,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>Bin\Release</OutputPath>
+    <OutputPath>..\output\release\</OutputPath>
     <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
@@ -113,9 +113,11 @@
     <Compile Include="Models\Stockholm\ServiceGuide\ServiceUnitType.cs" />
     <Compile Include="SearchCriterias\Stockholm\Place\DetailedServiceUnit.cs" />
     <Compile Include="SearchCriterias\Stockholm\Place\PlaceBase.cs" />
+    <Compile Include="SearchCriterias\Stockholm\Place\SearchServiceUnits.cs" />
     <Compile Include="SearchCriterias\Stockholm\Place\ServiceUnits.cs" />
     <Compile Include="SearchCriterias\Stockholm\Place\ServiceUnitTypes.cs" />
     <Compile Include="SearchCriterias\Stockholm\ServiceGuide\DetailedServiceUnit.cs" />
+    <Compile Include="SearchCriterias\Stockholm\ServiceGuide\SearchServiceUnits.cs" />
     <Compile Include="SearchCriterias\Stockholm\ServiceGuide\ServiceGuideBase.cs" />
     <Compile Include="SearchCriterias\Stockholm\ServiceGuide\ServiceUnits.cs" />
     <Compile Include="SearchCriterias\Stockholm\ServiceGuide\ServiceUnitTypes.cs" />

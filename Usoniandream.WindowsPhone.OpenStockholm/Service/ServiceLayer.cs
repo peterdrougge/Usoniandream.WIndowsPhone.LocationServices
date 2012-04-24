@@ -103,6 +103,23 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Stockholm
                             .ObserveOnDispatcher();
         }
 
+        public IObservable<Models.Stockholm.ServiceGuide.ServiceUnit> SearchServiceUnits(SearchCriterias.Stockholm.ServiceGuide.SearchServiceUnits criteria)
+        {
+            if (String.IsNullOrWhiteSpace(criteria.Client.BaseUrl))
+            {
+                throw new ArgumentException("missing 'baseurlresourcename', please check App.xaml.", "baseurlresourcename");
+            }
+            if (String.IsNullOrWhiteSpace(criteria.APIkey))
+            {
+                throw new ArgumentException("missing api key, please check App.xaml.", "APIkey");
+            }
+
+            return criteria.Client.ExecuteAsync(criteria.Request)
+                            .Select(x => JsonConvert.DeserializeObject<Models.JSON.Stockholm.ServiceUnits.RootObject>("{\"features\":" + x + "}"))
+                            .SelectMany<Usoniandream.WindowsPhone.LocationServices.Models.JSON.Stockholm.ServiceUnits.RootObject, ServiceUnit>(x => criteria.Mapper.JSON2Model(x))
+                            .ObserveOnDispatcher();
+        }
+
         public IObservable<Models.Stockholm.ServiceGuide.DetailedServiceUnit> GetDetailedServiceUnit(SearchCriterias.Stockholm.ServiceGuide.DetailedServiceUnit criteria)
         {
             if (String.IsNullOrWhiteSpace(criteria.Client.BaseUrl))
@@ -138,6 +155,23 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Stockholm
         }
 
         public IObservable<Models.Stockholm.Place.ServiceUnit> GetPlaceServiceUnits(SearchCriterias.Stockholm.Place.ServiceUnits criteria)
+        {
+            if (String.IsNullOrWhiteSpace(criteria.Client.BaseUrl))
+            {
+                throw new ArgumentException("missing 'baseurlresourcename', please check App.xaml.", "baseurlresourcename");
+            }
+            if (String.IsNullOrWhiteSpace(criteria.APIkey))
+            {
+                throw new ArgumentException("missing api key, please check App.xaml.", "APIkey");
+            }
+
+            return criteria.Client.ExecuteAsync(criteria.Request)
+                            .Select(x => JsonConvert.DeserializeObject<Models.JSON.Stockholm.ServiceUnits.RootObject>("{\"features\":" + x + "}"))
+                            .SelectMany<Usoniandream.WindowsPhone.LocationServices.Models.JSON.Stockholm.ServiceUnits.RootObject, Usoniandream.WindowsPhone.LocationServices.Models.Stockholm.Place.ServiceUnit>(x => criteria.Mapper.JSON2Model(x))
+                            .ObserveOnDispatcher();
+        }
+
+        public IObservable<Models.Stockholm.Place.ServiceUnit> SearchPlaceServiceUnits(SearchCriterias.Stockholm.Place.SearchServiceUnits criteria)
         {
             if (String.IsNullOrWhiteSpace(criteria.Client.BaseUrl))
             {
