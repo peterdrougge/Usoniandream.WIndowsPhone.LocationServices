@@ -78,6 +78,7 @@
     <Compile Include="Models\JSON\Bing\BingLocation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchCriterias\Bing\AddressByPoint.cs" />
+    <Compile Include="Service\Reactive\ServiceLayer.cs" />
     <Compile Include="Service\ServiceLayer.cs" />
   </ItemGroup>
   <ItemGroup>

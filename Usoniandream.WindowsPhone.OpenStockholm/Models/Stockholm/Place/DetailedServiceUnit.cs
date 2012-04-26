@@ -13,5 +13,6 @@ namespace Usoniandream.WindowsPhone.LocationServices.Models.Stockholm.Place
 {
     public class DetailedServiceUnit : Base.DetailedServiceUnitBase
     {
+        public string Group { get; set; }
     }
 }

@@ -1,10 +1,8 @@
 ﻿using System;
 namespace Usoniandream.WindowsPhone.LocationServices.Models.Stockholm.Base
 {
-    public interface IServiceUnit
+    public interface IServiceUnit : ILocation
     {
-        object Content { get; set; }
         string ID { get; set; }
-        System.Device.Location.GeoCoordinate Location { get; set; }
     }
 }

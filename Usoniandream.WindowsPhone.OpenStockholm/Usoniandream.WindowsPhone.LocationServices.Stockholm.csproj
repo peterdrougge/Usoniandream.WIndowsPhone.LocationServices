@@ -121,6 +121,7 @@
     <Compile Include="SearchCriterias\Stockholm\ServiceGuide\ServiceGuideBase.cs" />
     <Compile Include="SearchCriterias\Stockholm\ServiceGuide\ServiceUnits.cs" />
     <Compile Include="SearchCriterias\Stockholm\ServiceGuide\ServiceUnitTypes.cs" />
+    <Compile Include="Service\Reactive\ServiceLayer.cs" />
     <Compile Include="Service\ServiceLayer.cs" />
   </ItemGroup>
   <ItemGroup>

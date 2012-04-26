@@ -25,28 +25,18 @@ namespace Usoniandream.WindowsPhone.LocationServices.Tester
     {
         public MainViewModel()
         {
-            this.gbgservicelayer = new Service.Goteborg.ServiceLayer();
-            this.sthlmservicelayer = new Service.Stockholm.ServiceLayer();
-            this.nokiaservicelayer = new Service.Nokia.ServiceLayer();
-            this.bingservicelayer = new Service.Bing.ServiceLayer();
-
-            //this.ParkingLocations = new ObservableCollection<LocationServices.Models.Stockholm.ParkingLocation>();
-            //this.ParkingMeters = new ObservableCollection<LocationServices.Models.Stockholm.ParkingMeter>();
-            //this.ServiceUnits = new ObservableCollection<LocationServices.Models.Stockholm.ServiceUnit>();
-            //this.Places = new ObservableCollection<LocationServices.Models.Nokia.Places.Place>();
+            this.gbgservicelayer = new Service.Goteborg.Reactive.ServiceLayer();
+            this.sthlmservicelayer = new Service.Stockholm.Reactive.ServiceLayer();
+            this.nokiaservicelayer = new Service.Nokia.Reactive.ServiceLayer();
+            this.bingservicelayer = new Service.Bing.Reactive.ServiceLayer();
         }
         private ObservableCollection<GenericPivotItem> pivotItems;
         public ObservableCollection<GenericPivotItem> PivotItems { get { if (pivotItems == null) pivotItems = new ObservableCollection<GenericPivotItem>(); return pivotItems; } set { pivotItems = value; } }
 
-        public Service.Goteborg.ServiceLayer gbgservicelayer { get; private set; }
-        public Service.Stockholm.ServiceLayer sthlmservicelayer { get; private set; }
-        public Service.Nokia.ServiceLayer nokiaservicelayer { get; private set; }
-        public Service.Bing.ServiceLayer bingservicelayer { get; private set; }
-
-        //public ObservableCollection<LocationServices.Models.Stockholm.ParkingLocation> ParkingLocations { get; private set; }
-        //public ObservableCollection<LocationServices.Models.Stockholm.ParkingMeter> ParkingMeters { get; private set; }
-        //public ObservableCollection<LocationServices.Models.Stockholm.ServiceUnit> ServiceUnits { get; private set; }
-        //public ObservableCollection<LocationServices.Models.Nokia.Places.Place> Places { get; private set; }
+        public Service.Goteborg.Reactive.ServiceLayer gbgservicelayer { get; private set; }
+        public Service.Stockholm.Reactive.ServiceLayer sthlmservicelayer { get; private set; }
+        public Service.Nokia.Reactive.ServiceLayer nokiaservicelayer { get; private set; }
+        public Service.Bing.Reactive.ServiceLayer bingservicelayer { get; private set; }
 
         private int isDataLoading = 0;
         public bool IsDataLoading
@@ -75,9 +65,6 @@ namespace Usoniandream.WindowsPhone.LocationServices.Tester
             private set;
         }
 
-        /// <summary>
-        /// Creates and adds a few ItemViewModel objects into the Items collection.
-        /// </summary>
         public void LoadData()
         {
             IsDataLoading = true;

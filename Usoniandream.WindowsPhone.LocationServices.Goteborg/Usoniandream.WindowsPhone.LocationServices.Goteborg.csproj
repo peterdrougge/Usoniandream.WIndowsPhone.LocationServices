@@ -119,6 +119,7 @@
     <Compile Include="SearchCriterias\Goteborg\Parking\PublicTollParkingsByRadius.cs" />
     <Compile Include="SearchCriterias\Goteborg\Parking\ResidentialParkingsByRadius.cs" />
     <Compile Include="SearchCriterias\Goteborg\Parking\TruckParkingsByRadius.cs" />
+    <Compile Include="Service\Reactive\ServiceLayer.cs" />
     <Compile Include="Service\ServiceLayer.cs" />
   </ItemGroup>
   <ItemGroup>

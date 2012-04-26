@@ -45,12 +45,15 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Stockholm.ServiceGu
         {
             foreach (var item in root.features)
             {
-                yield return new Models.Stockholm.ServiceGuide.ServiceUnitType()
+                if (!item.SingularName.ToLower().StartsWith("använd ej denna kategori"))
                 {
-                    Content = item.SingularName,
-                    ID = item.Id,
-                    GroupName = item.ServiceUnitTypeGroupInfo.Name
-                };
+                    yield return new Models.Stockholm.ServiceGuide.ServiceUnitType()
+                    {
+                        Content = item.SingularName,
+                        ID = item.Id,
+                        GroupName = item.ServiceUnitTypeGroupInfo.Name
+                    };
+                }
             }
         }
 

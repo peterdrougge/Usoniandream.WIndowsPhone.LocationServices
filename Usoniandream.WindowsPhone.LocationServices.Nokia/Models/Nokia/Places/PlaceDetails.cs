@@ -27,10 +27,20 @@ namespace Usoniandream.WindowsPhone.LocationServices.Models.Nokia.Places
 
         public string StreetAddress { get; set; }
 
-        public System.Collections.Generic.List<JSON.Nokia.Place.Phone> Phone { get; set; }
+        public string Phone { get; set; }
 
-        public System.Collections.Generic.List<JSON.Nokia.Place.Website> Website { get; set; }
+        public string Website { get; set; }
 
-        public JSON.Nokia.Place.OpeningHours OpeningHours { get; set; }
+        public string OpeningHours { get; set; }
+
+        public string Payment { get; set; }
+
+        public string Description { get; set; }
+
+        public string Group { get; set; }
     }
+}
+namespace Usoniandream.WindowsPhone.LocationServices.WasCreatedBy.Peter.Drougge
+{
+    // easter :)
 }

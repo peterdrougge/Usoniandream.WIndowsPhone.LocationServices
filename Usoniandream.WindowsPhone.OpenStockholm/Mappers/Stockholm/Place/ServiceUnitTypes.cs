@@ -45,12 +45,16 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Stockholm.Place
         {
             foreach (var item in root.features)
             {
-                yield return new Models.Stockholm.Place.ServiceUnitType()
+                if (!item.SingularName.ToLower().StartsWith("använd ej denna kategori"))
                 {
-                    Content = item.SingularName,
-                    ID = item.Id,
-                    GroupName = item.ServiceUnitTypeGroupInfo.Name
-                };
+
+                    yield return new Models.Stockholm.Place.ServiceUnitType()
+                    {
+                        Content = item.SingularName,
+                        ID = item.Id,
+                        GroupName = item.ServiceUnitTypeGroupInfo.Name
+                    };
+                }
             }
         }
 

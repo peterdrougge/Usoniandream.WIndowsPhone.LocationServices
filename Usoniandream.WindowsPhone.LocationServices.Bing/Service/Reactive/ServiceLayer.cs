@@ -10,11 +10,11 @@ using Usoniandream.WindowsPhone.GeoConverter;
 using Usoniandream.WindowsPhone.LocationServices.Models;
 using Usoniandream.WindowsPhone.LocationServices.Models.Bing;
 
-namespace Usoniandream.WindowsPhone.LocationServices.Service.Bing
+namespace Usoniandream.WindowsPhone.LocationServices.Service.Bing.Reactive
 {
     public class ServiceLayer : IService
     {
-        public void GetAddressAtPoint(SearchCriterias.Bing.AddressByPoint criteria, Action<RestResponse<Models.JSON.Bing.BingLocation.RootObject>> callback)
+        public IObservable<BingMapLocation> GetAddressAtPoint(SearchCriterias.Bing.AddressByPoint criteria)
         {
             if (String.IsNullOrWhiteSpace(criteria.Client.BaseUrl))
             {
@@ -25,7 +25,8 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Bing
                 throw new ArgumentException("missing api key, please check App.xaml.", "APIkey");
             }
 
-            criteria.Client.ExecuteAsync<Models.JSON.Bing.BingLocation.RootObject>(criteria.Request, callback);
+            return criteria.Client.ExecuteAsync<Models.JSON.Bing.BingLocation.RootObject>(criteria.Request)
+                            .Select<Usoniandream.WindowsPhone.LocationServices.Models.JSON.Bing.BingLocation.RootObject, BingMapLocation>(x => criteria.Mapper.JSON2FirstModel(x));
         }
 
     }

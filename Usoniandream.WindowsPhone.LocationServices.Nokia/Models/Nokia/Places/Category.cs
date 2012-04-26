@@ -13,9 +13,18 @@ namespace Usoniandream.WindowsPhone.LocationServices.Models.Nokia.Places
 {
         public class Category
         {
-            public string Id { get; set; }
+            public Category()
+            {}
+            public Category(Models.JSON.Nokia.Place.Category category)
+            {
+                Title  = category.title;
+                URL = category.href;
+                Type = category.type;
+            }
             public string Title { get; set; }
             public string URL { get; set; }
             public string Type { get; set; }
+
+            public string Id { get; set; }
         }
 }

@@ -84,6 +84,7 @@
     <Compile Include="SearchCriterias\Nokia\Places\Place.cs" />
     <Compile Include="SearchCriterias\Nokia\Places\Places.cs" />
     <Compile Include="SearchCriterias\Nokia\Places\SearchPlaces.cs" />
+    <Compile Include="Service\Reactive\ServiceLayer.cs" />
     <Compile Include="Service\ServiceLayer.cs" />
   </ItemGroup>
   <ItemGroup>

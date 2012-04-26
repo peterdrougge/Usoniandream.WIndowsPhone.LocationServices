@@ -8,6 +8,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using System.Linq;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Nokia.Places
 {
@@ -24,32 +25,55 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Nokia.Places
             throw new NotImplementedException();
         }
 
-        private Models.Nokia.Places.Category GetCategoryInformation(Models.JSON.Nokia.Place.RootObject item)
-        {
-            return new Models.Nokia.Places.Category();
-        }
-
         public Models.Nokia.Places.PlaceDetails JSON2FirstModel(Models.JSON.Nokia.Place.RootObject root)
         {
             if (root.location!=null)
             {
                 if (root.location.position != null && root.location.position.Count == 2)
                 {
-                    return new Models.Nokia.Places.PlaceDetails()
+                    Models.Nokia.Places.PlaceDetails ret = new Models.Nokia.Places.PlaceDetails();
+
+                    ret.Content = root.name;
+                    if (root.ratings!=null)
+	                {
+                        ret.AverageRating = root.ratings.average;
+                	}
+                    ret.Category = new Models.Nokia.Places.Category(root.categories.FirstOrDefault());
+                    ret.Location = new System.Device.Location.GeoCoordinate(root.location.position[0], root.location.position[1]);
+                    ret.Icon = root.icon;
+                    ret.Id = root.placeId;
+                    ret.Name = root.name;
+                    if (root.extended!=null)
+	                {
+                        if (root.extended.payment!=null)
+                            ret.Payment = root.extended.payment.text;
+                        if (root.extended.openingHours!=null)
+    	                    ret.OpeningHours = root.extended.openingHours.text;
+                    }
+                    ret.Group = root.categories.FirstOrDefault().title;
+                    if (root.media != null)
                     {
-                        Content = root.name,
-                        //AverageRating = root.ratings.average,
-                        Category = GetCategoryInformation(root),
-                        Location = new System.Device.Location.GeoCoordinate(root.location.position[0], root.location.position[1]),
-                        Icon = root.icon,
-                        Id = root.placeId,
-                        Name = root.name
-                        //StreetAddress = root.location.address.street,
-                        //Phone = root.contacts.phone,
-                        //Website = root.contacts.website,
-                        //OpeningHours = root.extended.openingHours
-                    };
-                }
+                        if (root.media.editorials!=null)
+                        {
+                            if (root.media.editorials.items.FirstOrDefault() != null)
+                            {
+                                ret.Description = root.media.editorials.items.FirstOrDefault().description;
+                            }
+                        }
+                    }
+                    if (root.location.address!=null)
+                    {
+                        ret.StreetAddress = root.location.address.street;
+                    }
+                    if (root.contacts!=null)
+                    {
+                        if (root.contacts.phone!=null)
+                            ret.Phone = root.contacts.phone.FirstOrDefault().value;
+                        if (root.contacts.website!=null)
+                            ret.Website = root.contacts.website.FirstOrDefault().value;
+                    }
+                    return ret;
+               }
             }
             return new Models.Nokia.Places.PlaceDetails();
         }

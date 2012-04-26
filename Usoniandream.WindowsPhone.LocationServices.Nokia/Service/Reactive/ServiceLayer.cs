@@ -10,11 +10,11 @@ using Usoniandream.WindowsPhone.GeoConverter;
 using Usoniandream.WindowsPhone.LocationServices.Models;
 using System.Collections.Generic;
 
-namespace Usoniandream.WindowsPhone.LocationServices.Service.Nokia
+namespace Usoniandream.WindowsPhone.LocationServices.Service.Nokia.Reactive
 {
     public class ServiceLayer
     {
-        public void SearchNokiaPlaces(SearchCriterias.Nokia.Places.SearchPlaces criteria, Action<RestResponse<Models.JSON.Nokia.Places.RootObject>> callback)
+        public IObservable<Models.Nokia.Places.Place> SearchNokiaPlaces(SearchCriterias.Nokia.Places.SearchPlaces criteria)
         {
             if (String.IsNullOrWhiteSpace(criteria.Client.BaseUrl))
             {
@@ -25,10 +25,11 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Nokia
                 throw new ArgumentException("missing api key, please check App.xaml.", "APIkey");
             }
 
-            criteria.Client.ExecuteAsync<Models.JSON.Nokia.Places.RootObject>(criteria.Request, callback);
+            return criteria.Client.ExecuteAsync<Models.JSON.Nokia.Places.RootObject>(criteria.Request)
+                    .SelectMany<Usoniandream.WindowsPhone.LocationServices.Models.JSON.Nokia.Places.RootObject, Models.Nokia.Places.Place>(x => criteria.Mapper.JSON2Model(x));
 
         }
-        public void GetNokiaPlaces(SearchCriterias.Nokia.Places.Places criteria, Action<RestResponse<Models.JSON.Nokia.Places.RootObject>> callback)
+        public IObservable<Models.Nokia.Places.Place> GetNokiaPlaces(SearchCriterias.Nokia.Places.Places criteria)
         {
             if (String.IsNullOrWhiteSpace(criteria.Client.BaseUrl))
             {
@@ -39,10 +40,11 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Nokia
                 throw new ArgumentException("missing api key, please check App.xaml.", "APIkey");
             }
 
-            criteria.Client.ExecuteAsync<Models.JSON.Nokia.Places.RootObject>(criteria.Request, callback);
+            return criteria.Client.ExecuteAsync<Models.JSON.Nokia.Places.RootObject>(criteria.Request)
+                    .SelectMany<Usoniandream.WindowsPhone.LocationServices.Models.JSON.Nokia.Places.RootObject, Models.Nokia.Places.Place>(x => criteria.Mapper.JSON2Model(x));
  
         }
-        public void GetNokiaPlace(SearchCriterias.Nokia.Places.Place criteria, Action<RestResponse<Models.JSON.Nokia.Place.RootObject>> callback)
+        public IObservable<Models.Nokia.Places.PlaceDetails> GetNokiaPlace(SearchCriterias.Nokia.Places.Place criteria)
         {
             if (String.IsNullOrWhiteSpace(criteria.Client.BaseUrl))
             {
@@ -53,7 +55,8 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Nokia
                 throw new ArgumentException("missing api key, please check App.xaml.", "APIkey");
             }
 
-            criteria.Client.ExecuteAsync<Models.JSON.Nokia.Place.RootObject>(criteria.Request, callback);
+            return criteria.Client.ExecuteAsync<Models.JSON.Nokia.Place.RootObject>(criteria.Request)
+                    .Select<Usoniandream.WindowsPhone.LocationServices.Models.JSON.Nokia.Place.RootObject, Models.Nokia.Places.PlaceDetails>(x => criteria.Mapper.JSON2FirstModel(x));
 
         }
     }
