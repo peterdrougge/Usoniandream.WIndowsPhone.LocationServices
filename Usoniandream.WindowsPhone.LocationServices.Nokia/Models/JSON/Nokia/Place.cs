@@ -235,5 +235,6 @@ namespace Usoniandream.WindowsPhone.LocationServices.Models.JSON.Nokia.Place
         public Media media { get; set; }
         public Extended extended { get; set; }
         public Related related { get; set; }
+        public bool? sponsored { get; set; }
     }
 }

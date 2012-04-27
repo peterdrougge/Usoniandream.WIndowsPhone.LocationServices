@@ -14,6 +14,25 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Nokia.Place
 {
     public class SearchPlaces : SearchCriteriaBase<Models.Nokia.Places.Place, Models.JSON.Nokia.Places.RootObject>
     {
+        public SearchPlaces(string query, GeoCoordinate location, string language)
+            : base("NOKIA_SERVICE_URI_PLACES")
+        {
+            Mapper = new Mappers.Nokia.Places.Places();
+            Language = language;
+            Location = location;
+            Query = query;
+
+            Request.Resource = "discover/search";
+
+            APIKeyResourceName = "NOKIA_APP_CODE";
+            Request.AddParameter("q", query);
+            Request.AddParameter("at", string.Format("{0},{1}", Location.Latitude.ToString().Replace(",", "."), Location.Longitude.ToString().Replace(",", ".")));
+            Request.AddParameter("app_id", AppId);
+            Request.AddParameter("app_code", APIkey);
+            Request.AddParameter("tf", "plain");
+            Request.AddParameter("pretty", "true");
+            Client.AddDefaultHeader("Accept-Language", Language);
+        }
         public SearchPlaces(string query, GeoCoordinate location)
             : base("NOKIA_SERVICE_URI_PLACES")
         {
@@ -50,5 +69,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Nokia.Place
         public GeoCoordinate Location { get; set; }
 
         public string Query { get; set; }
+
+        public string Language { get; set; }
     }
 }

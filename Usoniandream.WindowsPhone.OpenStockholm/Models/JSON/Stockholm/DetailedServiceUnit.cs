@@ -20,12 +20,12 @@ namespace Usoniandream.WindowsPhone.LocationServices.Models.JSON.Stockholm.Detai
 
     public class Attribute
     {
-        public object Description { get; set; }
+        public string Description { get; set; }
         public string Group { get; set; }
-        public object GroupDescription { get; set; }
+        public string GroupDescription { get; set; }
         public string Id { get; set; }
         public string Name { get; set; }
-        public object Value { get; set; }
+        public string Value { get; set; }
         public ServiceUnitTypeInfo ServiceUnitTypeInfo { get; set; }
     }
 

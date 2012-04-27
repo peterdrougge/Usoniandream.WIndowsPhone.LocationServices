@@ -8,6 +8,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using System.Device.Location;
 
 namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Stockholm.ServiceGuide
 {
@@ -23,6 +24,19 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Stockholm.S
 
             Request.AddParameter("name",NameContains);
         }
+
+        public SearchServiceUnits(string namecontains, GeoCoordinate location) : base()
+        {
+            Mapper = new Mappers.Stockholm.ServiceGuide.ServiceUnits();
+
+            PointOfOrigin = location;
+            NameContains = namecontains;
+
+            Request.Resource += "/ServiceUnits/json";
+
+            Request.AddParameter("name",NameContains);
+        }
+        
         public string NameContains { get; set; }
     }
 }

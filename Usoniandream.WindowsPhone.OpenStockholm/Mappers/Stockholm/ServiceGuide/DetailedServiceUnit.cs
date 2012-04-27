@@ -63,7 +63,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Stockholm.ServiceGu
             if (root.Attributes.SingleOrDefault(x => x.Id.Equals(id))!=null)
             {
                 if (root.Attributes.SingleOrDefault(x => x.Id.Equals(id)).Value != null)
-                    return root.Attributes.SingleOrDefault(x => x.Id.Equals(id)).Value.ToString();
+                    return root.Attributes.SingleOrDefault(x => x.Id.Equals(id)).Value as string;
             }
             return string.Empty;
         }

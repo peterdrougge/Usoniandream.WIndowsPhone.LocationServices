@@ -51,6 +51,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Nokia.Places
     	                    ret.OpeningHours = root.extended.openingHours.text;
                     }
                     ret.Group = root.categories.FirstOrDefault().title;
+                    ret.Sponsored = root.sponsored.GetValueOrDefault(false);
                     if (root.media != null)
                     {
                         if (root.media.editorials!=null)

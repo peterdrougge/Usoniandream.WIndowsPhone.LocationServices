@@ -38,6 +38,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Models.Nokia.Places
         public string Description { get; set; }
 
         public string Group { get; set; }
+        public bool Sponsored { get; set; }
     }
 }
 namespace Usoniandream.WindowsPhone.LocationServices.WasCreatedBy.Peter.Drougge

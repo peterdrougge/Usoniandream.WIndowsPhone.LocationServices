@@ -9,6 +9,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Device.Location;
+using Usoniandream.WindowsPhone.GeoConverter.Positions;
 
 namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Stockholm.Place
 {
@@ -30,6 +31,9 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Stockholm.P
                     break;
                 case Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.ServiceGuideSortByEnum.DistanceToGeographicalPosition:
                     Request.AddParameter("sortBy", "DistanceToGeographicalPosition");
+
+                    RT90 pos = new RT90(PointOfOrigin.Latitude, PointOfOrigin.Longitude, RT90.RT90Projection.rt90_2_5_gon_v);
+                    Request.AddParameter("geographicalPosition", string.Format("{0},{1}", pos.Latitude.ToString().Replace(",","."), pos.Longitude.ToString().Replace(",",".")));
                     break;
                 default:
                     break;

@@ -34,7 +34,8 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Nokia.Places
                         Title = item.title,
                         Type = item.type,
                         URL = item.href,
-                        Vicinity = item.vicinity
+                        Vicinity = item.vicinity,
+                        Sponsored = item.sponsored.GetValueOrDefault(false)
                     };
                 }
             }
@@ -49,7 +50,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Nokia.Places
                                         Id = item.category.id,
                                         Title = item.category.title,
                                         Type = item.category.type,
-                                        URL = item.category.href
+                                        URL = item.category.href,
                                     };
             }
             else

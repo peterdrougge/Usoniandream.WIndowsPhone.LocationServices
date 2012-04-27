@@ -14,14 +14,14 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Nokia.Place
 {
     public class Place : SearchCriteriaBase<Models.Nokia.Places.PlaceDetails, Models.JSON.Nokia.Place.RootObject>
     {
-        public Place(string id, string acceptlanguage)
+        public Place(string id, string language)
             : base("NOKIA_SERVICE_URI_PLACES")
         {
             Mapper = new Mappers.Nokia.Places.Place();
-
+            Language = language;
             ID = id;
 
-            Client.AddDefaultHeader("Accept-Language", acceptlanguage);
+            Client.AddDefaultHeader("Accept-Language", Language);
 
             Request.Resource = "places/" + ID;
 
@@ -65,5 +65,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Nokia.Place
 
 
         public string ID { get; set; }
+
+        public string Language { get; set; }
     }
 }

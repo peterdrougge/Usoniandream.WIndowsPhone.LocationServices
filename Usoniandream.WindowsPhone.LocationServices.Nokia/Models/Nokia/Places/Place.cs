@@ -25,5 +25,6 @@ namespace Usoniandream.WindowsPhone.LocationServices.Models.Nokia.Places
         public Category Category { get; set; }
         public GeoCoordinate Location { get; set; }
         public object Content { get; set; }
+        public bool Sponsored { get; set; }
     }
 }
