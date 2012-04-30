@@ -28,20 +28,11 @@ using Usoniandream.WindowsPhone.LocationServices.Models.Bing;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Service.Bing
 {
-    public class ServiceLayer : IService
+    public class ServiceLayer : GenericServiceLayer
     {
         public void GetAddressAtPoint(SearchCriterias.Bing.AddressByPoint criteria, Action<RestResponse<Models.JSON.Bing.BingLocation.RootObject>> callback)
         {
-            if (String.IsNullOrWhiteSpace(criteria.Client.BaseUrl))
-            {
-                throw new ArgumentException("missing 'baseurlresourcename', please check App.xaml.", "baseurlresourcename");
-            }
-            if (String.IsNullOrWhiteSpace(criteria.APIkey))
-            {
-                throw new ArgumentException("missing api key, please check App.xaml.", "APIkey");
-            }
-
-            criteria.Client.ExecuteAsync<Models.JSON.Bing.BingLocation.RootObject>(criteria.Request, callback);
+            ExecuteRequestForCallback<Models.Bing.BingMapLocation, Models.JSON.Bing.BingLocation.RootObject>(criteria, callback);
         }
 
     }

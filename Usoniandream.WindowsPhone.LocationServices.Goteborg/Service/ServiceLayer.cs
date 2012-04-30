@@ -29,116 +29,44 @@ using Newtonsoft.Json;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Service.Goteborg
 {
-    public class ServiceLayer : IService
+    public class ServiceLayer : GenericServiceLayer
     {
         public void GetPayMachinesByRadius(SearchCriterias.Goteborg.Parking.PublicPayMachinesByRadius criteria, Action<RestResponse<Models.JSON.Goteborg.PublicPayMachines.RootObject>> callback)
         {
-            if (String.IsNullOrWhiteSpace(criteria.Client.BaseUrl))
-            {
-                throw new ArgumentException("missing 'baseurlresourcename', please check App.xaml.", "baseurlresourcename");
-            }
-            if (String.IsNullOrWhiteSpace(criteria.APIkey))
-            {
-                throw new ArgumentException("missing api key, please check App.xaml.", "APIkey");
-            }
-
-            criteria.Client.ExecuteAsync(criteria.Request, callback);
+            ExecuteRequestForCallback<Models.Goteborg.Parking.PublicPayMachine, Models.JSON.Goteborg.PublicPayMachines.RootObject>(criteria, callback);
         }
 
         public void GetPrivateParkingsByRadius(SearchCriterias.Goteborg.Parking.PrivateParkingsByRadius criteria, Action<RestResponse<Models.JSON.Goteborg.PrivateParkings.RootObject>> callback)
         {
-            if (String.IsNullOrWhiteSpace(criteria.Client.BaseUrl))
-            {
-                throw new ArgumentException("missing 'baseurlresourcename', please check App.xaml.", "baseurlresourcename");
-            }
-            if (String.IsNullOrWhiteSpace(criteria.APIkey))
-            {
-                throw new ArgumentException("missing api key, please check App.xaml.", "APIkey");
-            }
-
-            criteria.Client.ExecuteAsync(criteria.Request, callback);
+            ExecuteRequestForCallback<Models.Goteborg.Parking.PrivateParking, Models.JSON.Goteborg.PrivateParkings.RootObject>(criteria, callback);
         }
 
         public void GetBusParkingsByRadius(SearchCriterias.Goteborg.Parking.BusParkingsByRadius criteria, Action<RestResponse<Models.JSON.Goteborg.BusParkings.RootObject>> callback)
         {
-            if (String.IsNullOrWhiteSpace(criteria.Client.BaseUrl))
-            {
-                throw new ArgumentException("missing 'baseurlresourcename', please check App.xaml.", "baseurlresourcename");
-            }
-            if (String.IsNullOrWhiteSpace(criteria.APIkey))
-            {
-                throw new ArgumentException("missing api key, please check App.xaml.", "APIkey");
-            }
-
-            criteria.Client.ExecuteAsync(criteria.Request, callback);
+            ExecuteRequestForCallback<Models.Goteborg.Parking.BusParking, Models.JSON.Goteborg.BusParkings.RootObject>(criteria, callback);
         }
 
         public void GetMotorcykleParkingsByRadius(SearchCriterias.Goteborg.Parking.MotorcycleParkingsByRadius criteria, Action<RestResponse<Models.JSON.Goteborg.MotorcyleParkings.RootObject>> callback)
         {
-            if (String.IsNullOrWhiteSpace(criteria.Client.BaseUrl))
-            {
-                throw new ArgumentException("missing 'baseurlresourcename', please check App.xaml.", "baseurlresourcename");
-            }
-            if (String.IsNullOrWhiteSpace(criteria.APIkey))
-            {
-                throw new ArgumentException("missing api key, please check App.xaml.", "APIkey");
-            }
-
-            criteria.Client.ExecuteAsync(criteria.Request, callback);
+            ExecuteRequestForCallback<Models.Goteborg.Parking.MotorcycleParking, Models.JSON.Goteborg.MotorcyleParkings.RootObject>(criteria, callback);
         }
 
         public void GetHandicapParkingsByRadius(SearchCriterias.Goteborg.Parking.HandicapParkingsByRadius criteria, Action<RestResponse<Models.JSON.Goteborg.HandicapParkings.RootObject>> callback)
         {
-            if (String.IsNullOrWhiteSpace(criteria.Client.BaseUrl))
-            {
-                throw new ArgumentException("missing 'baseurlresourcename', please check App.xaml.", "baseurlresourcename");
-            }
-            if (String.IsNullOrWhiteSpace(criteria.APIkey))
-            {
-                throw new ArgumentException("missing api key, please check App.xaml.", "APIkey");
-            }
-
-            criteria.Client.ExecuteAsync(criteria.Request, callback);
+            ExecuteRequestForCallback<Models.Goteborg.Parking.HandicapParking, Models.JSON.Goteborg.HandicapParkings.RootObject>(criteria, callback);
         }
 
         public void GetResidentialParkingsByRadius(SearchCriterias.Goteborg.Parking.ResidentialParkingsByRadius criteria, Action<RestResponse<Models.JSON.Goteborg.ResidentialParkings.RootObject>> callback)
         {
-            if (String.IsNullOrWhiteSpace(criteria.Client.BaseUrl))
-            {
-                throw new ArgumentException("missing 'baseurlresourcename', please check App.xaml.", "baseurlresourcename");
-            }
-            if (String.IsNullOrWhiteSpace(criteria.APIkey))
-            {
-                throw new ArgumentException("missing api key, please check App.xaml.", "APIkey");
-            }
-
-            criteria.Client.ExecuteAsync(criteria.Request, callback);
+            ExecuteRequestForCallback<Models.Goteborg.Parking.ResidentialParking, Models.JSON.Goteborg.ResidentialParkings.RootObject>(criteria, callback);
         }
         public void GetPublicTimeParkingsByRadius(SearchCriterias.Goteborg.Parking.PublicTimeParkingsByRadius criteria, Action<RestResponse<Models.JSON.Goteborg.PublicTimeParkings.RootObject>> callback)
         {
-            if (String.IsNullOrWhiteSpace(criteria.Client.BaseUrl))
-            {
-                throw new ArgumentException("missing 'baseurlresourcename', please check App.xaml.", "baseurlresourcename");
-            }
-            if (String.IsNullOrWhiteSpace(criteria.APIkey))
-            {
-                throw new ArgumentException("missing api key, please check App.xaml.", "APIkey");
-            }
-
-            criteria.Client.ExecuteAsync(criteria.Request, callback);
+            ExecuteRequestForCallback<Models.Goteborg.Parking.PublicTimeParking, Models.JSON.Goteborg.PublicTimeParkings.RootObject>(criteria, callback);
         }
         public void GetPublicTollParkingsByRadius(SearchCriterias.Goteborg.Parking.PublicTollParkingsByRadius criteria, Action<RestResponse<Models.JSON.Goteborg.PublicTollParkings.RootObject>> callback)
         {
-            if (String.IsNullOrWhiteSpace(criteria.Client.BaseUrl))
-            {
-                throw new ArgumentException("missing 'baseurlresourcename', please check App.xaml.", "baseurlresourcename");
-            }
-            if (String.IsNullOrWhiteSpace(criteria.APIkey))
-            {
-                throw new ArgumentException("missing api key, please check App.xaml.", "APIkey");
-            }
-
-            criteria.Client.ExecuteAsync(criteria.Request, callback);
+            ExecuteRequestForCallback<Models.Goteborg.Parking.PublicTollParking, Models.JSON.Goteborg.PublicTollParkings.RootObject>(criteria, callback);
         }
 
 

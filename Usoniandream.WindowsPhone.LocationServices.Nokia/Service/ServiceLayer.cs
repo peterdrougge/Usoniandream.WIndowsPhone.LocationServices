@@ -28,49 +28,19 @@ using System.Collections.Generic;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Service.Nokia
 {
-    public class ServiceLayer
+    public class ServiceLayer : GenericServiceLayer
     {
         public void SearchNokiaPlaces(SearchCriterias.Nokia.Places.SearchPlaces criteria, Action<RestResponse<Models.JSON.Nokia.Places.RootObject>> callback)
         {
-            if (String.IsNullOrWhiteSpace(criteria.Client.BaseUrl))
-            {
-                throw new ArgumentException("missing 'baseurlresourcename', please check App.xaml.", "baseurlresourcename");
-            }
-            if (String.IsNullOrWhiteSpace(criteria.APIkey))
-            {
-                throw new ArgumentException("missing api key, please check App.xaml.", "APIkey");
-            }
-
-            criteria.Client.ExecuteAsync<Models.JSON.Nokia.Places.RootObject>(criteria.Request, callback);
-
+            ExecuteRequestForCallback<Models.Nokia.Places.Place, Models.JSON.Nokia.Places.RootObject>(criteria, callback);
         }
         public void GetNokiaPlaces(SearchCriterias.Nokia.Places.Places criteria, Action<RestResponse<Models.JSON.Nokia.Places.RootObject>> callback)
         {
-            if (String.IsNullOrWhiteSpace(criteria.Client.BaseUrl))
-            {
-                throw new ArgumentException("missing 'baseurlresourcename', please check App.xaml.", "baseurlresourcename");
-            }
-            if (String.IsNullOrWhiteSpace(criteria.APIkey))
-            {
-                throw new ArgumentException("missing api key, please check App.xaml.", "APIkey");
-            }
-
-            criteria.Client.ExecuteAsync<Models.JSON.Nokia.Places.RootObject>(criteria.Request, callback);
- 
+            ExecuteRequestForCallback<Models.Nokia.Places.Place, Models.JSON.Nokia.Places.RootObject>(criteria, callback);
         }
         public void GetNokiaPlace(SearchCriterias.Nokia.Places.Place criteria, Action<RestResponse<Models.JSON.Nokia.Place.RootObject>> callback)
         {
-            if (String.IsNullOrWhiteSpace(criteria.Client.BaseUrl))
-            {
-                throw new ArgumentException("missing 'baseurlresourcename', please check App.xaml.", "baseurlresourcename");
-            }
-            if (String.IsNullOrWhiteSpace(criteria.APIkey))
-            {
-                throw new ArgumentException("missing api key, please check App.xaml.", "APIkey");
-            }
-
-            criteria.Client.ExecuteAsync<Models.JSON.Nokia.Place.RootObject>(criteria.Request, callback);
-
+            ExecuteRequestForCallback<Models.Nokia.Places.PlaceDetails, Models.JSON.Nokia.Place.RootObject>(criteria, callback);
         }
     }
 }
