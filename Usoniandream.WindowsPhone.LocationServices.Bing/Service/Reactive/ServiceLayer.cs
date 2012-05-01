@@ -30,6 +30,11 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Bing.Reactive
 {
     public class ServiceLayer : LocationServices.Service.Reactive.GenericServiceLayer
     {
+        /// <summary>
+        /// Gets the address at the location specified.
+        /// </summary>
+        /// <param name="criteria">The criteria.</param>
+        /// <returns></returns>
         public IObservable<BingMapLocation> GetAddressAtPoint(SearchCriterias.Bing.AddressByPoint criteria)
         {
             return ExecuteRequestReturnFirstObservable<BingMapLocation, Models.JSON.Bing.BingLocation.RootObject>(criteria);

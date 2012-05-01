@@ -28,8 +28,18 @@ using RestSharp;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Service
 {
+    /// <summary>
+    /// base for all traditional service layers
+    /// </summary>
     public abstract class GenericServiceLayer : IService
     {
+        /// <summary>
+        /// Executes the request for callback.
+        /// </summary>
+        /// <typeparam name="Ttarget">The type of the target.</typeparam>
+        /// <typeparam name="Tsource">The type of the source.</typeparam>
+        /// <param name="criteria">The criteria.</param>
+        /// <param name="callback">The callback.</param>
         public void ExecuteRequestForCallback<Ttarget, Tsource>(SearchCriterias.ISearchCriteria<Ttarget, Tsource> criteria, Action<RestResponse<Tsource>> callback) where Tsource : new()
         {
             if (String.IsNullOrWhiteSpace(criteria.Client.BaseUrl))

@@ -22,6 +22,9 @@ using System.Device.Location;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Models
 {
+    /// <summary>
+    /// basic Location interface used by all model objects
+    /// </summary>
     public interface ILocation
     {
         object Content { get; set; }

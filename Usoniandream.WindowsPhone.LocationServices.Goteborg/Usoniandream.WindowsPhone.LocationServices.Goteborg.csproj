@@ -9,7 +9,7 @@
     <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Usoniandream.WindowsPhone.LocationServices.Goteborg</RootNamespace>
+    <RootNamespace>Usoniandream.WindowsPhone.LocationServices</RootNamespace>
     <AssemblyName>Usoniandream.WindowsPhone.LocationServices.Goteborg</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
@@ -83,6 +83,7 @@
     <Compile Include="Mappers\Goteborg\Parking\PublicTollParkings.cs" />
     <Compile Include="Mappers\Goteborg\Parking\ResidentialParkings.cs" />
     <Compile Include="Mappers\Goteborg\Parking\TruckParkings.cs" />
+    <Compile Include="Mappers\Goteborg\StyrOchStall\BikeStations.cs" />
     <Compile Include="Mappers\Goteborg\TrafficCamera\TrafficCameras.cs" />
     <Compile Include="Models\Goteborg\Parking\BusParking.cs" />
     <Compile Include="Models\Goteborg\Parking\CleaningZone.cs" />
@@ -96,7 +97,9 @@
     <Compile Include="Models\Goteborg\Parking\PublicTollParking.cs" />
     <Compile Include="Models\Goteborg\Parking\ResidentialParking.cs" />
     <Compile Include="Models\Goteborg\Parking\TruckParking.cs" />
+    <Compile Include="Models\Goteborg\StyrOchStall\BikeStation.cs" />
     <Compile Include="Models\Goteborg\TrafficCamera\TrafficCamera.cs" />
+    <Compile Include="Models\JSON\Goteborg\BikeStations.cs" />
     <Compile Include="Models\JSON\Goteborg\BusParkings.cs" />
     <Compile Include="Models\JSON\Goteborg\CleaningZones.cs" />
     <Compile Include="Models\JSON\Goteborg\CommuterParkings.cs" />
@@ -122,6 +125,7 @@
     <Compile Include="SearchCriterias\Goteborg\Parking\PublicTollParkingsByRadius.cs" />
     <Compile Include="SearchCriterias\Goteborg\Parking\ResidentialParkingsByRadius.cs" />
     <Compile Include="SearchCriterias\Goteborg\Parking\TruckParkingsByRadius.cs" />
+    <Compile Include="SearchCriterias\Goteborg\StyrOchStall\BikeStationsByRadius.cs" />
     <Compile Include="SearchCriterias\Goteborg\TrafficCamera\TrafficCameras.cs" />
     <Compile Include="Service\Reactive\ServiceLayer.cs" />
     <Compile Include="Service\ServiceLayer.cs" />

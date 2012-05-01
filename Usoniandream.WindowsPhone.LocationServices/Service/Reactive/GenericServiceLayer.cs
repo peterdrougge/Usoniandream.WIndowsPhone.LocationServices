@@ -31,8 +31,18 @@ using Newtonsoft.Json;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Service.Reactive
 {
+    /// <summary>
+    /// base for all reactive service layers
+    /// </summary>
     public abstract class GenericServiceLayer : IService
     {
+        /// <summary>
+        /// Executes the request return first observable.
+        /// </summary>
+        /// <typeparam name="Ttarget">The type of the target.</typeparam>
+        /// <typeparam name="Tsource">The type of the source.</typeparam>
+        /// <param name="criteria">The criteria.</param>
+        /// <returns></returns>
         public IObservable<Ttarget> ExecuteRequestReturnFirstObservable<Ttarget, Tsource>(SearchCriterias.ISearchCriteria<Ttarget, Tsource> criteria) where Tsource : new()
         {
             if (String.IsNullOrWhiteSpace(criteria.Client.BaseUrl))
@@ -48,6 +58,13 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Reactive
                             .Select<Tsource, Ttarget>(x => criteria.Mapper.JSON2FirstModel(x));
         }
 
+        /// <summary>
+        /// Executes the request return observable.
+        /// </summary>
+        /// <typeparam name="Ttarget">The type of the target.</typeparam>
+        /// <typeparam name="Tsource">The type of the source.</typeparam>
+        /// <param name="criteria">The criteria.</param>
+        /// <returns></returns>
         public IObservable<Ttarget> ExecuteRequestReturnObservable<Ttarget, Tsource>(SearchCriterias.ISearchCriteria<Ttarget, Tsource> criteria) where Tsource : new()
         {
             if (String.IsNullOrWhiteSpace(criteria.Client.BaseUrl))
@@ -63,6 +80,13 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Reactive
                             .SelectMany<Tsource, Ttarget>(x => criteria.Mapper.JSON2Model(x));
         }
 
+        /// <summary>
+        /// Executes the request with padding return first observable.
+        /// </summary>
+        /// <typeparam name="Ttarget">The type of the target.</typeparam>
+        /// <typeparam name="Tsource">The type of the source.</typeparam>
+        /// <param name="criteria">The criteria.</param>
+        /// <returns></returns>
         public IObservable<Ttarget> ExecuteRequestWithPaddingReturnFirstObservable<Ttarget, Tsource>(SearchCriterias.ISearchCriteria<Ttarget, Tsource> criteria) where Tsource : new()
         {
             if (String.IsNullOrWhiteSpace(criteria.Client.BaseUrl))
@@ -78,6 +102,13 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Reactive
                             .Select(x => JsonConvert.DeserializeObject<Tsource>("{\"features\":" + x + "}"))
                             .Select<Tsource, Ttarget>(x => criteria.Mapper.JSON2FirstModel(x));
         }
+        /// <summary>
+        /// Executes the request with padding return observable.
+        /// </summary>
+        /// <typeparam name="Ttarget">The type of the target.</typeparam>
+        /// <typeparam name="Tsource">The type of the source.</typeparam>
+        /// <param name="criteria">The criteria.</param>
+        /// <returns></returns>
         public IObservable<Ttarget> ExecuteRequestWithPaddingReturnObservable<Ttarget, Tsource>(SearchCriterias.ISearchCriteria<Ttarget, Tsource> criteria) where Tsource : new()
         {
             if (String.IsNullOrWhiteSpace(criteria.Client.BaseUrl))

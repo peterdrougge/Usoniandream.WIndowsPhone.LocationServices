@@ -18,6 +18,11 @@ using System;
 using Usoniandream.WindowsPhone.LocationServices.Mappers;
 namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias
 {
+    /// <summary>
+    /// base interface for all SearchCriterias
+    /// </summary>
+    /// <typeparam name="Ttarget">The type of the target.</typeparam>
+    /// <typeparam name="Tsource">The type of the source.</typeparam>
     public interface ISearchCriteria<Ttarget, Tsource>
     {
         string APIkey { get; }

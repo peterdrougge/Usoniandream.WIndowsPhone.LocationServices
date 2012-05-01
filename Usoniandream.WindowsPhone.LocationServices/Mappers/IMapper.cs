@@ -21,6 +21,11 @@ using System.Text;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Mappers
 {
+    /// <summary>
+    /// Mapper interface used to define converters from json to model
+    /// </summary>
+    /// <typeparam name="Ttarget">The type of the target.</typeparam>
+    /// <typeparam name="Tsource">The type of the source.</typeparam>
     public interface IMapper<Ttarget, Tsource> : IDisposable
     {
         IEnumerable<Ttarget> JSON2Model(Tsource root);

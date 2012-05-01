@@ -31,6 +31,11 @@ using Usoniandream.WindowsPhone.LocationServices.Mappers;
 
 namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias
 {
+    /// <summary>
+    /// The base for all SearchCriterias.
+    /// </summary>
+    /// <typeparam name="Ttarget">The type of the target.</typeparam>
+    /// <typeparam name="Tsource">The type of the source.</typeparam>
     public abstract class SearchCriteriaBase<Ttarget, Tsource> : INotifyPropertyChanged, Usoniandream.WindowsPhone.LocationServices.SearchCriterias.ISearchCriteria<Ttarget, Tsource>
     {
         public SearchCriteriaBase()

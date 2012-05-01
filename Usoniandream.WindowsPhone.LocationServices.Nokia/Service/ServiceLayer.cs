@@ -30,14 +30,29 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Nokia
 {
     public class ServiceLayer : GenericServiceLayer
     {
+        /// <summary>
+        /// Searches the nokia places.
+        /// </summary>
+        /// <param name="criteria">The criteria.</param>
+        /// <param name="callback">The callback.</param>
         public void SearchNokiaPlaces(SearchCriterias.Nokia.Places.SearchPlaces criteria, Action<RestResponse<Models.JSON.Nokia.Places.RootObject>> callback)
         {
             ExecuteRequestForCallback<Models.Nokia.Places.Place, Models.JSON.Nokia.Places.RootObject>(criteria, callback);
         }
+        /// <summary>
+        /// Gets the nokia places.
+        /// </summary>
+        /// <param name="criteria">The criteria.</param>
+        /// <param name="callback">The callback.</param>
         public void GetNokiaPlaces(SearchCriterias.Nokia.Places.Places criteria, Action<RestResponse<Models.JSON.Nokia.Places.RootObject>> callback)
         {
             ExecuteRequestForCallback<Models.Nokia.Places.Place, Models.JSON.Nokia.Places.RootObject>(criteria, callback);
         }
+        /// <summary>
+        /// Gets a nokia place.
+        /// </summary>
+        /// <param name="criteria">The criteria.</param>
+        /// <param name="callback">The callback.</param>
         public void GetNokiaPlace(SearchCriterias.Nokia.Places.Place criteria, Action<RestResponse<Models.JSON.Nokia.Place.RootObject>> callback)
         {
             ExecuteRequestForCallback<Models.Nokia.Places.PlaceDetails, Models.JSON.Nokia.Place.RootObject>(criteria, callback);

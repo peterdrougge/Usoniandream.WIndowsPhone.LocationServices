@@ -30,6 +30,11 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Bing
 {
     public class ServiceLayer : GenericServiceLayer
     {
+        /// <summary>
+        /// Gets the address at the location specified.
+        /// </summary>
+        /// <param name="criteria">The criteria.</param>
+        /// <param name="callback">The callback.</param>
         public void GetAddressAtPoint(SearchCriterias.Bing.AddressByPoint criteria, Action<RestResponse<Models.JSON.Bing.BingLocation.RootObject>> callback)
         {
             ExecuteRequestForCallback<Models.Bing.BingMapLocation, Models.JSON.Bing.BingLocation.RootObject>(criteria, callback);
