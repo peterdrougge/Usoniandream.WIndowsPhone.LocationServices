@@ -200,6 +200,28 @@ namespace Usoniandream.WindowsPhone.LocationServices.Tester
                     });
 
             IsDataLoading = true;
+            GenericPivotItem gbgcameras = new GenericPivotItem() { Header = "kameror", Source = "göteborg stad" };
+            var rxgbgcameras = gbgservicelayer.GetTrafficCameras(new SearchCriterias.Goteborg.TrafficCamera.TrafficCameras())
+                .Take(20)
+                .ObserveOnDispatcher()
+                .Finally(() =>
+                {
+                    PivotItems.Add(gbgcameras);
+                    IsDataLoading = false;
+                })
+                .Subscribe(
+                // result
+                    x =>
+                    {
+                        gbgcameras.Items.Add(x);
+                    },
+                // exception
+                    ex =>
+                    {
+                        MessageBox.Show(ex.Message);
+                    });
+
+            IsDataLoading = true;
 
             GenericPivotItem nokiaplaces = new GenericPivotItem() { Header = "nokia places", Source = "nokia" };
             var rxplaces = nokiaservicelayer.GetNokiaPlaces(new Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Nokia.Places.Places(new GeoCoordinate(40.74917, -73.98529)))

@@ -13,7 +13,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-
 using System;
 using System.Net;
 using System.Windows;
@@ -24,16 +23,21 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using Usoniandream.WindowsPhone.LocationServices.SearchCriterias;
 using System.Device.Location;
 
-namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Goteborg.Parking
+namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Goteborg.TrafficCamera
 {
-    public class BusParkingsByRadius : ParkingLocationsByRadiusBase<Models.Goteborg.Parking.BusParking, Models.JSON.Goteborg.BusParkings.RootObject>
+    public class TrafficCameras : SearchCriteriaBase<Models.Goteborg.TrafficCamera.TrafficCamera, Models.JSON.Goteborg.TrafficCameras.RootObject>
     {
-        public BusParkingsByRadius(int radius, GeoCoordinate location)
-            : base("BusParkings/", radius, location)
+        public TrafficCameras()
+            : base("GOTEBORG_DATA_SERVICE_URI_TRAFFICCAMERAS")
         {
-            Mapper = new Mappers.Goteborg.Parking.BusParkings();
+            APIKeyResourceName = "GOTEBORG_DATA_API_KEY";
+            Mapper = new Mappers.Goteborg.TrafficCamera.TrafficCameras(APIkey);
+
+            Request.Resource = "TrafficCameras/" + APIkey;
+            Request.AddParameter("format", "json");
         }
     }
 }

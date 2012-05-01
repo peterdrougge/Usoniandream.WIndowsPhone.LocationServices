@@ -69,6 +69,10 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Goteborg.Reactive
             return ExecuteRequestWithPaddingReturnObservable<Models.Goteborg.Parking.PublicTollParking, Models.JSON.Goteborg.PublicTollParkings.RootObject>(criteria);
         }
 
+        public IObservable<Models.Goteborg.TrafficCamera.TrafficCamera> GetTrafficCameras(SearchCriterias.Goteborg.TrafficCamera.TrafficCameras criteria)
+        {
+            return ExecuteRequestWithPaddingReturnObservable<Models.Goteborg.TrafficCamera.TrafficCamera, Models.JSON.Goteborg.TrafficCameras.RootObject>(criteria);
+        }
 
     }
 }

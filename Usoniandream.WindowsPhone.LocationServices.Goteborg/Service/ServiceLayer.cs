@@ -69,6 +69,10 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Goteborg
             ExecuteRequestForCallback<Models.Goteborg.Parking.PublicTollParking, Models.JSON.Goteborg.PublicTollParkings.RootObject>(criteria, callback);
         }
 
+        public void GetTrafficCameras(SearchCriterias.Goteborg.TrafficCamera.TrafficCameras criteria, Action<RestResponse<Models.JSON.Goteborg.TrafficCameras.RootObject>> callback)
+        {
+            ExecuteRequestForCallback<Models.Goteborg.TrafficCamera.TrafficCamera, Models.JSON.Goteborg.TrafficCameras.RootObject>(criteria, callback);
+        }
 
     }
 }

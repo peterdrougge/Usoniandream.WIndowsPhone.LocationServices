@@ -4,10 +4,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:usoniandream="clr-namespace:Usoniandream.WindowsPhone.LocationServices.Models;assembly=Usoniandream.WindowsPhone.LocationServices"
+    xmlns:converters="clr-namespace:Usoniandream.WindowsPhone.LocationServices.Tester.Converters;assembly=Usoniandream.WindowsPhone.LocationServices.Tester"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone">
 
     <!--Application Resources-->
     <Application.Resources>
+        <converters:StringNotEmptyToVisibilityConverter x:Key="StringNotEmptyToVisibilityConverter" />
+        
         <!-- API KEYS -->
         <!-- STOCKHOLM DATA -->
         <usoniandream:ServiceAPIKey x:Key="STHLM_DATA_API_KEY_SERVICEGUIDE" Value="" />
@@ -29,6 +32,7 @@
         <usoniandream:ServiceURI x:Key="NOKIA_SERVICE_URI_PLACES" URL="http://demo.places.nlp.nokia.com/places/v1/" />
         <usoniandream:ServiceURI x:Key="BING_SERVICE_URI_LOCATION" URL="http://dev.virtualearth.net/REST/v1/" />
         <usoniandream:ServiceURI x:Key="GOTEBORG_DATA_SERVICE_URI_PARKING" URL="http://data.goteborg.se/ParkingService/v1.3/" />
+        <usoniandream:ServiceURI x:Key="GOTEBORG_DATA_SERVICE_URI_TRAFFICCAMERAS" URL="http://data.goteborg.se/TrafficCamera/v0.1/" />
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>
