@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Mappers\IMapper.cs" />
+    <Compile Include="Models\GenericLocationBase.cs" />
     <Compile Include="Models\ILocation.cs" />
     <Compile Include="Models\IService.cs" />
     <Compile Include="Models\ServiceAPIKey.cs" />

@@ -47,7 +47,6 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Nokia.Reactive
         public IObservable<Models.Nokia.Places.Place> GetNokiaPlaces(SearchCriterias.Nokia.Places.Places criteria)
         {
             return ExecuteRequestReturnObservable<Models.Nokia.Places.Place, Models.JSON.Nokia.Places.RootObject>(criteria);
- 
         }
         /// <summary>
         /// Gets a nokia place.
@@ -57,7 +56,6 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Nokia.Reactive
         public IObservable<Models.Nokia.Places.PlaceDetails> GetNokiaPlace(SearchCriterias.Nokia.Places.Place criteria)
         {
             return ExecuteRequestReturnFirstObservable<Models.Nokia.Places.PlaceDetails, Models.JSON.Nokia.Place.RootObject>(criteria);
-
         }
     }
 }

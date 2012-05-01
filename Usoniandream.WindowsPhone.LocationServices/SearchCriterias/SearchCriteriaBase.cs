@@ -84,6 +84,10 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias
             {
                 if (string.IsNullOrWhiteSpace(apikey))
                 {
+                    if (SkipAPIKeyCheck)
+                    {
+                        return string.Empty;
+                    }
                     if (!String.IsNullOrWhiteSpace(APIKeyResourceName))
                     {
                         return ((Models.ServiceAPIKey)Application.Current.Resources[APIKeyResourceName]).Value;
@@ -107,5 +111,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+
+        public bool SkipAPIKeyCheck { get; set; }
     }
 }

@@ -46,7 +46,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service
             {
                 throw new ArgumentException("missing 'baseurlresourcename', please check App.xaml.", "baseurlresourcename");
             }
-            if (String.IsNullOrWhiteSpace(criteria.APIkey))
+            if (String.IsNullOrWhiteSpace(criteria.APIkey) && !criteria.SkipAPIKeyCheck)
             {
                 throw new ArgumentException("missing api key, please check App.xaml.", "APIkey");
             }

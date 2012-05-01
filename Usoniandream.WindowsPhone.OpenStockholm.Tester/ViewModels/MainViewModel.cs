@@ -29,6 +29,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Tester
             this.sthlmservicelayer = new Service.Stockholm.Reactive.ServiceLayer();
             this.nokiaservicelayer = new Service.Nokia.Reactive.ServiceLayer();
             this.bingservicelayer = new Service.Bing.Reactive.ServiceLayer();
+            this.orebroservicelayer = new Service.Orebro.Reactive.ServiceLayer();
         }
         private ObservableCollection<GenericPivotItem> pivotItems;
         public ObservableCollection<GenericPivotItem> PivotItems { get { if (pivotItems == null) pivotItems = new ObservableCollection<GenericPivotItem>(); return pivotItems; } set { pivotItems = value; } }
@@ -37,6 +38,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Tester
         public Service.Stockholm.Reactive.ServiceLayer sthlmservicelayer { get; private set; }
         public Service.Nokia.Reactive.ServiceLayer nokiaservicelayer { get; private set; }
         public Service.Bing.Reactive.ServiceLayer bingservicelayer { get; private set; }
+        public Service.Orebro.Reactive.ServiceLayer orebroservicelayer { get; private set; }
 
         private int isDataLoading = 0;
         public bool IsDataLoading
@@ -200,6 +202,28 @@ namespace Usoniandream.WindowsPhone.LocationServices.Tester
                     });
 
             IsDataLoading = true;
+            GenericPivotItem gbgbikestations = new GenericPivotItem() { Header = "cykelställ", Source = "göteborg stad" };
+            var rxgbgbikestations = gbgservicelayer.GetBikeStationsByRadius(new SearchCriterias.Goteborg.StyrOchStall.BikeStationsByRadius(500, new GeoCoordinate(57.69962, 11.97654)))
+                .Take(20)
+                .ObserveOnDispatcher()
+                .Finally(() =>
+                {
+                    PivotItems.Add(gbgbikestations);
+                    IsDataLoading = false;
+                })
+                .Subscribe(
+                // result
+                    x =>
+                    {
+                        gbgbikestations.Items.Add(x);
+                    },
+                // exception
+                    ex =>
+                    {
+                        MessageBox.Show(ex.Message);
+                    });
+
+            IsDataLoading = true;
             GenericPivotItem gbgcameras = new GenericPivotItem() { Header = "kameror", Source = "göteborg stad" };
             var rxgbgcameras = gbgservicelayer.GetTrafficCameras(new SearchCriterias.Goteborg.TrafficCamera.TrafficCameras())
                 .Take(20)
@@ -214,6 +238,94 @@ namespace Usoniandream.WindowsPhone.LocationServices.Tester
                     x =>
                     {
                         gbgcameras.Items.Add(x);
+                    },
+                // exception
+                    ex =>
+                    {
+                        MessageBox.Show(ex.Message);
+                    });
+
+            IsDataLoading = true;
+            GenericPivotItem orebroparkings = new GenericPivotItem() { Header = "p-platser", Source = "örebro" };
+            var rxorebroparkings = orebroservicelayer.GetParkings(new SearchCriterias.Orebro.Parkings())
+                .Take(20)
+                .ObserveOnDispatcher()
+                .Finally(() =>
+                {
+                    PivotItems.Add(orebroparkings);
+                    IsDataLoading = false;
+                })
+                .Subscribe(
+                // result
+                    x =>
+                    {
+                        orebroparkings.Items.Add(x);
+                    },
+                // exception
+                    ex =>
+                    {
+                        MessageBox.Show(ex.Message);
+                    });
+
+            IsDataLoading = true;
+            GenericPivotItem orebroparks = new GenericPivotItem() { Header = "parker", Source = "örebro" };
+            var rxorebroparks = orebroservicelayer.GetParks(new SearchCriterias.Orebro.Parks())
+                .Take(20)
+                .ObserveOnDispatcher()
+                .Finally(() =>
+                {
+                    PivotItems.Add(orebroparks);
+                    IsDataLoading = false;
+                })
+                .Subscribe(
+                // result
+                    x =>
+                    {
+                        orebroparks.Items.Add(x);
+                    },
+                // exception
+                    ex =>
+                    {
+                        MessageBox.Show(ex.Message);
+                    });
+
+            IsDataLoading = true;
+            GenericPivotItem orebrobaths = new GenericPivotItem() { Header = "badplatser", Source = "örebro" };
+            var rxorebrobaths = orebroservicelayer.GetBaths(new SearchCriterias.Orebro.Baths())
+                .Take(20)
+                .ObserveOnDispatcher()
+                .Finally(() =>
+                {
+                    PivotItems.Add(orebrobaths);
+                    IsDataLoading = false;
+                })
+                .Subscribe(
+                // result
+                    x =>
+                    {
+                        orebrobaths.Items.Add(x);
+                    },
+                // exception
+                    ex =>
+                    {
+                        MessageBox.Show(ex.Message);
+                    });
+
+            IsDataLoading = true;
+            GenericPivotItem orebrorecycling = new GenericPivotItem() { Header = "återvinn", Source = "örebro" };
+            var rxorebrorecycling = orebroservicelayer.GetRecycling(new SearchCriterias.Orebro.Recycling())
+                .Take(20)
+                .ObserveOnDispatcher()
+                .Finally(() =>
+                {
+                    PivotItems.Add(orebrorecycling);
+                    IsDataLoading = false;
+                })
+                .Subscribe(
+                // result
+                    x =>
+                    {
+                        orebrorecycling.Items.Add(x);
                     },
                 // exception
                     ex =>

@@ -114,6 +114,10 @@
       <Project>{A90D168A-B772-491E-8A28-65C1219E9F35}</Project>
       <Name>Usoniandream.WindowsPhone.LocationServices.Bing</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Usoniandream.WindowsPhone.LocationServices.Commute\Usoniandream.WindowsPhone.LocationServices.Commute.csproj">
+      <Project>{21DFEDF9-532E-49FF-A3BE-DED56E87844E}</Project>
+      <Name>Usoniandream.WindowsPhone.LocationServices.Commute</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Usoniandream.WindowsPhone.LocationServices.Goteborg\Usoniandream.WindowsPhone.LocationServices.Goteborg.csproj">
       <Project>{B381DFD0-6F1B-49B2-9C80-86692F5FFAB6}</Project>
       <Name>Usoniandream.WindowsPhone.LocationServices.Goteborg</Name>
@@ -121,6 +125,10 @@
     <ProjectReference Include="..\Usoniandream.WindowsPhone.LocationServices.Nokia\Usoniandream.WindowsPhone.LocationServices.Nokia.csproj">
       <Project>{0BCC743D-371D-478B-B756-0191591DF593}</Project>
       <Name>Usoniandream.WindowsPhone.LocationServices.Nokia</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Usoniandream.WindowsPhone.LocationServices.Orebro\Usoniandream.WindowsPhone.LocationServices.Orebro.csproj">
+      <Project>{FEBFB5B7-04C1-4425-B33D-67A3BA65D505}</Project>
+      <Name>Usoniandream.WindowsPhone.LocationServices.Orebro</Name>
     </ProjectReference>
     <ProjectReference Include="..\Usoniandream.WindowsPhone.LocationServices\Usoniandream.WindowsPhone.LocationServices.csproj">
       <Project>{75D42966-903A-442F-A8D3-670B31230177}</Project>

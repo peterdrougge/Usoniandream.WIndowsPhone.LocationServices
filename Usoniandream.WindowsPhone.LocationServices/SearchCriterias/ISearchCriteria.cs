@@ -29,5 +29,6 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias
         RestSharp.RestClient Client { get; }
         RestSharp.RestRequest Request { get; }
         IMapper<Ttarget, Tsource> Mapper { get; set; }
+        bool SkipAPIKeyCheck { get; set; }
     }
 }

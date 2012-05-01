@@ -21,6 +21,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Usoniandream.WindowsPhone.L
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Usoniandream.WindowsPhone.LocationServices.Stockholm", "Usoniandream.WindowsPhone.OpenStockholm\Usoniandream.WindowsPhone.LocationServices.Stockholm.csproj", "{3FF04F6B-A234-4564-ABD2-EAA9DCB6D78D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Usoniandream.WindowsPhone.LocationServices.Commute", "Usoniandream.WindowsPhone.LocationServices.Commute\Usoniandream.WindowsPhone.LocationServices.Commute.csproj", "{21DFEDF9-532E-49FF-A3BE-DED56E87844E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Usoniandream.WindowsPhone.LocationServices.Orebro", "Usoniandream.WindowsPhone.LocationServices.Orebro\Usoniandream.WindowsPhone.LocationServices.Orebro.csproj", "{FEBFB5B7-04C1-4425-B33D-67A3BA65D505}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +77,18 @@ Global
 		{3FF04F6B-A234-4564-ABD2-EAA9DCB6D78D}.Mock|Any CPU.Build.0 = Release|Any CPU
 		{3FF04F6B-A234-4564-ABD2-EAA9DCB6D78D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3FF04F6B-A234-4564-ABD2-EAA9DCB6D78D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21DFEDF9-532E-49FF-A3BE-DED56E87844E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21DFEDF9-532E-49FF-A3BE-DED56E87844E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21DFEDF9-532E-49FF-A3BE-DED56E87844E}.Mock|Any CPU.ActiveCfg = Release|Any CPU
+		{21DFEDF9-532E-49FF-A3BE-DED56E87844E}.Mock|Any CPU.Build.0 = Release|Any CPU
+		{21DFEDF9-532E-49FF-A3BE-DED56E87844E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21DFEDF9-532E-49FF-A3BE-DED56E87844E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEBFB5B7-04C1-4425-B33D-67A3BA65D505}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEBFB5B7-04C1-4425-B33D-67A3BA65D505}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEBFB5B7-04C1-4425-B33D-67A3BA65D505}.Mock|Any CPU.ActiveCfg = Release|Any CPU
+		{FEBFB5B7-04C1-4425-B33D-67A3BA65D505}.Mock|Any CPU.Build.0 = Release|Any CPU
+		{FEBFB5B7-04C1-4425-B33D-67A3BA65D505}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEBFB5B7-04C1-4425-B33D-67A3BA65D505}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -34,6 +34,8 @@
         <usoniandream:ServiceURI x:Key="GOTEBORG_DATA_SERVICE_URI_PARKING" URL="http://data.goteborg.se/ParkingService/v1.3/" />
         <usoniandream:ServiceURI x:Key="GOTEBORG_DATA_SERVICE_URI_TRAFFICCAMERAS" URL="http://data.goteborg.se/TrafficCamera/v0.1/" />
         <usoniandream:ServiceURI x:Key="GOTEBORG_DATA_SERVICE_URI_STYROCHSTALL" URL="http://data.goteborg.se/StyrOchStall/v0.1/" />
+        <usoniandream:ServiceURI x:Key="COMMUTEGREENER_DATA_SERVICE_URI" URL="http://api.commutegreener.com/api/co2/" />
+        <usoniandream:ServiceURI x:Key="OREBRO_DATA_SERVICE_URI" URL="http://gray.orebro.se/epospunktinfo/" />
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>
