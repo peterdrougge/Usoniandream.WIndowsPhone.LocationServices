@@ -23,6 +23,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using Usoniandream.WindowsPhone.Extensions;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Goteborg.StyrOchStall
 {
@@ -36,7 +37,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Goteborg.StyrOchSta
                 yield return new Models.Goteborg.StyrOchStall.BikeStation()
                 {
                     Capacity = item.Capacity,
-                    Content = item.Label,
+                    Content = TextHelper.CapitalizeFirstLetter(item.Label),
                     FreeBikes = item.FreeBikes,
                     FreeStands = item.FreeStands,
                     Id = item.Id,

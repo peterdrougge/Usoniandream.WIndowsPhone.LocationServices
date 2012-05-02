@@ -43,7 +43,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Orebro
                 wgs = point90.ToWGS84();
                 yield return new Models.Orebro.Recycling()
                 {
-                    Content = item.properties.title,
+                    Content = item.properties.title.Replace("Återvinningsstation: ",""),
                     Description = item.properties.description,
                     Id = item.properties.id,
                     Link = item.properties.link,
