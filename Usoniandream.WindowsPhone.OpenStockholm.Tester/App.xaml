@@ -39,6 +39,7 @@
         <usoniandream:ServiceURI x:Key="COMMUTEGREENER_DATA_SERVICE_URI" URL="http://api.commutegreener.com/api/co2/" />
         <usoniandream:ServiceURI x:Key="OREBRO_DATA_SERVICE_URI" URL="http://gray.orebro.se/epospunktinfo/" />
         <usoniandream:ServiceURI x:Key="FLICKR_DATA_SERVICE_URI" URL="http://api.flickr.com/" />
+        <usoniandream:ServiceURI x:Key="TWITTER_DATA_SERVICE_URI" URL="http://search.twitter.com/" />
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>

@@ -134,6 +134,10 @@
       <Project>{FEBFB5B7-04C1-4425-B33D-67A3BA65D505}</Project>
       <Name>Usoniandream.WindowsPhone.LocationServices.Orebro</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Usoniandream.WindowsPhone.LocationServices.Twitter\Usoniandream.WindowsPhone.LocationServices.Twitter.csproj">
+      <Project>{5EC422E4-DECE-444B-8052-52A076B7A75D}</Project>
+      <Name>Usoniandream.WindowsPhone.LocationServices.Twitter</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Usoniandream.WindowsPhone.LocationServices\Usoniandream.WindowsPhone.LocationServices.csproj">
       <Project>{75D42966-903A-442F-A8D3-670B31230177}</Project>
       <Name>Usoniandream.WindowsPhone.LocationServices</Name>
