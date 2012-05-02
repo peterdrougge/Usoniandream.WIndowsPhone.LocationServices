@@ -118,6 +118,10 @@
       <Project>{21DFEDF9-532E-49FF-A3BE-DED56E87844E}</Project>
       <Name>Usoniandream.WindowsPhone.LocationServices.Commute</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Usoniandream.WindowsPhone.LocationServices.Flickr\Usoniandream.WindowsPhone.LocationServices.Flickr.csproj">
+      <Project>{44BD70F3-D6E6-4429-8F8E-FD9D1C39D5E3}</Project>
+      <Name>Usoniandream.WindowsPhone.LocationServices.Flickr</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Usoniandream.WindowsPhone.LocationServices.Goteborg\Usoniandream.WindowsPhone.LocationServices.Goteborg.csproj">
       <Project>{B381DFD0-6F1B-49B2-9C80-86692F5FFAB6}</Project>
       <Name>Usoniandream.WindowsPhone.LocationServices.Goteborg</Name>

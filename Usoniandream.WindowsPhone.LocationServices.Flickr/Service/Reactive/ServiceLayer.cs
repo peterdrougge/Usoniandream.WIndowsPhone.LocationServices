@@ -1,4 +1,5 @@
-﻿//
+﻿
+//
 // Copyright (c) 2012 Peter Drougge
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,7 +14,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-
 using System;
 using System.Net;
 using System.Windows;
@@ -24,25 +24,24 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
-using System.Device.Location;
 
-namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Stockholm.Parking.ParkingLocation
+namespace Usoniandream.WindowsPhone.LocationServices.Service.Flickr.Reactive
 {
-    public class ParkingLocationsByRadius : ParkingLocationsBase
+    public class ServiceLayer : LocationServices.Service.Reactive.GenericServiceLayer
     {
-        public ParkingLocationsByRadius(int radius, Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.VehicleTypeEnum vehicletype)
-            : base(vehicletype)
+        /// <summary>
+        /// Gets the photos by location.
+        /// </summary>
+        /// <param name="criteria">The criteria.</param>
+        /// <returns></returns>
+        public IObservable<Models.Flickr.Photo> GetPhotosByLocation(SearchCriterias.Flickr.PhotosByLocation criteria)
         {
-            Radius = radius;
-
-            Request.Resource += "within?";
-            
-            Request.AddParameter("radius", Radius);
-            Request.AddParameter("lat", Location.Latitude.ToString().Replace(",", "."));
-            Request.AddParameter("lng",Location.Longitude.ToString().Replace(",", "."));
+            return ExecuteRequestReturnObservable<Models.Flickr.Photo, Models.JSON.Flickr.Search.RootObject>(criteria);
         }
 
-        public GeoCoordinate Location { get; set; }
-        public int Radius { get; private set; }
+        public IObservable<Models.Flickr.PhotoDetails> GetPhotoDetails(SearchCriterias.Flickr.PhotoDetails criteria)
+        {
+            return ExecuteRequestReturnFirstObservable<Models.Flickr.PhotoDetails, Models.JSON.Flickr.Info.RootObject>(criteria);
+        }
     }
 }

@@ -30,6 +30,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Tester
             this.nokiaservicelayer = new Service.Nokia.Reactive.ServiceLayer();
             this.bingservicelayer = new Service.Bing.Reactive.ServiceLayer();
             this.orebroservicelayer = new Service.Orebro.Reactive.ServiceLayer();
+            this.flickrservicelayer = new Service.Flickr.Reactive.ServiceLayer();
         }
         private ObservableCollection<GenericPivotItem> pivotItems;
         public ObservableCollection<GenericPivotItem> PivotItems { get { if (pivotItems == null) pivotItems = new ObservableCollection<GenericPivotItem>(); return pivotItems; } set { pivotItems = value; } }
@@ -39,6 +40,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Tester
         public Service.Nokia.Reactive.ServiceLayer nokiaservicelayer { get; private set; }
         public Service.Bing.Reactive.ServiceLayer bingservicelayer { get; private set; }
         public Service.Orebro.Reactive.ServiceLayer orebroservicelayer { get; private set; }
+        public Service.Flickr.Reactive.ServiceLayer flickrservicelayer { get; private set; }
 
         private int isDataLoading = 0;
         public bool IsDataLoading
@@ -159,7 +161,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Tester
 
             IsDataLoading = true;
             GenericPivotItem gbgparkingmeters = new GenericPivotItem() { Header = "automater", Source = "göteborg stad" };
-            var rxggbparkingmeters = gbgservicelayer.GetPayMachinesByRadius(new SearchCriterias.Goteborg.Parking.PublicPayMachinesByRadius(500, new GeoCoordinate(57.69962,11.97654)))
+            var rxggbparkingmeters = gbgservicelayer.GetPayMachinesByRadius(new SearchCriterias.Goteborg.Parking.PublicPayMachinesByRadius(500, new GeoCoordinate(57.69962, 11.97654)))
                 .Take(20)
                 .ObserveOnDispatcher()
                 .Finally(() =>
@@ -349,6 +351,27 @@ namespace Usoniandream.WindowsPhone.LocationServices.Tester
                     x =>
                     {
                         nokiaplaces.Items.Add(x);
+                    },
+                // exception
+                    ex =>
+                    {
+                        // handle exception..
+                    });
+
+            GenericPivotItem flickrphotos = new GenericPivotItem() { Header = "foton", Source = "flickr" };
+            var rxflickrphotos = flickrservicelayer.GetPhotosByLocation(new Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Flickr.PhotosByLocation(new GeoCoordinate(40.74917, -73.98529), false))
+                .Take(20)
+                .ObserveOnDispatcher()
+                .Finally(() =>
+                {
+                    PivotItems.Add(flickrphotos);
+                    IsDataLoading = false;
+                })
+                .Subscribe(
+                // result
+                    x =>
+                    {
+                        flickrphotos.Items.Add(x);
                     },
                 // exception
                     ex =>

@@ -1,4 +1,5 @@
-﻿//
+﻿
+//
 // Copyright (c) 2012 Peter Drougge
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,7 +14,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-
 using System;
 using System.Net;
 using System.Windows;
@@ -26,23 +26,26 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Device.Location;
 
-namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Stockholm.Parking.ParkingLocation
+namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Flickr
 {
-    public class ParkingLocationsByRadius : ParkingLocationsBase
+    public class PhotosByLocation : FlickrSearchCriteriaBase<Models.Flickr.Photo, Models.JSON.Flickr.Search.RootObject>
     {
-        public ParkingLocationsByRadius(int radius, Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.VehicleTypeEnum vehicletype)
-            : base(vehicletype)
+        public PhotosByLocation(GeoCoordinate location, bool fetchdetails)
+            : base("flickr.photos.search")
         {
-            Radius = radius;
+            Location = location;
+            if (fetchdetails)
+            {
+                Mapper = new Mappers.Flickr.SearchWithDetails();
+            }
+            else
+            {
+                Mapper = new Mappers.Flickr.Search();
+            }
 
-            Request.Resource += "within?";
-            
-            Request.AddParameter("radius", Radius);
             Request.AddParameter("lat", Location.Latitude.ToString().Replace(",", "."));
-            Request.AddParameter("lng",Location.Longitude.ToString().Replace(",", "."));
+            Request.AddParameter("lon", Location.Longitude.ToString().Replace(",", "."));
         }
-
         public GeoCoordinate Location { get; set; }
-        public int Radius { get; private set; }
     }
 }

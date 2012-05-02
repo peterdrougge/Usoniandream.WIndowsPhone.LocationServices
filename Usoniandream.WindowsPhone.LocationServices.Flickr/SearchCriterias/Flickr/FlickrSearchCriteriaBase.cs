@@ -1,4 +1,5 @@
-﻿//
+﻿
+//
 // Copyright (c) 2012 Peter Drougge
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,7 +14,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-
 using System;
 using System.Net;
 using System.Windows;
@@ -24,25 +24,25 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
-using System.Device.Location;
 
-namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Stockholm.Parking.ParkingLocation
+namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Flickr
 {
-    public class ParkingLocationsByRadius : ParkingLocationsBase
+    public abstract class FlickrSearchCriteriaBase<Ttarget, Tsource> : SearchCriteriaBase<Ttarget, Tsource>
     {
-        public ParkingLocationsByRadius(int radius, Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.VehicleTypeEnum vehicletype)
-            : base(vehicletype)
+        public FlickrSearchCriteriaBase(string method)
+            : base("FLICKR_DATA_SERVICE_URI")
         {
-            Radius = radius;
-
-            Request.Resource += "within?";
+            base.APIKeyResourceName = "FLICKR_DATA_API_KEY";
             
-            Request.AddParameter("radius", Radius);
-            Request.AddParameter("lat", Location.Latitude.ToString().Replace(",", "."));
-            Request.AddParameter("lng",Location.Longitude.ToString().Replace(",", "."));
-        }
+            Method = method;
 
-        public GeoCoordinate Location { get; set; }
-        public int Radius { get; private set; }
+            Request.Resource = "services/rest/";
+            Request.AddParameter("method", Method);
+            Request.AddParameter("nojsoncallback", 1);
+            Request.AddParameter("format", "json");
+            Request.AddParameter("api_key", APIkey);
+ 
+        }
+        public string Method { get; set; }
     }
 }

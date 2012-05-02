@@ -23,6 +23,8 @@
         <usoniandream:ServiceAPIKey x:Key="BING_API_KEY" Value="" />
         <!-- GOTEBORG -->
         <usoniandream:ServiceAPIKey x:Key="GOTEBORG_DATA_API_KEY" Value="" />
+        <!-- FLICKR -->
+        <usoniandream:ServiceAPIKey x:Key="FLICKR_DATA_API_KEY" Value="" />
 
         <!-- SERVICE ENDPOINTS -->
         <usoniandream:ServiceURI x:Key="STHLM_DATA_SERVICE_URI_SERVICEGUIDE" URL="http://api.stockholm.se/ServiceGuideService" />
@@ -36,6 +38,7 @@
         <usoniandream:ServiceURI x:Key="GOTEBORG_DATA_SERVICE_URI_STYROCHSTALL" URL="http://data.goteborg.se/StyrOchStall/v0.1/" />
         <usoniandream:ServiceURI x:Key="COMMUTEGREENER_DATA_SERVICE_URI" URL="http://api.commutegreener.com/api/co2/" />
         <usoniandream:ServiceURI x:Key="OREBRO_DATA_SERVICE_URI" URL="http://gray.orebro.se/epospunktinfo/" />
+        <usoniandream:ServiceURI x:Key="FLICKR_DATA_SERVICE_URI" URL="http://api.flickr.com/" />
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>
