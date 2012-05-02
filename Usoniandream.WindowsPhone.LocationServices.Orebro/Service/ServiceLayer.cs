@@ -67,5 +67,35 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Orebro
         {
             ExecuteRequestForCallback<Models.Orebro.Recycling, Models.JSON.Orebro.OrebroJSONModel.RootObject>(criteria, callback);
         }
+
+        /// <summary>
+        /// Gets the libraries.
+        /// </summary>
+        /// <param name="criteria">The criteria.</param>
+        /// <param name="callback">The callback.</param>
+        public void GetLibraries(SearchCriterias.Orebro.Libraries criteria, Action<RestResponse<Models.JSON.Orebro.OrebroJSONModel.RootObject>> callback)
+        {
+            ExecuteRequestForCallback<Models.Orebro.Library, Models.JSON.Orebro.OrebroJSONModel.RootObject>(criteria, callback);
+        }
+
+        /// <summary>
+        /// Gets the recycling centrals.
+        /// </summary>
+        /// <param name="criteria">The criteria.</param>
+        /// <param name="callback">The callback.</param>
+        public void GetRecyclingCentrals(SearchCriterias.Orebro.RecyclingCentrals criteria, Action<RestResponse<Models.JSON.Orebro.OrebroJSONModel.RootObject>> callback)
+        {
+            ExecuteRequestForCallback<Models.Orebro.RecyclingCentral, Models.JSON.Orebro.OrebroJSONModel.RootObject>(criteria, callback);
+        }
+
+        /// <summary>
+        /// Gets the preschools.
+        /// </summary>
+        /// <param name="criteria">The criteria.</param>
+        /// <param name="callback">The callback.</param>
+        public void GetPreSchools(SearchCriterias.Orebro.PreSchools criteria, Action<RestResponse<Models.JSON.Orebro.OrebroJSONModel.RootObject>> callback)
+        {
+            ExecuteRequestForCallback<Models.Orebro.PreSchools, Models.JSON.Orebro.OrebroJSONModel.RootObject>(criteria, callback);
+        }
     }
 }

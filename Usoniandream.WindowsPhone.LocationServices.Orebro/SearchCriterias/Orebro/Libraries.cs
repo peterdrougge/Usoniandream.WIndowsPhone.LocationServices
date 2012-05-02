@@ -1,4 +1,5 @@
-﻿//
+﻿
+//
 // Copyright (c) 2012 Peter Drougge
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,28 +24,15 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
-using System.Device.Location;
 
-namespace Usoniandream.WindowsPhone.LocationServices.Models
+namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Orebro
 {
-    /// <summary>
-    /// Generic base class that holds both Content and Location member
-    /// </summary>
-    public abstract class GenericLocationBase : ILocation
+    public class Libraries : OrebroSearchCriteriaBase<Models.Orebro.Library, Models.JSON.Orebro.OrebroJSONModel.RootObject>
     {
-        /// <summary>
-        /// Gets or sets the content.
-        /// </summary>
-        /// <value>
-        /// The content.
-        /// </value>
-        public object Content { get; set; }
-        /// <summary>
-        /// Gets or sets the location.
-        /// </summary>
-        /// <value>
-        /// The location.
-        /// </value>
-        public GeoCoordinate Location { get; set; }
+        public Libraries()
+            :base (2)
+        {
+            Mapper = new Mappers.Orebro.Libraries();
+        }
     }
 }

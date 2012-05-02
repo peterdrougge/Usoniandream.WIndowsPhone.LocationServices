@@ -29,6 +29,12 @@ namespace Usoniandream.WindowsPhone.LocationServices.Models
 {
     public class ServiceAPIKey
     {
+        /// <summary>
+        /// Gets or sets the ky to the api.
+        /// </summary>
+        /// <value>
+        /// The key to the api.
+        /// </value>
         public string Value { get; set; }
     }
 }

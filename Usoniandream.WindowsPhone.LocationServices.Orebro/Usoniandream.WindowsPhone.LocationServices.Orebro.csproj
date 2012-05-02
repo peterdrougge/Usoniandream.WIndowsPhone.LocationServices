@@ -73,21 +73,30 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Mappers\Orebro\Baths.cs" />
+    <Compile Include="Mappers\Orebro\Libraries.cs" />
     <Compile Include="Mappers\Orebro\Parkings.cs" />
     <Compile Include="Mappers\Orebro\Parks.cs" />
+    <Compile Include="Mappers\Orebro\PreSchools.cs" />
     <Compile Include="Mappers\Orebro\Recycling.cs" />
+    <Compile Include="Mappers\Orebro\RecyclingCentrals.cs" />
     <Compile Include="Models\JSON\Orebro\OrebroJSONModel.cs" />
     <Compile Include="Models\Orebro\Bath.cs" />
+    <Compile Include="Models\Orebro\Library.cs" />
     <Compile Include="Models\Orebro\OrebroLocationsBase.cs" />
     <Compile Include="Models\Orebro\Park.cs" />
     <Compile Include="Models\Orebro\Parking.cs" />
+    <Compile Include="Models\Orebro\PreSchools.cs" />
     <Compile Include="Models\Orebro\Recycling.cs" />
+    <Compile Include="Models\Orebro\RecyclingCentral.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchCriterias\Orebro\Baths.cs" />
+    <Compile Include="SearchCriterias\Orebro\Libraries.cs" />
     <Compile Include="SearchCriterias\Orebro\OrebroSearchCriteriaBase.cs" />
     <Compile Include="SearchCriterias\Orebro\Parkings.cs" />
     <Compile Include="SearchCriterias\Orebro\Parks.cs" />
+    <Compile Include="SearchCriterias\Orebro\PreSchools.cs" />
     <Compile Include="SearchCriterias\Orebro\Recycling.cs" />
+    <Compile Include="SearchCriterias\Orebro\RecyclingCentrals.cs" />
     <Compile Include="Service\Reactive\ServiceLayer.cs" />
     <Compile Include="Service\ServiceLayer.cs" />
   </ItemGroup>

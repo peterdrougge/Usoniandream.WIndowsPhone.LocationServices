@@ -25,10 +25,31 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias
     /// <typeparam name="Tsource">The type of the source.</typeparam>
     public interface ISearchCriteria<Ttarget, Tsource>
     {
+        /// <summary>
+        /// Gets the API key.
+        /// </summary>
         string APIkey { get; }
+        /// <summary>
+        /// Gets the client.
+        /// </summary>
         RestSharp.RestClient Client { get; }
+        /// <summary>
+        /// Gets the request.
+        /// </summary>
         RestSharp.RestRequest Request { get; }
+        /// <summary>
+        /// Gets or sets the mapper.
+        /// </summary>
+        /// <value>
+        /// The mapper.
+        /// </value>
         IMapper<Ttarget, Tsource> Mapper { get; set; }
+        /// <summary>
+        /// Gets or sets a value indicating whether [skip API key check].
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if [skip API key check]; otherwise, <c>false</c>.
+        /// </value>
         bool SkipAPIKeyCheck { get; set; }
     }
 }

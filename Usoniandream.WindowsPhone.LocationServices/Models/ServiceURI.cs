@@ -29,6 +29,12 @@ namespace Usoniandream.WindowsPhone.LocationServices.Models
 {
     public class ServiceURI
     {
+        /// <summary>
+        /// Gets or sets the URL.
+        /// </summary>
+        /// <value>
+        /// The URL.
+        /// </value>
         public string URL { get; set; }
     }
 }

@@ -66,5 +66,34 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Orebro.Reactive
             return ExecuteRequestReturnObservable<Models.Orebro.Recycling, Models.JSON.Orebro.OrebroJSONModel.RootObject>(criteria);
         }
 
+        /// <summary>
+        /// Gets the libraries.
+        /// </summary>
+        /// <param name="criteria">The criteria.</param>
+        /// <returns></returns>
+        public IObservable<Models.Orebro.Library> GetLibraries(SearchCriterias.Orebro.Libraries criteria)
+        {
+            return ExecuteRequestReturnObservable<Models.Orebro.Library, Models.JSON.Orebro.OrebroJSONModel.RootObject>(criteria);
+        }
+
+        /// <summary>
+        /// Gets the recycling centrals.
+        /// </summary>
+        /// <param name="criteria">The criteria.</param>
+        /// <returns></returns>
+        public IObservable<Models.Orebro.RecyclingCentral> GetRecyclingCentrals(SearchCriterias.Orebro.RecyclingCentrals criteria)
+        {
+            return ExecuteRequestReturnObservable<Models.Orebro.RecyclingCentral, Models.JSON.Orebro.OrebroJSONModel.RootObject>(criteria);
+        }
+
+        /// <summary>
+        /// Gets the preschools.
+        /// </summary>
+        /// <param name="criteria">The criteria.</param>
+        /// <returns></returns>
+        public IObservable<Models.Orebro.PreSchools> GetPreSchools(SearchCriterias.Orebro.PreSchools criteria)
+        {
+            return ExecuteRequestReturnObservable<Models.Orebro.PreSchools, Models.JSON.Orebro.OrebroJSONModel.RootObject>(criteria);
+        }
     }
 }

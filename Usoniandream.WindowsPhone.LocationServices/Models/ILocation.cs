@@ -27,7 +27,19 @@ namespace Usoniandream.WindowsPhone.LocationServices.Models
     /// </summary>
     public interface ILocation
     {
+        /// <summary>
+        /// Gets or sets the content.
+        /// </summary>
+        /// <value>
+        /// The content.
+        /// </value>
         object Content { get; set; }
+        /// <summary>
+        /// Gets or sets the location.
+        /// </summary>
+        /// <value>
+        /// The location.
+        /// </value>
         GeoCoordinate Location { get; set; }
     }
 }
