@@ -29,5 +29,6 @@ namespace Usoniandream.WindowsPhone.LocationServices.Models.Stockholm.ServiceGui
 {
     public class DetailedServiceUnit : Base.DetailedServiceUnitBase
     {
+        public string Group { get; set; }
     }
 }

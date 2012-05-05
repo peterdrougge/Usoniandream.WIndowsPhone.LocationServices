@@ -90,6 +90,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Tester
 
         private void WireTwitterPivotItem()
         {
+            IsDataLoading = true;
             GenericPivotItem tweets = new GenericPivotItem() { Header = "tweets", Source = "twitter" };
             var rxtweets = twitterrservicelayer.GetTweetsByRadius(new Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Twitter.SearchByRadius(new GeoCoordinate(40.74917, -73.98529), 0.5))
                 .Take(20)
@@ -115,6 +116,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Tester
 
         private void WireFlickrPivotItem()
         {
+            IsDataLoading = true;
             GenericPivotItem flickrphotos = new GenericPivotItem() { Header = "foton", Source = "flickr" };
             var rxflickrphotos = flickrservicelayer.GetPhotosByLocation(new Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Flickr.PhotosByLocation(new GeoCoordinate(40.74917, -73.98529), false))
                 .Take(20)

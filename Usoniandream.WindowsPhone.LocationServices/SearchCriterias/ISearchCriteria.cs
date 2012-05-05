@@ -51,5 +51,14 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias
         ///   <c>true</c> if [skip API key check]; otherwise, <c>false</c>.
         /// </value>
         bool SkipAPIKeyCheck { get; set; }
+
+
+        /// <summary>
+        /// Gets or sets a value indicating whether this <see cref="ISearchCriteria&lt;Ttarget, Tsource&gt;"/> is debug.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if debug; otherwise, <c>false</c>.
+        /// </value>
+        bool DebugMode { get; set; }
     }
 }

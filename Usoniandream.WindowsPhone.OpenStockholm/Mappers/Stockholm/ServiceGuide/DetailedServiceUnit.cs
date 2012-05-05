@@ -51,6 +51,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Stockholm.ServiceGu
             {
                 Content = root.Name,
                 ID = root.Id,
+                Group = root.ServiceUnitTypes.FirstOrDefault().SingularName,
                 Location = new System.Device.Location.GeoCoordinate(pos.Latitude, pos.Longitude),
                 StreetAddress = GetAttributeByID(root, "StreetAddress"),
                 PhoneNumber = GetAttributeByID(root, "PhoneNumber"),

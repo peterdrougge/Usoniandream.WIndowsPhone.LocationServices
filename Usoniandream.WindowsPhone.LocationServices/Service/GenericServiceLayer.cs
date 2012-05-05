@@ -25,6 +25,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Usoniandream.WindowsPhone.LocationServices.Models;
 using RestSharp;
+using System.Diagnostics;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Service
 {
@@ -49,6 +50,11 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service
             if (String.IsNullOrWhiteSpace(criteria.APIkey) && !criteria.SkipAPIKeyCheck)
             {
                 throw new ArgumentException("missing api key, please check App.xaml.", "APIkey");
+            }
+
+            if (criteria.DebugMode)
+            {
+                Debug.WriteLine(string.Format("LocationServices - executing criteria - {0}", criteria.Client.BuildUri(criteria.Request)));
             }
 
             criteria.Client.ExecuteAsync<Tsource>(criteria.Request, callback);

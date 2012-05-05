@@ -50,7 +50,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias
             {
                 throw new ArgumentException("missing 'baseurlresourcename', please check App.xaml.", "baseurlresourcename");
             }
-            Client = new RestClient(((Models.ServiceURI)Application.Current.Resources[baseurlresourcename]).URL);
+                Client = new RestClient(((Models.ServiceURI)Application.Current.Resources[baseurlresourcename]).URL);
         }
         public SearchCriteriaBase(Method method)
         {
@@ -112,6 +112,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias
         public event PropertyChangedEventHandler PropertyChanged;
 
 
+        public bool DebugMode { get; set; }
         public bool SkipAPIKeyCheck { get; set; }
     }
 }

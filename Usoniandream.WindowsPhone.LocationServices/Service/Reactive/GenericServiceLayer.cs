@@ -28,6 +28,7 @@ using Usoniandream.WindowsPhone.Extensions;
 using RestSharp;
 using System.Reactive.Linq;
 using Newtonsoft.Json;
+using System.Diagnostics;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Service.Reactive
 {
@@ -54,6 +55,11 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Reactive
                 throw new ArgumentException("missing api key, please check App.xaml.", "APIkey");
             }
 
+            if (criteria.DebugMode)
+            {
+                Debug.WriteLine(string.Format("LocationServices - executing criteria - {0}", criteria.Client.BuildUri(criteria.Request)));
+            }
+
             return criteria.Client.ExecuteAsync<Tsource>(criteria.Request)
                             .Select<Tsource, Ttarget>(x => criteria.Mapper.JSON2FirstModel(x));
         }
@@ -74,6 +80,11 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Reactive
             if (String.IsNullOrWhiteSpace(criteria.APIkey) && !criteria.SkipAPIKeyCheck)
             {
                 throw new ArgumentException("missing api key, please check App.xaml.", "APIkey");
+            }
+
+            if (criteria.DebugMode)
+            {
+                Debug.WriteLine(string.Format("LocationServices - executing criteria - {0}", criteria.Client.BuildUri(criteria.Request)));
             }
 
             return criteria.Client.ExecuteAsync<Tsource>(criteria.Request)
@@ -98,6 +109,11 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Reactive
                 throw new ArgumentException("missing api key, please check App.xaml.", "APIkey");
             }
 
+            if (criteria.DebugMode)
+            {
+                Debug.WriteLine(string.Format("LocationServices - executing criteria - {0}", criteria.Client.BuildUri(criteria.Request)));
+            }
+
             return criteria.Client.ExecuteAsync(criteria.Request)
                             .Select(x => JsonConvert.DeserializeObject<Tsource>("{\"features\":" + x + "}"))
                             .Select<Tsource, Ttarget>(x => criteria.Mapper.JSON2FirstModel(x));
@@ -118,6 +134,11 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Reactive
             if (String.IsNullOrWhiteSpace(criteria.APIkey) && !criteria.SkipAPIKeyCheck)
             {
                 throw new ArgumentException("missing api key, please check App.xaml.", "APIkey");
+            }
+
+            if (criteria.DebugMode)
+            {
+                Debug.WriteLine(string.Format("LocationServices - executing criteria - {0}", criteria.Client.BuildUri(criteria.Request)));
             }
 
             return criteria.Client.ExecuteAsync(criteria.Request)

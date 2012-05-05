@@ -30,29 +30,39 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Stockholm.S
 {
     public class SearchServiceUnits : ServiceGuideBase<Models.Stockholm.ServiceGuide.ServiceUnit, Models.JSON.Stockholm.ServiceUnits.RootObject>
     {
-        public SearchServiceUnits(string namecontains) : base()
+        public SearchServiceUnits(string namecontains) : base(null, Models.Enums.Stockholm.ServiceGuideSortByEnum.Name, Models.Enums.Stockholm.ServiceGuideSortOrderEnum.Ascending, 0)
         {
-            Mapper = new Mappers.Stockholm.ServiceGuide.ServiceUnits();
-
-            NameContains = namecontains;
-
-            Request.Resource += "/ServiceUnits/json";
-
-            Request.AddParameter("name",NameContains);
+            ApplyDefaultSearchValues(namecontains);
+        }
+        public SearchServiceUnits(string namecontains, int maxHits)
+            : base(null, Models.Enums.Stockholm.ServiceGuideSortByEnum.Name, Models.Enums.Stockholm.ServiceGuideSortOrderEnum.Ascending, maxHits)
+        {
+            ApplyDefaultSearchValues(namecontains);
         }
 
-        public SearchServiceUnits(string namecontains, GeoCoordinate location) : base()
+        public SearchServiceUnits(string namecontains, GeoCoordinate location)
+            : base(location, Models.Enums.Stockholm.ServiceGuideSortByEnum.DistanceToGeographicalPosition, Models.Enums.Stockholm.ServiceGuideSortOrderEnum.Ascending, 0)
+        {
+            ApplyDefaultSearchValues(namecontains);
+        }
+        public SearchServiceUnits(string namecontains, GeoCoordinate location, int maxHits)
+            : base(location, Models.Enums.Stockholm.ServiceGuideSortByEnum.DistanceToGeographicalPosition, Models.Enums.Stockholm.ServiceGuideSortOrderEnum.Ascending, maxHits)
+        {
+            ApplyDefaultSearchValues(namecontains);
+        }
+
+        private void ApplyDefaultSearchValues(string namecontains)
         {
             Mapper = new Mappers.Stockholm.ServiceGuide.ServiceUnits();
-
-            PointOfOrigin = location;
             NameContains = namecontains;
-
             Request.Resource += "/ServiceUnits/json";
-
-            Request.AddParameter("name",NameContains);
+            if (String.IsNullOrWhiteSpace(NameContains))
+            {
+                NameContains = String.Empty;
+            }
+            Request.AddParameter("name", NameContains);
         }
-        
+
         public string NameContains { get; set; }
     }
 }

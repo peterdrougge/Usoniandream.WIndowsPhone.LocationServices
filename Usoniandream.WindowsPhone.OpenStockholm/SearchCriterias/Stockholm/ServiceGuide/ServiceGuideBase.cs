@@ -34,27 +34,35 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Stockholm.S
         public ServiceGuideBase()
             : base("STHLM_DATA_SERVICE_URI_SERVICEGUIDE")
         {
+            SetDefaultSearchValues();
+        }
+        public ServiceGuideBase(GeoCoordinate pointOfOrigin, Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.ServiceGuideSortByEnum sortBy, Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.ServiceGuideSortOrderEnum sortOrder, int maxHits)
+            : base("STHLM_DATA_SERVICE_URI_SERVICEGUIDE")
+        {
+            this.PointOfOrigin = pointOfOrigin;
+            this.SortBy = sortBy;
+            this.SortOrder = sortOrder;
+            this.MaxHits = maxHits;
+
+            SetDefaultSearchValues();
+
+            ApplySortBy();
+
+            ApplySortOrder();
+        }
+
+        private void SetDefaultSearchValues()
+        {
             APIKeyResourceName = "STHLM_DATA_API_KEY_SERVICEGUIDE";
             Request.AddParameter("apiKey", APIkey);
-
-            switch (this.SortBy)
+            if (MaxHits > 0)
             {
-                case Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.ServiceGuideSortByEnum.Unsorted:
-                    Request.AddParameter("sortBy", "Unsorted");
-                    break;
-                case Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.ServiceGuideSortByEnum.Name:
-                    Request.AddParameter("sortBy", "Name");
-                    break;
-                case Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.ServiceGuideSortByEnum.DistanceToGeographicalPosition:
-                    Request.AddParameter("sortBy", "DistanceToGeographicalPosition");
-
-                    RT90 pos = new RT90(PointOfOrigin.Latitude, PointOfOrigin.Longitude, RT90.RT90Projection.rt90_2_5_gon_v);
-                    Request.AddParameter("geographicalPosition", string.Format("{0},{1}", pos.Latitude.ToString().Replace(",","."), pos.Longitude.ToString().Replace(",",".")));
-                    break;
-                default:
-                    break;
+                Request.AddParameter("pageSize", MaxHits);
+                Request.AddParameter("pageNumber", 1);
             }
-
+        }
+        private void ApplySortOrder()
+        {
             switch (this.SortOrder)
             {
                 case Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.ServiceGuideSortOrderEnum.Ascending:
@@ -67,8 +75,31 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Stockholm.S
                     break;
             }
         }
-        public GeoCoordinate PointOfOrigin { get; set; }
-        public Models.Enums.Stockholm.ServiceGuideSortByEnum SortBy { get; set; }
-        public Models.Enums.Stockholm.ServiceGuideSortOrderEnum SortOrder { get; set; }
+        private void ApplySortBy()
+        {
+            switch (this.SortBy)
+            {
+                case Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.ServiceGuideSortByEnum.Unsorted:
+                    Request.AddParameter("sortBy", "Unsorted");
+                    break;
+                case Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.ServiceGuideSortByEnum.Name:
+                    Request.AddParameter("sortBy", "Name");
+                    break;
+                case Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.ServiceGuideSortByEnum.DistanceToGeographicalPosition:
+                    Request.AddParameter("sortBy", "DistanceToGeographicalPosition");
+
+                    WGS84 orgpos = new WGS84(PointOfOrigin.Latitude, PointOfOrigin.Longitude);
+                    RT90 pos = new RT90(orgpos, RT90.RT90Projection.rt90_2_5_gon_v);
+                    Request.AddParameter("geographicalPosition", string.Format("{0},{1}",(int)pos.Latitude, (int)pos.Longitude));
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        public GeoCoordinate PointOfOrigin { get; private set; }
+        public int MaxHits { get; private set; }
+        public Models.Enums.Stockholm.ServiceGuideSortByEnum SortBy { get; protected set; }
+        public Models.Enums.Stockholm.ServiceGuideSortOrderEnum SortOrder { get; protected set; }
     }
 }

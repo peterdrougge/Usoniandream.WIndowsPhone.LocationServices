@@ -34,27 +34,24 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Stockholm.P
         public PlaceBase()
             : base("STHLM_DATA_SERVICE_URI_PLACE")
         {
-            APIKeyResourceName = "STHLM_DATA_API_KEY_PLACE";
-            Request.AddParameter("apiKey", APIkey);
+            ApplyDefaultSearchValues();
 
-            switch (this.SortBy)
-            {
-                case Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.ServiceGuideSortByEnum.Unsorted:
-                    Request.AddParameter("sortBy", "Unsorted");
-                    break;
-                case Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.ServiceGuideSortByEnum.Name:
-                    Request.AddParameter("sortBy", "Name");
-                    break;
-                case Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.ServiceGuideSortByEnum.DistanceToGeographicalPosition:
-                    Request.AddParameter("sortBy", "DistanceToGeographicalPosition");
+        }
+        public PlaceBase(GeoCoordinate pointOfOrigin, Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.ServiceGuideSortByEnum sortBy, Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.ServiceGuideSortOrderEnum sortOrder, int maxHits)
+            : base("STHLM_DATA_SERVICE_URI_PLACE")
+        {
+            this.PointOfOrigin = pointOfOrigin;
+            this.SortBy = sortBy;
+            this.SortOrder = SortOrder;
+            this.MaxHits = maxHits;
 
-                    RT90 pos = new RT90(PointOfOrigin.Latitude, PointOfOrigin.Longitude, RT90.RT90Projection.rt90_2_5_gon_v);
-                    Request.AddParameter("geographicalPosition", string.Format("{0},{1}", pos.Latitude.ToString().Replace(",","."), pos.Longitude.ToString().Replace(",",".")));
-                    break;
-                default:
-                    break;
-            }
+            ApplyDefaultSearchValues();
+            ApplySortBy();
+            ApplySortOrder();
+        }
 
+        private void ApplySortOrder()
+        {
             switch (this.SortOrder)
             {
                 case Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.ServiceGuideSortOrderEnum.Ascending:
@@ -67,7 +64,42 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Stockholm.P
                     break;
             }
         }
-        public GeoCoordinate PointOfOrigin { get; set; }
+
+        private void ApplySortBy()
+        {
+            switch (this.SortBy)
+            {
+                case Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.ServiceGuideSortByEnum.Unsorted:
+                    Request.AddParameter("sortBy", "Unsorted");
+                    break;
+                case Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.ServiceGuideSortByEnum.Name:
+                    Request.AddParameter("sortBy", "Name");
+                    break;
+                case Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.ServiceGuideSortByEnum.DistanceToGeographicalPosition:
+                    Request.AddParameter("sortBy", "DistanceToGeographicalPosition");
+
+                    WGS84 orgpos = new WGS84(PointOfOrigin.Latitude, PointOfOrigin.Longitude);
+                    RT90 pos = new RT90(orgpos, RT90.RT90Projection.rt90_2_5_gon_v);
+                    Request.AddParameter("geographicalPosition", string.Format("{0},{1}",(int)pos.Latitude, (int)pos.Longitude));
+                    break;
+                default:
+                    break;
+            }
+
+        }
+
+        private void ApplyDefaultSearchValues()
+        {
+            APIKeyResourceName = "STHLM_DATA_API_KEY_PLACE";
+            Request.AddParameter("apiKey", APIkey);
+            if (MaxHits>0)
+            {
+                Request.AddParameter("pageSize", MaxHits);
+                Request.AddParameter("pageNumber", 1);
+            }
+        }
+        public GeoCoordinate PointOfOrigin { get; private set; }
+        public int MaxHits { get; private set; }
         public Models.Enums.Stockholm.ServiceGuideSortByEnum SortBy { get; set; }
         public Models.Enums.Stockholm.ServiceGuideSortOrderEnum SortOrder { get; set; }
     }

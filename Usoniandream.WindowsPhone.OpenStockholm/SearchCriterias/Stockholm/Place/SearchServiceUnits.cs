@@ -30,30 +30,35 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Stockholm.P
 {
     public class SearchServiceUnits : PlaceBase<Models.Stockholm.Place.ServiceUnit, Models.JSON.Stockholm.ServiceUnits.RootObject>
     {
+        public string NameContains { get; protected set; }
+
         public SearchServiceUnits(string namecontains)
-            : base()
+            : base(null, Models.Enums.Stockholm.ServiceGuideSortByEnum.Name, Models.Enums.Stockholm.ServiceGuideSortOrderEnum.Ascending, 0)
         {
-            Mapper = new Mappers.Stockholm.Place.ServiceUnits();
-
-            NameContains = namecontains;
-
-            Request.Resource += "/ServiceUnits/json";
-
-            Request.AddParameter("name", NameContains);
+            ApplyDefaultSearchCriterias(namecontains);
         }
 
         public SearchServiceUnits(string namecontains, GeoCoordinate location)
-            : base()
+            : base(location, Models.Enums.Stockholm.ServiceGuideSortByEnum.DistanceToGeographicalPosition, Models.Enums.Stockholm.ServiceGuideSortOrderEnum.Ascending, 0)
+        {
+            ApplyDefaultSearchCriterias(namecontains);
+        }
+        public SearchServiceUnits(string namecontains, GeoCoordinate location, int maxHits)
+            : base(location, Models.Enums.Stockholm.ServiceGuideSortByEnum.DistanceToGeographicalPosition, Models.Enums.Stockholm.ServiceGuideSortOrderEnum.Ascending, maxHits)
+        {
+            ApplyDefaultSearchCriterias(namecontains);
+        }
+
+        private void ApplyDefaultSearchCriterias(string namecontains)
         {
             Mapper = new Mappers.Stockholm.Place.ServiceUnits();
-
-            PointOfOrigin = location;
             NameContains = namecontains;
-
             Request.Resource += "/ServiceUnits/json";
-
+            if (String.IsNullOrWhiteSpace(NameContains))
+            {
+                NameContains = String.Empty;
+            }
             Request.AddParameter("name", NameContains);
         }
-        public string NameContains { get; set; }
     }
 }
