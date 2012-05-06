@@ -44,12 +44,73 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Flickr
 
         public Models.Flickr.PhotoDetails JSON2FirstModel(Models.JSON.Flickr.Info.RootObject root)
         {
+            if (root==null)
+            {
+                throw new ArgumentNullException("root is missing");
+            }
+            if (root.photo==null)
+            {
+                throw new ArgumentNullException("root.photo is missing");
+            }
             return new Models.Flickr.PhotoDetails()
             {
                 Content = root.photo.title,
                 Location = new GeoCoordinate(root.photo.location.latitude, root.photo.location.longitude),
-                ImageURL = root.photo.urls.url.First()._content
+                ImageURL = ExtractImageURL(root),
+                DateUploaded = root.photo.dateuploaded,
+                Description = ExtractDescription(root),
+                DateTaken = ExtractDateTaken(root),
+                Owner = ExtractRealName(root),
+                ID = root.photo.id
             };
+        }
+
+        private static string ExtractRealName(Models.JSON.Flickr.Info.RootObject root)
+        {
+            try
+            {
+                return root.photo.owner.realname;
+            }
+            catch (Exception)
+            {
+                return string.Empty;
+            }
+        }
+
+        private static string ExtractDateTaken(Models.JSON.Flickr.Info.RootObject root)
+        {
+            try
+            {
+                return root.photo.dates.taken;
+            }
+            catch (Exception)
+            {
+                return string.Empty;
+            }
+        }
+
+        private static string ExtractDescription(Models.JSON.Flickr.Info.RootObject root)
+        {
+            try
+            {
+                return root.photo.description._content;
+            }
+            catch (Exception)
+            {
+                return string.Empty;
+            }
+        }
+
+        private static string ExtractImageURL(Models.JSON.Flickr.Info.RootObject root)
+        {
+            try
+            {
+                return String.Format("http://farm{0}.staticflickr.com/{1}/{2}_{3}.jpg", root.photo.farm, root.photo.server, root.photo.id, root.photo.secret);
+            }
+            catch (Exception)
+            {
+                return string.Empty;
+            }
         }
 
         public Models.Flickr.PhotoDetails JSON2LastModel(Models.JSON.Flickr.Info.RootObject root)

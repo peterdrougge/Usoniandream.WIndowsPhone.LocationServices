@@ -145,7 +145,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Stockholm.Reactive
         /// <returns></returns>
         public IObservable<Models.Stockholm.Place.DetailedServiceUnit> GetPlaceDetailedServiceUnit(SearchCriterias.Stockholm.Place.DetailedServiceUnit criteria)
         {
-            return ExecuteRequestReturnObservable<Models.Stockholm.Place.DetailedServiceUnit, Models.JSON.Stockholm.DetailedServiceUnit.RootObject>(criteria);
+            return ExecuteRequestReturnFirstObservable<Models.Stockholm.Place.DetailedServiceUnit, Models.JSON.Stockholm.DetailedServiceUnit.RootObject>(criteria);
         }
 
     }

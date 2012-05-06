@@ -31,5 +31,15 @@ namespace Usoniandream.WindowsPhone.LocationServices.Models.Flickr
     {
 
         public string ImageURL { get; set; }
+
+        public string DateUploaded { get; set; }
+
+        public string DateTaken { get; set; }
+
+        public string ID { get; set; }
+
+        public string Owner { get; set; }
+
+        public string Description { get; set; }
     }
 }
