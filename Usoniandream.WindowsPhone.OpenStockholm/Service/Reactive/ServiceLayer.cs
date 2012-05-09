@@ -26,11 +26,6 @@ using Usoniandream.WindowsPhone.GeoConverter;
 using Usoniandream.WindowsPhone.LocationServices.Models;
 using Usoniandream.WindowsPhone.LocationServices.Models.Stockholm;
 using System.Windows;
-using Newtonsoft.Json.Serialization;
-using Newtonsoft.Json.Utilities;
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
 using System.Linq;
 using Usoniandream.WindowsPhone.LocationServices.Models.Stockholm.ServiceGuide;
 
@@ -74,7 +69,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Stockholm.Reactive
         /// <returns></returns>
         public IObservable<Models.Stockholm.ServiceGuide.ServiceUnitType> GetServiceUnitTypes(SearchCriterias.Stockholm.ServiceGuide.ServiceUnitTypes criteria)
         {
-            return ExecuteRequestWithPaddingReturnObservable<Models.Stockholm.ServiceGuide.ServiceUnitType, Models.JSON.Stockholm.ServiceGuide.ServiceUnitTypes.RootObject>(criteria);
+            return ExecuteRequestReturnObservable<Models.Stockholm.ServiceGuide.ServiceUnitType, Models.JSON.Stockholm.ServiceGuide.ServiceUnitTypes.RootObject>(criteria);
         }
 
         /// <summary>
@@ -84,7 +79,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Stockholm.Reactive
         /// <returns></returns>
         public IObservable<Models.Stockholm.ServiceGuide.ServiceUnit> GetServiceUnits(SearchCriterias.Stockholm.ServiceGuide.ServiceUnits criteria)
         {
-            return ExecuteRequestWithPaddingReturnObservable<Models.Stockholm.ServiceGuide.ServiceUnit, Models.JSON.Stockholm.ServiceUnits.RootObject>(criteria);
+            return ExecuteRequestReturnObservable<Models.Stockholm.ServiceGuide.ServiceUnit, Models.JSON.Stockholm.ServiceUnits.RootObject>(criteria);
         }
 
         /// <summary>
@@ -94,7 +89,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Stockholm.Reactive
         /// <returns></returns>
         public IObservable<Models.Stockholm.ServiceGuide.ServiceUnit> SearchServiceUnits(SearchCriterias.Stockholm.ServiceGuide.SearchServiceUnits criteria)
         {
-            return ExecuteRequestWithPaddingReturnObservable<Models.Stockholm.ServiceGuide.ServiceUnit, Models.JSON.Stockholm.ServiceUnits.RootObject>(criteria);
+            return ExecuteRequestReturnObservable<Models.Stockholm.ServiceGuide.ServiceUnit, Models.JSON.Stockholm.ServiceUnits.RootObject>(criteria);
         }
 
         /// <summary>
@@ -115,7 +110,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Stockholm.Reactive
         /// <returns></returns>
         public IObservable<Models.Stockholm.Place.ServiceUnitType> GetPlaceServiceUnitTypes(SearchCriterias.Stockholm.Place.ServiceUnitTypes criteria)
         {
-            return ExecuteRequestWithPaddingReturnObservable<Models.Stockholm.Place.ServiceUnitType, Models.JSON.Stockholm.ServiceGuide.ServiceUnitTypes.RootObject>(criteria);
+            return ExecuteRequestReturnObservable<Models.Stockholm.Place.ServiceUnitType, Models.JSON.Stockholm.ServiceGuide.ServiceUnitTypes.RootObject>(criteria);
         }
 
         /// <summary>
@@ -125,7 +120,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Stockholm.Reactive
         /// <returns></returns>
         public IObservable<Models.Stockholm.Place.ServiceUnit> GetPlaceServiceUnits(SearchCriterias.Stockholm.Place.ServiceUnits criteria)
         {
-            return ExecuteRequestWithPaddingReturnObservable<Models.Stockholm.Place.ServiceUnit, Models.JSON.Stockholm.ServiceUnits.RootObject>(criteria);
+            return ExecuteRequestReturnObservable<Models.Stockholm.Place.ServiceUnit, Models.JSON.Stockholm.ServiceUnits.RootObject>(criteria);
         }
 
         /// <summary>
@@ -135,7 +130,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Stockholm.Reactive
         /// <returns></returns>
         public IObservable<Models.Stockholm.Place.ServiceUnit> SearchPlaceServiceUnits(SearchCriterias.Stockholm.Place.SearchServiceUnits criteria)
         {
-            return ExecuteRequestWithPaddingReturnObservable<Models.Stockholm.Place.ServiceUnit, Models.JSON.Stockholm.ServiceUnits.RootObject>(criteria);
+            return ExecuteRequestReturnObservable<Models.Stockholm.Place.ServiceUnit, Models.JSON.Stockholm.ServiceUnits.RootObject>(criteria);
         }
 
         /// <summary>

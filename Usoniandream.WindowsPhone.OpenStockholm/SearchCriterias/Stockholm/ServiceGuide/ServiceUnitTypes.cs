@@ -27,7 +27,7 @@ using System.Windows.Shapes;
 
 namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Stockholm.ServiceGuide
 {
-    public class ServiceUnitTypes : ServiceGuideBase<Models.Stockholm.ServiceGuide.ServiceUnitType, Models.JSON.Stockholm.ServiceGuide.ServiceUnitTypes.RootObject>
+    public class ServiceUnitTypes : ServiceGuideWithPaddingBase<Models.Stockholm.ServiceGuide.ServiceUnitType, Models.JSON.Stockholm.ServiceGuide.ServiceUnitTypes.RootObject>
     {
         public ServiceUnitTypes() : base()
         {

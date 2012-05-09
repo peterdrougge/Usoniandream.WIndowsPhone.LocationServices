@@ -28,10 +28,10 @@ using System.Device.Location;
 
 namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Goteborg.TrafficCamera
 {
-    public class TrafficCameras : SearchCriteriaBase<Models.Goteborg.TrafficCamera.TrafficCamera, Models.JSON.Goteborg.TrafficCameras.RootObject>
+    public class TrafficCameras : SearchCriteriaWithPaddingBase<Models.Goteborg.TrafficCamera.TrafficCamera, Models.JSON.Goteborg.TrafficCameras.RootObject>
     {
         public TrafficCameras()
-            : base("GOTEBORG_DATA_SERVICE_URI_TRAFFICCAMERAS")
+            : base("GOTEBORG_DATA_SERVICE_URI_TRAFFICCAMERAS", "{\"features\":", "}")
         {
             APIKeyResourceName = "GOTEBORG_DATA_API_KEY";
             Mapper = new Mappers.Goteborg.TrafficCamera.TrafficCameras(APIkey);

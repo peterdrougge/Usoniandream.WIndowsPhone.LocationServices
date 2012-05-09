@@ -25,6 +25,10 @@
         <usoniandream:ServiceAPIKey x:Key="GOTEBORG_DATA_API_KEY" Value="" />
         <!-- FLICKR -->
         <usoniandream:ServiceAPIKey x:Key="FLICKR_DATA_API_KEY" Value="" />
+        <!-- GOOGLE -->
+        <usoniandream:ServiceAPIKey x:Key="GOOGLE_PLACES_API_KEY" Value="" />
+        <!-- INSTAGRAM -->
+        <usoniandream:ServiceAPIKey x:Key="INSTAGRAM_API_KEY" Value="" />
 
         <!-- SERVICE ENDPOINTS -->
         <usoniandream:ServiceURI x:Key="STHLM_DATA_SERVICE_URI_SERVICEGUIDE" URL="http://api.stockholm.se/ServiceGuideService" />
@@ -40,6 +44,8 @@
         <usoniandream:ServiceURI x:Key="OREBRO_DATA_SERVICE_URI" URL="http://gray.orebro.se/epospunktinfo/" />
         <usoniandream:ServiceURI x:Key="FLICKR_DATA_SERVICE_URI" URL="http://api.flickr.com/" />
         <usoniandream:ServiceURI x:Key="TWITTER_DATA_SERVICE_URI" URL="http://search.twitter.com/" />
+        <usoniandream:ServiceURI x:Key="GOOGLE_PLACES_SERVICE_URI" URL="https://maps.googleapis.com/maps/api/place/" />
+        <usoniandream:ServiceURI x:Key="INSTAGRAM_SERVICE_URI" URL="https://api.instagram.com/v1/" />
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>

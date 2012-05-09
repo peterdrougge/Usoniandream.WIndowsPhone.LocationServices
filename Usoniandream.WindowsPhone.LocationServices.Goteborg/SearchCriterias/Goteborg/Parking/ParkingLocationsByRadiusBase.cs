@@ -29,10 +29,10 @@ using System.Device.Location;
 
 namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Goteborg.Parking
 {
-    public class ParkingLocationsByRadiusBase<Ttarget, Tsource> : SearchCriteriaBase<Ttarget, Tsource>
+    public class ParkingLocationsByRadiusBase<Ttarget, Tsource> : SearchCriteriaWithPaddingBase<Ttarget, Tsource>
     {
         public  ParkingLocationsByRadiusBase(string resource, int radius, GeoCoordinate location)
-            : base("GOTEBORG_DATA_SERVICE_URI_PARKING")
+            : base("GOTEBORG_DATA_SERVICE_URI_PARKING", "{\"features\":", "}")
         {
             APIKeyResourceName = "GOTEBORG_DATA_API_KEY";
 

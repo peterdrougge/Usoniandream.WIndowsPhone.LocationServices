@@ -26,11 +26,6 @@ using Usoniandream.WindowsPhone.GeoConverter;
 using Usoniandream.WindowsPhone.LocationServices.Models;
 using Usoniandream.WindowsPhone.LocationServices.Models.Stockholm;
 using System.Windows;
-using Newtonsoft.Json.Serialization;
-using Newtonsoft.Json.Utilities;
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
 using System.Linq;
 using Usoniandream.WindowsPhone.LocationServices.Models.Stockholm.ServiceGuide;
 
@@ -43,7 +38,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Stockholm
         /// </summary>
         /// <param name="criteria">The criteria.</param>
         /// <param name="callback">The callback.</param>
-        public void GetParkingLocationsByRadius(SearchCriterias.Stockholm.Parking.ParkingLocation.ParkingLocationsByRadius criteria, Action<RestResponse<Models.JSON.Stockholm.ParkingPlaces.RootObject>> callback)
+        public void GetParkingLocationsByRadius(SearchCriterias.Stockholm.Parking.ParkingLocation.ParkingLocationsByRadius criteria, Action<IRestResponse<Models.JSON.Stockholm.ParkingPlaces.RootObject>> callback)
         {
             ExecuteRequestForCallback<Models.Stockholm.ParkingLocation, Models.JSON.Stockholm.ParkingPlaces.RootObject>(criteria, callback);
         }
@@ -52,7 +47,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Stockholm
         /// </summary>
         /// <param name="criteria">The criteria.</param>
         /// <param name="callback">The callback.</param>
-        public void GetParkingLocationsByStreet(SearchCriterias.Stockholm.Parking.ParkingLocation.ParkingLocationsByStreet criteria, Action<RestResponse<Models.JSON.Stockholm.ParkingPlaces.RootObject>> callback)
+        public void GetParkingLocationsByStreet(SearchCriterias.Stockholm.Parking.ParkingLocation.ParkingLocationsByStreet criteria, Action<IRestResponse<Models.JSON.Stockholm.ParkingPlaces.RootObject>> callback)
         {
             ExecuteRequestForCallback<Models.Stockholm.ParkingLocation, Models.JSON.Stockholm.ParkingPlaces.RootObject>(criteria, callback);
         }
@@ -62,7 +57,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Stockholm
         /// </summary>
         /// <param name="criteria">The criteria.</param>
         /// <param name="callback">The callback.</param>
-        public void GetParkingMeters(SearchCriterias.Stockholm.Parking.ParkingMeter.ParkingMeter criteria, Action<RestResponse<Models.JSON.Stockholm.ParkingMeters.RootObject>> callback)
+        public void GetParkingMeters(SearchCriterias.Stockholm.Parking.ParkingMeter.ParkingMeter criteria, Action<IRestResponse<Models.JSON.Stockholm.ParkingMeters.RootObject>> callback)
         {
             ExecuteRequestForCallback<Models.Stockholm.ParkingMeter, Models.JSON.Stockholm.ParkingMeters.RootObject>(criteria, callback);
         }
@@ -72,7 +67,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Stockholm
         /// </summary>
         /// <param name="criteria">The criteria.</param>
         /// <param name="callback">The callback.</param>
-        public void GetServiceUnitTypes(SearchCriterias.Stockholm.ServiceGuide.ServiceUnitTypes criteria, Action<RestResponse<Models.JSON.Stockholm.ServiceGuide.ServiceUnitTypes.RootObject>> callback)
+        public void GetServiceUnitTypes(SearchCriterias.Stockholm.ServiceGuide.ServiceUnitTypes criteria, Action<IRestResponse<Models.JSON.Stockholm.ServiceGuide.ServiceUnitTypes.RootObject>> callback)
         {
             ExecuteRequestForCallback<Models.Stockholm.ServiceGuide.ServiceUnitType, Models.JSON.Stockholm.ServiceGuide.ServiceUnitTypes.RootObject>(criteria, callback);
         }
@@ -82,7 +77,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Stockholm
         /// </summary>
         /// <param name="criteria">The criteria.</param>
         /// <param name="callback">The callback.</param>
-        public void GetServiceUnits(SearchCriterias.Stockholm.ServiceGuide.ServiceUnits criteria, Action<RestResponse<Models.JSON.Stockholm.ServiceUnits.RootObject>> callback)
+        public void GetServiceUnits(SearchCriterias.Stockholm.ServiceGuide.ServiceUnits criteria, Action<IRestResponse<Models.JSON.Stockholm.ServiceUnits.RootObject>> callback)
         {
             ExecuteRequestForCallback<Models.Stockholm.ServiceGuide.ServiceUnit, Models.JSON.Stockholm.ServiceUnits.RootObject>(criteria, callback);
         }
@@ -92,7 +87,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Stockholm
         /// </summary>
         /// <param name="criteria">The criteria.</param>
         /// <param name="callback">The callback.</param>
-        public void SearchServiceUnits(SearchCriterias.Stockholm.ServiceGuide.SearchServiceUnits criteria, Action<RestResponse<Models.JSON.Stockholm.ServiceUnits.RootObject>> callback)
+        public void SearchServiceUnits(SearchCriterias.Stockholm.ServiceGuide.SearchServiceUnits criteria, Action<IRestResponse<Models.JSON.Stockholm.ServiceUnits.RootObject>> callback)
         {
             ExecuteRequestForCallback<Models.Stockholm.ServiceGuide.ServiceUnit, Models.JSON.Stockholm.ServiceUnits.RootObject>(criteria, callback);
         }
@@ -102,7 +97,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Stockholm
         /// </summary>
         /// <param name="criteria">The criteria.</param>
         /// <param name="callback">The callback.</param>
-        public void GetDetailedServiceUnit(SearchCriterias.Stockholm.ServiceGuide.DetailedServiceUnit criteria, Action<RestResponse<Models.JSON.Stockholm.DetailedServiceUnit.RootObject>> callback)
+        public void GetDetailedServiceUnit(SearchCriterias.Stockholm.ServiceGuide.DetailedServiceUnit criteria, Action<IRestResponse<Models.JSON.Stockholm.DetailedServiceUnit.RootObject>> callback)
         {
             ExecuteRequestForCallback<Models.Stockholm.ServiceGuide.DetailedServiceUnit, Models.JSON.Stockholm.DetailedServiceUnit.RootObject>(criteria, callback);
         }
@@ -113,7 +108,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Stockholm
         /// </summary>
         /// <param name="criteria">The criteria.</param>
         /// <param name="callback">The callback.</param>
-        public void GetPlaceServiceUnitTypes(SearchCriterias.Stockholm.Place.ServiceUnitTypes criteria, Action<RestResponse<Models.JSON.Stockholm.ServiceGuide.ServiceUnitTypes.RootObject>> callback)
+        public void GetPlaceServiceUnitTypes(SearchCriterias.Stockholm.Place.ServiceUnitTypes criteria, Action<IRestResponse<Models.JSON.Stockholm.ServiceGuide.ServiceUnitTypes.RootObject>> callback)
         {
             ExecuteRequestForCallback<Models.Stockholm.Place.ServiceUnitType, Models.JSON.Stockholm.ServiceGuide.ServiceUnitTypes.RootObject>(criteria, callback);
         }
@@ -123,7 +118,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Stockholm
         /// </summary>
         /// <param name="criteria">The criteria.</param>
         /// <param name="callback">The callback.</param>
-        public void GetPlaceServiceUnits(SearchCriterias.Stockholm.Place.ServiceUnits criteria, Action<RestResponse<Models.JSON.Stockholm.ServiceUnits.RootObject>> callback)
+        public void GetPlaceServiceUnits(SearchCriterias.Stockholm.Place.ServiceUnits criteria, Action<IRestResponse<Models.JSON.Stockholm.ServiceUnits.RootObject>> callback)
         {
             ExecuteRequestForCallback<Models.Stockholm.Place.ServiceUnit, Models.JSON.Stockholm.ServiceUnits.RootObject>(criteria, callback);
         }
@@ -133,7 +128,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Stockholm
         /// </summary>
         /// <param name="criteria">The criteria.</param>
         /// <param name="callback">The callback.</param>
-        public void SearchPlaceServiceUnits(SearchCriterias.Stockholm.Place.SearchServiceUnits criteria, Action<RestResponse<Models.JSON.Stockholm.ServiceUnits.RootObject>> callback)
+        public void SearchPlaceServiceUnits(SearchCriterias.Stockholm.Place.SearchServiceUnits criteria, Action<IRestResponse<Models.JSON.Stockholm.ServiceUnits.RootObject>> callback)
         {
             ExecuteRequestForCallback<Models.Stockholm.Place.ServiceUnit, Models.JSON.Stockholm.ServiceUnits.RootObject>(criteria, callback);
         }
@@ -143,7 +138,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Stockholm
         /// </summary>
         /// <param name="criteria">The criteria.</param>
         /// <param name="callback">The callback.</param>
-        public void GetPlaceDetailedServiceUnit(SearchCriterias.Stockholm.Place.DetailedServiceUnit criteria, Action<RestResponse<Models.JSON.Stockholm.DetailedServiceUnit.RootObject>> callback)
+        public void GetPlaceDetailedServiceUnit(SearchCriterias.Stockholm.Place.DetailedServiceUnit criteria, Action<IRestResponse<Models.JSON.Stockholm.DetailedServiceUnit.RootObject>> callback)
         {
             ExecuteRequestForCallback<Models.Stockholm.Place.DetailedServiceUnit, Models.JSON.Stockholm.DetailedServiceUnit.RootObject>(criteria, callback);
         }

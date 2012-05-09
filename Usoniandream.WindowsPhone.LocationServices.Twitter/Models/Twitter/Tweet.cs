@@ -51,5 +51,6 @@ namespace Usoniandream.WindowsPhone.LocationServices.Models.Twitter
         public string ReplyToUserDisplayName { get; set; }
 
         public int ReplyToUserId { get; set; }
+        public string ImageURL { get { return ProfileImageUrl; } }
     }
 }

@@ -28,7 +28,7 @@ using System.Device.Location;
 
 namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Stockholm.Place
 {
-    public class SearchServiceUnits : PlaceBase<Models.Stockholm.Place.ServiceUnit, Models.JSON.Stockholm.ServiceUnits.RootObject>
+    public class SearchServiceUnits : PlaceWithPaddingBase<Models.Stockholm.Place.ServiceUnit, Models.JSON.Stockholm.ServiceUnits.RootObject>
     {
         public string NameContains { get; protected set; }
 

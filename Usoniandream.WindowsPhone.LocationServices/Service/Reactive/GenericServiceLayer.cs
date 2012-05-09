@@ -24,10 +24,9 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Usoniandream.WindowsPhone.LocationServices.Models;
-using Usoniandream.WindowsPhone.Extensions;
+using Usoniandream.WindowsPhone.LocationServices.Extensions;
 using RestSharp;
 using System.Reactive.Linq;
-using Newtonsoft.Json;
 using System.Diagnostics;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Service.Reactive
@@ -90,62 +89,6 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Reactive
             return criteria.Client.ExecuteAsync<Tsource>(criteria.Request)
                             .SelectMany<Tsource, Ttarget>(x => criteria.Mapper.JSON2Model(x));
         }
-
-        /// <summary>
-        /// Executes the request with padding return first observable.
-        /// </summary>
-        /// <typeparam name="Ttarget">The type of the target.</typeparam>
-        /// <typeparam name="Tsource">The type of the source.</typeparam>
-        /// <param name="criteria">The criteria.</param>
-        /// <returns></returns>
-        public IObservable<Ttarget> ExecuteRequestWithPaddingReturnFirstObservable<Ttarget, Tsource>(SearchCriterias.ISearchCriteria<Ttarget, Tsource> criteria) where Tsource : new()
-        {
-            if (String.IsNullOrWhiteSpace(criteria.Client.BaseUrl))
-            {
-                throw new ArgumentException("missing 'baseurlresourcename', please check App.xaml.", "baseurlresourcename");
-            }
-            if (String.IsNullOrWhiteSpace(criteria.APIkey) && !criteria.SkipAPIKeyCheck)
-            {
-                throw new ArgumentException("missing api key, please check App.xaml.", "APIkey");
-            }
-
-            if (criteria.DebugMode)
-            {
-                Debug.WriteLine(string.Format("LocationServices - executing criteria - {0}", criteria.Client.BuildUri(criteria.Request)));
-            }
-
-            return criteria.Client.ExecuteAsync(criteria.Request)
-                            .Select(x => JsonConvert.DeserializeObject<Tsource>("{\"features\":" + x + "}"))
-                            .Select<Tsource, Ttarget>(x => criteria.Mapper.JSON2FirstModel(x));
-        }
-        /// <summary>
-        /// Executes the request with padding return observable.
-        /// </summary>
-        /// <typeparam name="Ttarget">The type of the target.</typeparam>
-        /// <typeparam name="Tsource">The type of the source.</typeparam>
-        /// <param name="criteria">The criteria.</param>
-        /// <returns></returns>
-        public IObservable<Ttarget> ExecuteRequestWithPaddingReturnObservable<Ttarget, Tsource>(SearchCriterias.ISearchCriteria<Ttarget, Tsource> criteria) where Tsource : new()
-        {
-            if (String.IsNullOrWhiteSpace(criteria.Client.BaseUrl))
-            {
-                throw new ArgumentException("missing 'baseurlresourcename', please check App.xaml.", "baseurlresourcename");
-            }
-            if (String.IsNullOrWhiteSpace(criteria.APIkey) && !criteria.SkipAPIKeyCheck)
-            {
-                throw new ArgumentException("missing api key, please check App.xaml.", "APIkey");
-            }
-
-            if (criteria.DebugMode)
-            {
-                Debug.WriteLine(string.Format("LocationServices - executing criteria - {0}", criteria.Client.BuildUri(criteria.Request)));
-            }
-
-            return criteria.Client.ExecuteAsync(criteria.Request)
-                            .Select(x => JsonConvert.DeserializeObject<Tsource>("{\"features\":" + x + "}"))
-                            .SelectMany<Tsource, Ttarget>(x => criteria.Mapper.JSON2Model(x));
-        }
-
 
     }
 }

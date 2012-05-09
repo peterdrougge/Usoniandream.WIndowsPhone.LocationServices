@@ -28,16 +28,6 @@ using System.Collections.Generic;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Models.JSON.Nokia.Places
 {
-    public class Location
-    {
-        public List<double> position { get; set; }
-    }
-
-    public class Search
-    {
-        public Location location { get; set; }
-    }
-
     public class Category
     {
         public string id { get; set; }
@@ -69,9 +59,19 @@ namespace Usoniandream.WindowsPhone.LocationServices.Models.JSON.Nokia.Places
         public List<Item> items { get; set; }
     }
 
+    public class Location
+    {
+        public List<double> position { get; set; }
+    }
+
+    public class Search
+    {
+        public Location location { get; set; }
+    }
+
     public class RootObject
     {
-        public Search search { get; set; }
         public Results results { get; set; }
+        public Search search { get; set; }
     }
 }

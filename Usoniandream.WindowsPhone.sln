@@ -29,6 +29,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Usoniandream.WindowsPhone.L
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Usoniandream.WindowsPhone.LocationServices.Twitter", "Usoniandream.WindowsPhone.LocationServices.Twitter\Usoniandream.WindowsPhone.LocationServices.Twitter.csproj", "{5EC422E4-DECE-444B-8052-52A076B7A75D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Usoniandream.WindowsPhone.LocationServices.Instagram", "Usoniandream.WindowsPhone.LocationServices.Instagram\Usoniandream.WindowsPhone.LocationServices.Instagram.csproj", "{3E277DDE-C3A5-4C59-97DD-249FEC6B5572}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Usoniandream.WindowsPhone.LocationServices.Google", "Usoniandream.WindowsPhone.LocationServices.Google\Usoniandream.WindowsPhone.LocationServices.Google.csproj", "{2A154A7C-2483-4FFD-B685-E0D2557D7A2A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +109,18 @@ Global
 		{5EC422E4-DECE-444B-8052-52A076B7A75D}.Mock|Any CPU.Build.0 = Release|Any CPU
 		{5EC422E4-DECE-444B-8052-52A076B7A75D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EC422E4-DECE-444B-8052-52A076B7A75D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E277DDE-C3A5-4C59-97DD-249FEC6B5572}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E277DDE-C3A5-4C59-97DD-249FEC6B5572}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E277DDE-C3A5-4C59-97DD-249FEC6B5572}.Mock|Any CPU.ActiveCfg = Release|Any CPU
+		{3E277DDE-C3A5-4C59-97DD-249FEC6B5572}.Mock|Any CPU.Build.0 = Release|Any CPU
+		{3E277DDE-C3A5-4C59-97DD-249FEC6B5572}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E277DDE-C3A5-4C59-97DD-249FEC6B5572}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A154A7C-2483-4FFD-B685-E0D2557D7A2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A154A7C-2483-4FFD-B685-E0D2557D7A2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A154A7C-2483-4FFD-B685-E0D2557D7A2A}.Mock|Any CPU.ActiveCfg = Release|Any CPU
+		{2A154A7C-2483-4FFD-B685-E0D2557D7A2A}.Mock|Any CPU.Build.0 = Release|Any CPU
+		{2A154A7C-2483-4FFD-B685-E0D2557D7A2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A154A7C-2483-4FFD-B685-E0D2557D7A2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

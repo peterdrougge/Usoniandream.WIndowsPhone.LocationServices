@@ -25,7 +25,6 @@ using Usoniandream.WindowsPhone;
 using Usoniandream.WindowsPhone.GeoConverter;
 using Usoniandream.WindowsPhone.LocationServices.Models;
 using System.Collections.Generic;
-using Newtonsoft.Json;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Service.Goteborg.Reactive
 {
@@ -38,7 +37,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Goteborg.Reactive
         /// <returns></returns>
         public IObservable<Models.Goteborg.Parking.PublicPayMachine> GetPayMachinesByRadius(SearchCriterias.Goteborg.Parking.PublicPayMachinesByRadius criteria)
         {
-            return ExecuteRequestWithPaddingReturnObservable<Models.Goteborg.Parking.PublicPayMachine, Models.JSON.Goteborg.PublicPayMachines.RootObject>(criteria);
+            return ExecuteRequestReturnObservable<Models.Goteborg.Parking.PublicPayMachine, Models.JSON.Goteborg.PublicPayMachines.RootObject>(criteria);
         }
 
         /// <summary>
@@ -48,7 +47,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Goteborg.Reactive
         /// <returns></returns>
         public IObservable<Models.Goteborg.Parking.PrivateParking> GetPrivateParkingsByRadius(SearchCriterias.Goteborg.Parking.PrivateParkingsByRadius criteria)
         {
-            return ExecuteRequestWithPaddingReturnObservable<Models.Goteborg.Parking.PrivateParking, Models.JSON.Goteborg.PrivateParkings.RootObject>(criteria);
+            return ExecuteRequestReturnObservable<Models.Goteborg.Parking.PrivateParking, Models.JSON.Goteborg.PrivateParkings.RootObject>(criteria);
         }
 
         /// <summary>
@@ -58,7 +57,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Goteborg.Reactive
         /// <returns></returns>
         public IObservable<Models.Goteborg.Parking.BusParking> GetBusParkingsByRadius(SearchCriterias.Goteborg.Parking.BusParkingsByRadius criteria)
         {
-            return ExecuteRequestWithPaddingReturnObservable<Models.Goteborg.Parking.BusParking, Models.JSON.Goteborg.BusParkings.RootObject>(criteria);
+            return ExecuteRequestReturnObservable<Models.Goteborg.Parking.BusParking, Models.JSON.Goteborg.BusParkings.RootObject>(criteria);
         }
 
         /// <summary>
@@ -68,7 +67,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Goteborg.Reactive
         /// <returns></returns>
         public IObservable<Models.Goteborg.Parking.MotorcycleParking> GetMotorcykleParkingsByRadius(SearchCriterias.Goteborg.Parking.MotorcycleParkingsByRadius criteria)
         {
-            return ExecuteRequestWithPaddingReturnObservable<Models.Goteborg.Parking.MotorcycleParking, Models.JSON.Goteborg.MotorcyleParkings.RootObject>(criteria);
+            return ExecuteRequestReturnObservable<Models.Goteborg.Parking.MotorcycleParking, Models.JSON.Goteborg.MotorcyleParkings.RootObject>(criteria);
         }
 
         /// <summary>
@@ -78,7 +77,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Goteborg.Reactive
         /// <returns></returns>
         public IObservable<Models.Goteborg.Parking.HandicapParking> GetHandicapParkingsByRadius(SearchCriterias.Goteborg.Parking.HandicapParkingsByRadius criteria)
         {
-            return ExecuteRequestWithPaddingReturnObservable<Models.Goteborg.Parking.HandicapParking, Models.JSON.Goteborg.HandicapParkings.RootObject>(criteria);
+            return ExecuteRequestReturnObservable<Models.Goteborg.Parking.HandicapParking, Models.JSON.Goteborg.HandicapParkings.RootObject>(criteria);
         }
 
         /// <summary>
@@ -88,7 +87,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Goteborg.Reactive
         /// <returns></returns>
         public IObservable<Models.Goteborg.Parking.ResidentialParking> GetResidentialParkingsByRadius(SearchCriterias.Goteborg.Parking.ResidentialParkingsByRadius criteria)
         {
-            return ExecuteRequestWithPaddingReturnObservable<Models.Goteborg.Parking.ResidentialParking, Models.JSON.Goteborg.ResidentialParkings.RootObject>(criteria);
+            return ExecuteRequestReturnObservable<Models.Goteborg.Parking.ResidentialParking, Models.JSON.Goteborg.ResidentialParkings.RootObject>(criteria);
         }
         /// <summary>
         /// Gets the public time parkings by radius.
@@ -97,7 +96,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Goteborg.Reactive
         /// <returns></returns>
         public IObservable<Models.Goteborg.Parking.PublicTimeParking> GetPublicTimeParkingsByRadius(SearchCriterias.Goteborg.Parking.PublicTimeParkingsByRadius criteria)
         {
-            return ExecuteRequestWithPaddingReturnObservable<Models.Goteborg.Parking.PublicTimeParking, Models.JSON.Goteborg.PublicTimeParkings.RootObject>(criteria);
+            return ExecuteRequestReturnObservable<Models.Goteborg.Parking.PublicTimeParking, Models.JSON.Goteborg.PublicTimeParkings.RootObject>(criteria);
         }
         /// <summary>
         /// Gets the public toll parkings by radius.
@@ -106,7 +105,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Goteborg.Reactive
         /// <returns></returns>
         public IObservable<Models.Goteborg.Parking.PublicTollParking> GetPublicTollParkingsByRadius(SearchCriterias.Goteborg.Parking.PublicTollParkingsByRadius criteria)
         {
-            return ExecuteRequestWithPaddingReturnObservable<Models.Goteborg.Parking.PublicTollParking, Models.JSON.Goteborg.PublicTollParkings.RootObject>(criteria);
+            return ExecuteRequestReturnObservable<Models.Goteborg.Parking.PublicTollParking, Models.JSON.Goteborg.PublicTollParkings.RootObject>(criteria);
         }
 
         /// <summary>
@@ -116,7 +115,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Goteborg.Reactive
         /// <returns></returns>
         public IObservable<Models.Goteborg.TrafficCamera.TrafficCamera> GetTrafficCameras(SearchCriterias.Goteborg.TrafficCamera.TrafficCameras criteria)
         {
-            return ExecuteRequestWithPaddingReturnObservable<Models.Goteborg.TrafficCamera.TrafficCamera, Models.JSON.Goteborg.TrafficCameras.RootObject>(criteria);
+            return ExecuteRequestReturnObservable<Models.Goteborg.TrafficCamera.TrafficCamera, Models.JSON.Goteborg.TrafficCameras.RootObject>(criteria);
         }
 
         /// <summary>

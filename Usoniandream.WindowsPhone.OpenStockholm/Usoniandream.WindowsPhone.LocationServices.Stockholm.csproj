@@ -46,11 +46,8 @@
     <Reference Include="Microsoft.Devices.Sensors" />
     <Reference Include="Microsoft.Phone" />
     <Reference Include="Microsoft.Phone.Reactive" />
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.4.5.3\lib\sl4-windowsphone71\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="RestSharp.WindowsPhone, Version=102.7.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\RestSharp.102.7\lib\sl4-wp71\RestSharp.WindowsPhone.dll</HintPath>
+    <Reference Include="RestSharp.WindowsPhone, Version=103.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.103.1\lib\sl4-wp71\RestSharp.WindowsPhone.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Device" />
@@ -113,12 +110,14 @@
     <Compile Include="Models\Stockholm\ServiceGuide\ServiceUnitType.cs" />
     <Compile Include="SearchCriterias\Stockholm\Place\DetailedServiceUnit.cs" />
     <Compile Include="SearchCriterias\Stockholm\Place\PlaceBase.cs" />
+    <Compile Include="SearchCriterias\Stockholm\Place\PlaceWithPaddingBase.cs" />
     <Compile Include="SearchCriterias\Stockholm\Place\SearchServiceUnits.cs" />
     <Compile Include="SearchCriterias\Stockholm\Place\ServiceUnits.cs" />
     <Compile Include="SearchCriterias\Stockholm\Place\ServiceUnitTypes.cs" />
     <Compile Include="SearchCriterias\Stockholm\ServiceGuide\DetailedServiceUnit.cs" />
     <Compile Include="SearchCriterias\Stockholm\ServiceGuide\SearchServiceUnits.cs" />
     <Compile Include="SearchCriterias\Stockholm\ServiceGuide\ServiceGuideBase.cs" />
+    <Compile Include="SearchCriterias\Stockholm\ServiceGuide\ServiceGuideWithPaddingBase.cs" />
     <Compile Include="SearchCriterias\Stockholm\ServiceGuide\ServiceUnits.cs" />
     <Compile Include="SearchCriterias\Stockholm\ServiceGuide\ServiceUnitTypes.cs" />
     <Compile Include="Service\Reactive\ServiceLayer.cs" />

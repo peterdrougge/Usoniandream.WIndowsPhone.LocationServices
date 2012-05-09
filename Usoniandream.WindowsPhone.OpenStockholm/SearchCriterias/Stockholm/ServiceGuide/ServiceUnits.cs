@@ -29,7 +29,7 @@ using System.Device.Location;
 
 namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Stockholm.ServiceGuide
 {
-    public class ServiceUnits : ServiceGuideBase<Models.Stockholm.ServiceGuide.ServiceUnit, Models.JSON.Stockholm.ServiceUnits.RootObject>
+    public class ServiceUnits : ServiceGuideWithPaddingBase<Models.Stockholm.ServiceGuide.ServiceUnit, Models.JSON.Stockholm.ServiceUnits.RootObject>
     {
         public ServiceUnits(string id) : base()
         {

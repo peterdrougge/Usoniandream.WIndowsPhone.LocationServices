@@ -35,7 +35,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Orebro
         /// </summary>
         /// <param name="criteria">The criteria.</param>
         /// <param name="callback">The callback.</param>
-        public void GetBaths(SearchCriterias.Orebro.Baths criteria, Action<RestResponse<Models.JSON.Orebro.OrebroJSONModel.RootObject>> callback)
+        public void GetBaths(SearchCriterias.Orebro.Baths criteria, Action<IRestResponse<Models.JSON.Orebro.OrebroJSONModel.RootObject>> callback)
         {
             ExecuteRequestForCallback<Models.Orebro.Bath, Models.JSON.Orebro.OrebroJSONModel.RootObject>(criteria, callback);
         }
@@ -44,7 +44,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Orebro
         /// </summary>
         /// <param name="criteria">The criteria.</param>
         /// <param name="callback">The callback.</param>
-        public void GetParkings(SearchCriterias.Orebro.Parkings criteria, Action<RestResponse<Models.JSON.Orebro.OrebroJSONModel.RootObject>> callback)
+        public void GetParkings(SearchCriterias.Orebro.Parkings criteria, Action<IRestResponse<Models.JSON.Orebro.OrebroJSONModel.RootObject>> callback)
         {
             ExecuteRequestForCallback<Models.Orebro.Parking, Models.JSON.Orebro.OrebroJSONModel.RootObject>(criteria, callback);
         }
@@ -53,7 +53,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Orebro
         /// </summary>
         /// <param name="criteria">The criteria.</param>
         /// <param name="callback">The callback.</param>
-        public void GetParks(SearchCriterias.Orebro.Parks criteria, Action<RestResponse<Models.JSON.Orebro.OrebroJSONModel.RootObject>> callback)
+        public void GetParks(SearchCriterias.Orebro.Parks criteria, Action<IRestResponse<Models.JSON.Orebro.OrebroJSONModel.RootObject>> callback)
         {
             ExecuteRequestForCallback<Models.Orebro.Park, Models.JSON.Orebro.OrebroJSONModel.RootObject>(criteria, callback);
         }
@@ -63,7 +63,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Orebro
         /// </summary>
         /// <param name="criteria">The criteria.</param>
         /// <param name="callback">The callback.</param>
-        public void GetRecycling(SearchCriterias.Orebro.Recycling criteria, Action<RestResponse<Models.JSON.Orebro.OrebroJSONModel.RootObject>> callback)
+        public void GetRecycling(SearchCriterias.Orebro.Recycling criteria, Action<IRestResponse<Models.JSON.Orebro.OrebroJSONModel.RootObject>> callback)
         {
             ExecuteRequestForCallback<Models.Orebro.Recycling, Models.JSON.Orebro.OrebroJSONModel.RootObject>(criteria, callback);
         }
@@ -73,7 +73,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Orebro
         /// </summary>
         /// <param name="criteria">The criteria.</param>
         /// <param name="callback">The callback.</param>
-        public void GetLibraries(SearchCriterias.Orebro.Libraries criteria, Action<RestResponse<Models.JSON.Orebro.OrebroJSONModel.RootObject>> callback)
+        public void GetLibraries(SearchCriterias.Orebro.Libraries criteria, Action<IRestResponse<Models.JSON.Orebro.OrebroJSONModel.RootObject>> callback)
         {
             ExecuteRequestForCallback<Models.Orebro.Library, Models.JSON.Orebro.OrebroJSONModel.RootObject>(criteria, callback);
         }
@@ -83,7 +83,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Orebro
         /// </summary>
         /// <param name="criteria">The criteria.</param>
         /// <param name="callback">The callback.</param>
-        public void GetRecyclingCentrals(SearchCriterias.Orebro.RecyclingCentrals criteria, Action<RestResponse<Models.JSON.Orebro.OrebroJSONModel.RootObject>> callback)
+        public void GetRecyclingCentrals(SearchCriterias.Orebro.RecyclingCentrals criteria, Action<IRestResponse<Models.JSON.Orebro.OrebroJSONModel.RootObject>> callback)
         {
             ExecuteRequestForCallback<Models.Orebro.RecyclingCentral, Models.JSON.Orebro.OrebroJSONModel.RootObject>(criteria, callback);
         }
@@ -93,7 +93,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Orebro
         /// </summary>
         /// <param name="criteria">The criteria.</param>
         /// <param name="callback">The callback.</param>
-        public void GetPreSchools(SearchCriterias.Orebro.PreSchools criteria, Action<RestResponse<Models.JSON.Orebro.OrebroJSONModel.RootObject>> callback)
+        public void GetPreSchools(SearchCriterias.Orebro.PreSchools criteria, Action<IRestResponse<Models.JSON.Orebro.OrebroJSONModel.RootObject>> callback)
         {
             ExecuteRequestForCallback<Models.Orebro.PreSchools, Models.JSON.Orebro.OrebroJSONModel.RootObject>(criteria, callback);
         }

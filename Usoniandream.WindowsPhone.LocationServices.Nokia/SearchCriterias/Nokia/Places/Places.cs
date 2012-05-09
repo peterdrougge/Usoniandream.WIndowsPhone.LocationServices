@@ -62,7 +62,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Nokia.Place
             Request.AddParameter("app_id", AppId);
             Request.AddParameter("app_code", APIkey);
             Request.AddParameter("tf", "plain");
-            Request.AddParameter("pretty", "true");
+            //Request.AddParameter("pretty", "true");
 
         }
 

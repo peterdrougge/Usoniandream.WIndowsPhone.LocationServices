@@ -46,9 +46,9 @@ namespace Usoniandream.WindowsPhone.LocationServices.Models.JSON.Stockholm.Parki
         public string DESC8 { get; set; }
         public string NAME9 { get; set; }
         public object DESC9 { get; set; }
-        public object VALID_FROM { get; set; }
-        public object VALID_TO { get; set; }
-        public object CID { get; set; }
+        public DateTime? VALID_FROM { get; set; }
+        public DateTime? VALID_TO { get; set; }
+        public string CID { get; set; }
         public int EXTENT_NO { get; set; }
         public int EXTENT_TYPE { get; set; }
         public int LATERAL_POSITION { get; set; }

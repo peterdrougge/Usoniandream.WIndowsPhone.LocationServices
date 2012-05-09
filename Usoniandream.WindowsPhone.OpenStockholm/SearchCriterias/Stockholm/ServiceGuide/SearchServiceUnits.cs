@@ -28,7 +28,7 @@ using System.Device.Location;
 
 namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Stockholm.ServiceGuide
 {
-    public class SearchServiceUnits : ServiceGuideBase<Models.Stockholm.ServiceGuide.ServiceUnit, Models.JSON.Stockholm.ServiceUnits.RootObject>
+    public class SearchServiceUnits : ServiceGuideWithPaddingBase<Models.Stockholm.ServiceGuide.ServiceUnit, Models.JSON.Stockholm.ServiceUnits.RootObject>
     {
         public SearchServiceUnits(string namecontains) : base(null, Models.Enums.Stockholm.ServiceGuideSortByEnum.Name, Models.Enums.Stockholm.ServiceGuideSortOrderEnum.Ascending, 0)
         {

@@ -48,7 +48,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Models.JSON.Twitter.Search
         public string from_user_name { get; set; }
         public Geo geo { get; set; }
         public string location { get; set; }
-        public object id { get; set; }
+        public string id { get; set; }
         public string id_str { get; set; }
         public string iso_language_code { get; set; }
         public Metadata metadata { get; set; }
@@ -60,7 +60,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Models.JSON.Twitter.Search
         public int? to_user_id { get; set; }
         public string to_user_id_str { get; set; }
         public string to_user_name { get; set; }
-        public object in_reply_to_status_id { get; set; }
+        public string in_reply_to_status_id { get; set; }
         public string in_reply_to_status_id_str { get; set; }
     }
 
