@@ -26,15 +26,15 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Device.Location;
 
-namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias
+namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Instagram
 {
-    public class MediaByLocation : InstagramSearchCriteriaBase<Models.Instagram.Media, Models.JSON.Instagram.MediaSearch.RootObject>
+    public class PlacesByLocation : InstagramSearchCriteriaBase<Models.Instagram.Location, Models.JSON.Instagram.Locations.RootObject>
     {
-        public MediaByLocation(GeoCoordinate location)
-            : base("media/search")
+        public PlacesByLocation(GeoCoordinate location)
+            : base("locations/search")
         {
+            Mapper = new Mappers.Instagram.PlacesByLocation();
             Location = location;
-            Mapper = new Mappers.Instagram.MediaByLocation();
 
             Request.AddParameter("lat", Location.Latitude.ToString().Replace(",", "."));
             Request.AddParameter("lng", Location.Longitude.ToString().Replace(",", "."));

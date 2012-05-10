@@ -32,7 +32,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Models.JSON.Google.EventDet
     {
         public int duration { get; set; }
         public string event_id { get; set; }
-        public int start_time { get; set; }
+        public DateTime start_time { get; set; }
         public string summary { get; set; }
         public string url { get; set; }
     }

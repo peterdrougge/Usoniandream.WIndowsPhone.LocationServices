@@ -42,7 +42,19 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Instagram
 
         public Models.Instagram.MediaDetails JSON2FirstModel(Models.JSON.Instagram.MediaDetails.RootObject root)
         {
-            throw new NotImplementedException();
+            return new Models.Instagram.MediaDetails()
+            {
+                Content = root.data.caption,
+                Location = new System.Device.Location.GeoCoordinate(root.data.location.latitude, root.data.location.longitude),
+                UserName = root.data.user.username,
+                UserId = root.data.user.id,
+                UserProfilePicture = root.data.user.profile_picture,
+                ImageURL = root.data.images.standard_resolution,
+                ImageThumbnailURL = root.data.images.thumbnail,
+                Created = root.data.created_time,
+                Link = root.data.link,
+                Type = root.data.type
+            };
         }
 
         public Models.Instagram.MediaDetails JSON2LastModel(Models.JSON.Instagram.MediaDetails.RootObject root)

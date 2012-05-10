@@ -25,15 +25,17 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias
+namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Instagram
 {
-    public abstract class InstagramSearchCriteriaBase<Ttarget, Tsource> : LocationServices.SearchCriterias.SearchCriteriaBase<Ttarget, Tsource>
+    public class MediaDetails : InstagramSearchCriteriaBase<Models.Instagram.MediaDetails, Models.JSON.Instagram.MediaDetails.RootObject>
     {
-        public InstagramSearchCriteriaBase(string resource)
-            : base("INSTAGRAM_SERVICE_URI")
+        public MediaDetails(string id)
+            : base("media/" + id)
         {
-            APIKeyResourceName = "INSTAGRAM_API_KEY";
-            Request.AddParameter("client_id", APIkey);
+            Mapper = new Mappers.Instagram.MediaDetails();
+            Id = id;
         }
+
+        public string Id { get; set; }
     }
 }

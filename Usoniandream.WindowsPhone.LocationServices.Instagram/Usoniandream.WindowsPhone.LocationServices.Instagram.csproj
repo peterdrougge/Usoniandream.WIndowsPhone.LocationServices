@@ -75,10 +75,10 @@
     <Compile Include="Models\JSON\Instagram\MediaSearch.cs" />
     <Compile Include="Models\JSON\Instagram\Posts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SearchCriterias\InstagramSearchCriteriaBase.cs" />
-    <Compile Include="SearchCriterias\MediaByLocation.cs" />
-    <Compile Include="SearchCriterias\MediaDetails.cs" />
-    <Compile Include="SearchCriterias\PlacesByLocation.cs" />
+    <Compile Include="SearchCriterias\Instagram\InstagramSearchCriteriaBase.cs" />
+    <Compile Include="SearchCriterias\Instagram\MediaByLocation.cs" />
+    <Compile Include="SearchCriterias\Instagram\MediaDetails.cs" />
+    <Compile Include="SearchCriterias\Instagram\PlacesByLocation.cs" />
     <Compile Include="Service\Instagram\Reactive\ServiceLayer.cs" />
     <Compile Include="Service\Instagram\ServiceLayer.cs" />
   </ItemGroup>

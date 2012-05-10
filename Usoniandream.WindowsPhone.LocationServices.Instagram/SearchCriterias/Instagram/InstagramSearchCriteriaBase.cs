@@ -24,22 +24,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
-using System.Device.Location;
 
-namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias
+namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Instagram
 {
-    public class PlacesByLocation : InstagramSearchCriteriaBase<Models.Instagram.Location, Models.JSON.Instagram.Locations.RootObject>
+    public abstract class InstagramSearchCriteriaBase<Ttarget, Tsource> : LocationServices.SearchCriterias.SearchCriteriaBase<Ttarget, Tsource>
     {
-        public PlacesByLocation(GeoCoordinate location)
-            : base("locations/search")
+        public InstagramSearchCriteriaBase(string resource)
+            : base("INSTAGRAM_SERVICE_URI")
         {
-            Mapper = new Mappers.Instagram.PlacesByLocation();
-            Location = location;
-
-            Request.AddParameter("lat", Location.Latitude.ToString().Replace(",", "."));
-            Request.AddParameter("lng", Location.Longitude.ToString().Replace(",", "."));
+            APIKeyResourceName = "INSTAGRAM_API_KEY";
+            Request.Resource = resource;
+            Request.AddParameter("client_id", APIkey);
         }
-
-        public GeoCoordinate Location { get; set; }
     }
 }

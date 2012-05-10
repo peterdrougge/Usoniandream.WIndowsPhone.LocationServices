@@ -32,7 +32,22 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Google
 
         public System.Collections.Generic.IEnumerable<Models.Google.Place> JSON2Model(Models.JSON.Google.Places.RootObject root)
         {
-            throw new NotImplementedException();
+            foreach (var item in root.result)
+            {
+                yield return new Models.Google.Place()
+                {
+                    Content = item.name,
+                    Address = item.formatted_address,
+                    PhoneNumber = item.formatted_phone_number,
+                    Icon = item.icon,
+                    Rating = item.rating,
+                    Reference = item.reference,
+                    Vicinity = item.vicinity,
+                    Attributions = root.html_attributions,
+                    Location = new System.Device.Location.GeoCoordinate(item.geometry.location.lat, item.geometry.location.lng),
+                    Id = item.id
+                };
+            }
         }
 
         public System.Collections.Generic.IEnumerable<Models.Google.Place> JSON2Model(System.Collections.Generic.IEnumerable<Models.JSON.Google.Places.RootObject> root)

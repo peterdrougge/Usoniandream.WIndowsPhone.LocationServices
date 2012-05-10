@@ -32,7 +32,74 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Instagram
 
         public System.Collections.Generic.IEnumerable<Models.Instagram.Media> JSON2Model(Models.JSON.Instagram.MediaSearch.RootObject root)
         {
-            throw new NotImplementedException();
+            foreach (var item in root.data)
+            {
+                yield return new Models.Instagram.Media()
+                {
+                    Content = GetCaption(item),
+                    Location = GetLocation(item),
+                    UserName = GetUsername(item),
+                    UserFullName = GetUserFullname(item),
+                    UserId = item.user.id,
+                    UserProfilePicture = GetUserProfilePicture(item),
+                    ImageURL = GetImageUrl(item),
+                    ImageThumbnailURL = GetThumbnail(item),
+                    Created = item.created_time
+                };
+            }
+        }
+
+        private static string GetThumbnail(Models.JSON.Instagram.MediaSearch.Datum item)
+        {
+            if (item.images == null)
+                return string.Empty;
+            if (item.images.thumbnail == null)
+                return string.Empty;
+            return item.images.thumbnail.url;
+        }
+
+        private static string GetImageUrl(Models.JSON.Instagram.MediaSearch.Datum item)
+        {
+            if (item.images == null)
+                return string.Empty;
+            if (item.images.standard_resolution == null)
+                return string.Empty;
+            return item.images.standard_resolution.url;
+        }
+
+        private static string GetUserProfilePicture(Models.JSON.Instagram.MediaSearch.Datum item)
+        {
+            if (item.user == null)
+                return string.Empty;
+            return item.user.profile_picture;
+        }
+
+        private static string GetUserFullname(Models.JSON.Instagram.MediaSearch.Datum item)
+        {
+            if (item.user == null)
+                return string.Empty;
+            return item.user.full_name;
+        }
+
+        private static string GetUsername(Models.JSON.Instagram.MediaSearch.Datum item)
+        {
+            if (item.user == null)
+                return string.Empty;
+            return item.user.username;
+        }
+
+        private static System.Device.Location.GeoCoordinate GetLocation(Models.JSON.Instagram.MediaSearch.Datum item)
+        {
+            if (item.location == null)
+                return null;
+            return new System.Device.Location.GeoCoordinate(item.location.latitude, item.location.longitude);
+        }
+
+        private static string GetCaption(Models.JSON.Instagram.MediaSearch.Datum item)
+        {
+            if (item.caption==null)
+                return string.Empty;
+            return item.caption.text;
         }
 
         public System.Collections.Generic.IEnumerable<Models.Instagram.Media> JSON2Model(System.Collections.Generic.IEnumerable<Models.JSON.Instagram.MediaSearch.RootObject> root)

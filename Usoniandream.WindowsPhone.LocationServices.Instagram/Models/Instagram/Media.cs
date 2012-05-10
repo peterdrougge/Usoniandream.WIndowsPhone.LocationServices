@@ -30,5 +30,18 @@ namespace Usoniandream.WindowsPhone.LocationServices.Models.Instagram
     public class Media : GenericLocationBase
     {
 
+        public string UserName { get; set; }
+
+        public string UserId { get; set; }
+
+        public string UserProfilePicture { get; set; }
+
+        public string ImageURL { get; set; }
+
+        public string ImageThumbnailURL { get; set; }
+
+        public string Created { get; set; }
+
+        public string UserFullName { get; set; }
     }
 }

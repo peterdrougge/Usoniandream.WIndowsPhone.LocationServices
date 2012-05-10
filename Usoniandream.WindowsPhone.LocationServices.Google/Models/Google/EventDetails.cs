@@ -30,5 +30,12 @@ namespace Usoniandream.WindowsPhone.LocationServices.Models.Google
     public class EventDetails : GenericLocationBase
     {
 
+        public int Duration { get; set; }
+
+        public DateTime Start { get; set; }
+
+        public string Link { get; set; }
+
+        public string Id { get; set; }
     }
 }

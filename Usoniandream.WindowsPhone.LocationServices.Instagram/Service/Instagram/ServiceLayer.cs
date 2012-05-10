@@ -24,11 +24,40 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using RestSharp;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Service.Instagram
 {
     public class ServiceLayer : GenericServiceLayer
     {
+        /// <summary>
+        /// Gets the media by location.
+        /// </summary>
+        /// <param name="criteria">The criteria.</param>
+        /// <param name="callback">The callback.</param>
+        public void GetMediaByLocation(SearchCriterias.Instagram.MediaByLocation criteria, Action<IRestResponse<Models.JSON.Instagram.MediaSearch.RootObject>> callback)
+        {
+            ExecuteRequestForCallback<Models.Instagram.Media, Models.JSON.Instagram.MediaSearch.RootObject>(criteria, callback);
+        }
 
+        /// <summary>
+        /// Gets the places by location.
+        /// </summary>
+        /// <param name="criteria">The criteria.</param>
+        /// <param name="callback">The callback.</param>
+        public void GetPlacesByLocation(SearchCriterias.Instagram.PlacesByLocation criteria, Action<IRestResponse<Models.JSON.Instagram.Locations.RootObject>> callback)
+        {
+            ExecuteRequestForCallback<Models.Instagram.Location, Models.JSON.Instagram.Locations.RootObject>(criteria, callback);
+        }
+
+        /// <summary>
+        /// Gets the media details.
+        /// </summary>
+        /// <param name="criteria">The criteria.</param>
+        /// <param name="callback">The callback.</param>
+        public void GetMediaDetails(SearchCriterias.Instagram.MediaDetails criteria, Action<IRestResponse<Models.JSON.Instagram.MediaDetails.RootObject>> callback)
+        {
+            ExecuteRequestForCallback<Models.Instagram.MediaDetails, Models.JSON.Instagram.MediaDetails.RootObject>(criteria, callback);
+        }
     }
 }

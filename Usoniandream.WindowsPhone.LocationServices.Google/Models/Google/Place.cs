@@ -30,5 +30,20 @@ namespace Usoniandream.WindowsPhone.LocationServices.Models.Google
     public class Place : GenericLocationBase
     {
 
+        public string PhoneNumber { get; set; }
+
+        public string Address { get; set; }
+
+        public System.Collections.Generic.List<string> Attributions { get; set; }
+
+        public string Vicinity { get; set; }
+
+        public string Reference { get; set; }
+
+        public double Rating { get; set; }
+
+        public string Icon { get; set; }
+
+        public string Id { get; set; }
     }
 }

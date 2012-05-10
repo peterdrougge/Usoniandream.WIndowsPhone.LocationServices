@@ -24,11 +24,38 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using RestSharp;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Service.Google
 {
     public class ServiceLayer : GenericServiceLayer
     {
-
+        /// <summary>
+        /// Gets the places by radius.
+        /// </summary>
+        /// <param name="criteria">The criteria.</param>
+        /// <param name="callback">The callback.</param>
+        public void GetPlacesByRadius(SearchCriterias.Google.PlacesByRadius criteria, Action<IRestResponse<Models.JSON.Google.Places.RootObject>> callback)
+        {
+            ExecuteRequestForCallback<Models.Google.Place, Models.JSON.Google.Places.RootObject>(criteria, callback);
+        }
+        /// <summary>
+        /// Gets the place details.
+        /// </summary>
+        /// <param name="criteria">The criteria.</param>
+        /// <param name="callback">The callback.</param>
+        public void GetPlaceDetails(SearchCriterias.Google.PlaceDetails criteria, Action<IRestResponse<Models.JSON.Google.Place.RootObject>> callback)
+        {
+            ExecuteRequestForCallback<Models.Google.PlaceDetails, Models.JSON.Google.Place.RootObject>(criteria, callback);
+        }
+        /// <summary>
+        /// Gets the event details.
+        /// </summary>
+        /// <param name="criteria">The criteria.</param>
+        /// <param name="callback">The callback.</param>
+        public void GetEventDetails(SearchCriterias.Google.EventDetails criteria, Action<IRestResponse<Models.JSON.Google.EventDetails.RootObject>> callback)
+        {
+            ExecuteRequestForCallback<Models.Google.EventDetails, Models.JSON.Google.EventDetails.RootObject>(criteria, callback);
+        }
     }
 }

@@ -32,7 +32,15 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Instagram
 
         public System.Collections.Generic.IEnumerable<Models.Instagram.Location> JSON2Model(Models.JSON.Instagram.Locations.RootObject root)
         {
-            throw new NotImplementedException();
+            foreach (var item in root.data)
+            {
+                yield return new Models.Instagram.Location()
+                {
+                    Content = item.name,
+                    Location = new System.Device.Location.GeoCoordinate(item.latitude, item.longitude),
+                    Id = item.id
+                };
+            }
         }
 
         public System.Collections.Generic.IEnumerable<Models.Instagram.Location> JSON2Model(System.Collections.Generic.IEnumerable<Models.JSON.Instagram.Locations.RootObject> root)

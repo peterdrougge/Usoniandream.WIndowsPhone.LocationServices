@@ -55,7 +55,7 @@
     <Reference Include="Microsoft.Phone.Controls" />
     <Reference Include="Microsoft.Phone.Interop" />
     <Reference Include="RestSharp.WindowsPhone, Version=103.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\RestSharp.103.1\lib\sl4-wp71\RestSharp.WindowsPhone.dll</HintPath>
+      <HintPath>..\lib\RestSharp.WindowsPhone.dll</HintPath>
     </Reference>
     <Reference Include="System.Device" />
     <Reference Include="System.Observable" />
@@ -119,9 +119,17 @@
       <Project>{44BD70F3-D6E6-4429-8F8E-FD9D1C39D5E3}</Project>
       <Name>Usoniandream.WindowsPhone.LocationServices.Flickr</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Usoniandream.WindowsPhone.LocationServices.Google\Usoniandream.WindowsPhone.LocationServices.Google.csproj">
+      <Project>{2A154A7C-2483-4FFD-B685-E0D2557D7A2A}</Project>
+      <Name>Usoniandream.WindowsPhone.LocationServices.Google</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Usoniandream.WindowsPhone.LocationServices.Goteborg\Usoniandream.WindowsPhone.LocationServices.Goteborg.csproj">
       <Project>{B381DFD0-6F1B-49B2-9C80-86692F5FFAB6}</Project>
       <Name>Usoniandream.WindowsPhone.LocationServices.Goteborg</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Usoniandream.WindowsPhone.LocationServices.Instagram\Usoniandream.WindowsPhone.LocationServices.Instagram.csproj">
+      <Project>{3E277DDE-C3A5-4C59-97DD-249FEC6B5572}</Project>
+      <Name>Usoniandream.WindowsPhone.LocationServices.Instagram</Name>
     </ProjectReference>
     <ProjectReference Include="..\Usoniandream.WindowsPhone.LocationServices.Nokia\Usoniandream.WindowsPhone.LocationServices.Nokia.csproj">
       <Project>{0BCC743D-371D-478B-B756-0191591DF593}</Project>

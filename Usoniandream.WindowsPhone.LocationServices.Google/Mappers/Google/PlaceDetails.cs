@@ -42,7 +42,19 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Google
 
         public Models.Google.PlaceDetails JSON2FirstModel(Models.JSON.Google.Place.RootObject root)
         {
-            throw new NotImplementedException();
+            return new Models.Google.PlaceDetails()
+            {
+                Content = root.result.name,
+                Address = root.result.formatted_address,
+                PhoneNumber = root.result.formatted_phone_number,
+                Icon = root.result.icon,
+                Rating = root.result.rating,
+                Reference = root.result.reference,
+                Vicinity = root.result.vicinity,
+                Attributions = root.html_attributions,
+                Location = new System.Device.Location.GeoCoordinate(root.result.geometry.location.lat, root.result.geometry.location.lng),
+                Id = root.result.id
+            };
         }
 
         public Models.Google.PlaceDetails JSON2LastModel(Models.JSON.Google.Place.RootObject root)

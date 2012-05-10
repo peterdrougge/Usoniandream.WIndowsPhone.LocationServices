@@ -30,5 +30,6 @@ namespace Usoniandream.WindowsPhone.LocationServices.Models.Instagram
     public class Location : GenericLocationBase
     {
 
+        public string Id { get; set; }
     }
 }

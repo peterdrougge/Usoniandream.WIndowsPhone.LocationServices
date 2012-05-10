@@ -75,8 +75,8 @@ namespace Usoniandream.WindowsPhone.LocationServices.Models.JSON.Google.Places
 
     public class RootObject
     {
-        public List<object> html_attributions { get; set; }
-        public Result result { get; set; }
+        public List<string> html_attributions { get; set; }
+        public List<Result> result { get; set; }
         public string status { get; set; }
     }
 }

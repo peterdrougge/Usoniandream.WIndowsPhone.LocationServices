@@ -42,7 +42,14 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Google
 
         public Models.Google.EventDetails JSON2FirstModel(Models.JSON.Google.EventDetails.RootObject root)
         {
-            throw new NotImplementedException();
+            return new Models.Google.EventDetails()
+            {
+                Content = root.result.summary,
+                Duration = root.result.duration,    
+                Start = root.result.start_time,
+                Link = root.result.url,
+                Id = root.result.event_id
+            };
         }
 
         public Models.Google.EventDetails JSON2LastModel(Models.JSON.Google.EventDetails.RootObject root)

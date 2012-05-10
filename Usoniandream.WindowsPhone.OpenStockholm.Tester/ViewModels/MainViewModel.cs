@@ -32,6 +32,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Tester
             this.orebroservicelayer = new Service.Orebro.Reactive.ServiceLayer();
             this.flickrservicelayer = new Service.Flickr.Reactive.ServiceLayer();
             this.twitterrservicelayer = new Service.Twitter.Reactive.ServiceLayer();
+            this.instagramservicelayer = new Service.Instagram.Reactive.ServiceLayer();
         }
         private ObservableCollection<GenericPivotItem> pivotItems;
         public ObservableCollection<GenericPivotItem> PivotItems { get { if (pivotItems == null) pivotItems = new ObservableCollection<GenericPivotItem>(); return pivotItems; } set { pivotItems = value; } }
@@ -43,6 +44,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Tester
         public Service.Orebro.Reactive.ServiceLayer orebroservicelayer { get; private set; }
         public Service.Flickr.Reactive.ServiceLayer flickrservicelayer { get; private set; }
         public Service.Twitter.Reactive.ServiceLayer twitterrservicelayer { get; private set; }
+        public Service.Instagram.Reactive.ServiceLayer instagramservicelayer { get; private set; }
 
         private int isDataLoading = 0;
         public bool IsDataLoading
@@ -73,19 +75,47 @@ namespace Usoniandream.WindowsPhone.LocationServices.Tester
 
         public void LoadData()
         {
-            WireStockholmPivotItem();
+            //WireStockholmPivotItem();
 
-            WireGoteborgPivotItem();
+            //WireGoteborgPivotItem();
 
-            WireOrebroPivotItem();
+            //WireOrebroPivotItem();
 
-            WireNokiaPivotItem();
+            //WireNokiaPivotItem();
 
-            WireFlickrPivotItem();
+            //WireFlickrPivotItem();
 
-            WireTwitterPivotItem();
+            //WireTwitterPivotItem();
+
+            WireInstagramPivotItem();
 
             this.IsDataLoaded = true;
+        }
+
+        private void WireInstagramPivotItem()
+        {
+            IsDataLoading = true;
+            GenericPivotItem instagram = new GenericPivotItem() { Header = "photos", Source = "instagram" };
+            var rxinstagram = instagramservicelayer.GetMediaByLocation(new Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Instagram.MediaByLocation(new GeoCoordinate(40.74917, -73.98529)))
+                .Take(20)
+                .ObserveOnDispatcher()
+                .Finally(() =>
+                {
+                    PivotItems.Add(instagram);
+                    IsDataLoading = false;
+                })
+                .Subscribe(
+                // result
+                    x =>
+                    {
+                        instagram.Items.Add(x);
+                    },
+                // exception
+                    ex =>
+                    {
+                        MessageBox.Show(ex.Message);
+                    });
+
         }
 
         private void WireTwitterPivotItem()

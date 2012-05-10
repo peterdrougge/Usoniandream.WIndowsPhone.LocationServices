@@ -34,7 +34,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Instagram.Reactive
         /// </summary>
         /// <param name="criteria">The criteria.</param>
         /// <returns></returns>
-        public IObservable<Models.Instagram.Media> GetMediaByLocation(SearchCriterias.MediaByLocation criteria)
+        public IObservable<Models.Instagram.Media> GetMediaByLocation(SearchCriterias.Instagram.MediaByLocation criteria)
         {
             return ExecuteRequestReturnObservable<Models.Instagram.Media, Models.JSON.Instagram.MediaSearch.RootObject>(criteria);
         }
@@ -44,7 +44,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Instagram.Reactive
         /// </summary>
         /// <param name="criteria">The criteria.</param>
         /// <returns></returns>
-        public IObservable<Models.Instagram.Location> GetPlacesByLocation(SearchCriterias.PlacesByLocation criteria)
+        public IObservable<Models.Instagram.Location> GetPlacesByLocation(SearchCriterias.Instagram.PlacesByLocation criteria)
         {
             return ExecuteRequestReturnObservable<Models.Instagram.Location, Models.JSON.Instagram.Locations.RootObject>(criteria);
         }
@@ -53,7 +53,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Instagram.Reactive
         /// </summary>
         /// <param name="criteria">The criteria.</param>
         /// <returns></returns>
-        public IObservable<Models.Instagram.MediaDetails> GetMediaDetails(SearchCriterias.MediaDetails criteria)
+        public IObservable<Models.Instagram.MediaDetails> GetMediaDetails(SearchCriterias.Instagram.MediaDetails criteria)
         {
             return ExecuteRequestReturnFirstObservable<Models.Instagram.MediaDetails, Models.JSON.Instagram.MediaDetails.RootObject>(criteria);
         }
