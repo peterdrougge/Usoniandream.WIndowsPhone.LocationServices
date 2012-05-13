@@ -28,19 +28,8 @@ using System.Windows.Media.Imaging;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Models.Flickr
 {
-    public class Photo : GenericLocationBase
+    public class Photo : GenericPhotoLocationBase
     {
-
-        public string Id { get; set; }
-
-        public string ImageURL { get; set; }
-        public BitmapImage Image
-        {
-            get
-            {
-                return new BitmapImage(new Uri(ImageURL)) { CreateOptions = BitmapCreateOptions.BackgroundCreation };
-            }
-        }
         public IObservable<PhotoDetails> Details { get; set; }
     }
 }

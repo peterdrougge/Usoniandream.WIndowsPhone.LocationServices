@@ -27,20 +27,17 @@ using System.Windows.Shapes;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Models.Instagram
 {
-    public class MediaDetails : GenericLocationBase
+    public class MediaDetails : GenericPhotoLocationBase
     {
-
         public string UserName { get; set; }
 
         public string UserId { get; set; }
 
         public string UserProfilePicture { get; set; }
 
-        public JSON.Instagram.MediaDetails.StandardResolution ImageURL { get; set; }
+        public string ImageThumbnailURL { get; set; }
 
-        public JSON.Instagram.MediaDetails.Thumbnail ImageThumbnailURL { get; set; }
-
-        public DateTime Created { get; set; }
+        public int Created { get; set; }
 
         public string Type { get; set; }
 

@@ -38,7 +38,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Flickr
                 yield return new Models.Flickr.Photo()
                 {
                     Content = item.title,
-                    Id = item.id,
+                    ID = item.id,
                     Details = servicelayer.GetPhotoDetails(new SearchCriterias.Flickr.PhotoDetails(item.id)),
                     ImageURL = String.Format("http://farm{0}.staticflickr.com/{1}/{2}_{3}.jpg", item.farm, item.server, item.id, item.secret)
                 };

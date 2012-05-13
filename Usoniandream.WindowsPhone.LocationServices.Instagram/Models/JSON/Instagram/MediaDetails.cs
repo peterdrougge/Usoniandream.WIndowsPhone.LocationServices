@@ -112,7 +112,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Models.JSON.Instagram.Media
         public Likes likes { get; set; }
         public string link { get; set; }
         public User user { get; set; }
-        public DateTime created_time { get; set; }
+        public int created_time { get; set; }
         public Images images { get; set; }
         public string id { get; set; }
         public Location location { get; set; }

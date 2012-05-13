@@ -63,9 +63,11 @@
     <Reference Include="mscorlib.extensions" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Extensions\ObservableExtensions.cs" />
     <Compile Include="Mappers\IMapper.cs" />
     <Compile Include="Models\GenericLocationBase.cs" />
+    <Compile Include="Models\GenericPhotoLocationBase.cs" />
     <Compile Include="Models\ILocation.cs" />
     <Compile Include="Models\IService.cs" />
     <Compile Include="Models\ServiceAPIKey.cs" />

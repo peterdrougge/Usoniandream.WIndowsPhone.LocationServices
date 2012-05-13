@@ -24,6 +24,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using Usoniandream.WindowsPhone.LocationServices.Extensions;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Instagram
 {
@@ -44,14 +45,17 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Instagram
         {
             return new Models.Instagram.MediaDetails()
             {
+                ID = root.data.id,
                 Content = root.data.caption,
                 Location = new System.Device.Location.GeoCoordinate(root.data.location.latitude, root.data.location.longitude),
                 UserName = root.data.user.username,
+                Owner = root.data.user.full_name,
                 UserId = root.data.user.id,
                 UserProfilePicture = root.data.user.profile_picture,
-                ImageURL = root.data.images.standard_resolution,
-                ImageThumbnailURL = root.data.images.thumbnail,
+                ImageURL = root.data.images.standard_resolution.url,
+                ImageThumbnailURL = root.data.images.thumbnail.url,
                 Created = root.data.created_time,
+                DateTaken = root.data.created_time.FromUnix(),
                 Link = root.data.link,
                 Type = root.data.type
             };

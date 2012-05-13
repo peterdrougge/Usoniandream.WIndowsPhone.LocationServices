@@ -24,11 +24,24 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using System.Windows.Media.Imaging;
 
-namespace Usoniandream.WindowsPhone.LocationServices.Models.Flickr
+namespace Usoniandream.WindowsPhone.LocationServices.Models
 {
-    public class PhotoDetails : GenericPhotoLocationBase
+    public abstract class GenericPhotoLocationBase : GenericLocationBase
     {
-        public string DateUploaded { get; set; }
+        public string ID { get; set; }
+        public string ImageURL { get; set; }
+        public virtual string Owner { get; set; }
+        public virtual string Description { get; set; }
+        public virtual DateTime DateTaken { get; set; }
+        public virtual BitmapImage Image
+        {
+            get
+            {
+                return new BitmapImage(new Uri(ImageURL)) { CreateOptions = BitmapCreateOptions.BackgroundCreation };
+            }
+        }
+ 
     }
 }

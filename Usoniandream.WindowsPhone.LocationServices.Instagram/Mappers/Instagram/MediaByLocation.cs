@@ -24,6 +24,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using Usoniandream.WindowsPhone.LocationServices.Extensions;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Instagram
 {
@@ -36,6 +37,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Instagram
             {
                 yield return new Models.Instagram.Media()
                 {
+                    ID = item.id,
                     Content = GetCaption(item),
                     Location = GetLocation(item),
                     UserName = GetUsername(item),
@@ -44,7 +46,8 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Instagram
                     UserProfilePicture = GetUserProfilePicture(item),
                     ImageURL = GetImageUrl(item),
                     ImageThumbnailURL = GetThumbnail(item),
-                    Created = item.created_time
+                    Created = item.created_time,
+                    DateTaken = item.created_time.FromUnix()
                 };
             }
         }

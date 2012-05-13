@@ -10,6 +10,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using RestSharp;
 using System.Reactive.Linq;
+using System.Diagnostics;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Extensions
 {

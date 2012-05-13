@@ -59,7 +59,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Flickr
                 ImageURL = ExtractImageURL(root),
                 DateUploaded = root.photo.dateuploaded,
                 Description = ExtractDescription(root),
-                DateTaken = ExtractDateTaken(root),
+                DateTaken = DateTime.Parse(ExtractDateTaken(root)),
                 Owner = ExtractRealName(root),
                 ID = root.photo.id
             };
