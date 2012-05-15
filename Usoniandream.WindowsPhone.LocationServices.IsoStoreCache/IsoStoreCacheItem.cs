@@ -1,4 +1,5 @@
-﻿//
+﻿
+//
 // Copyright (c) 2012 Peter Drougge
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,7 +14,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-
 using System;
 using System.Net;
 using System.Windows;
@@ -24,11 +24,18 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using System.Runtime.Serialization;
 
-namespace Usoniandream.WindowsPhone.LocationServices.Models
+namespace Usoniandream.WindowsPhone.LocationServices.Caching.IsoStoreCache
 {
-    public interface IService
+    [DataContract]
+    public class IsoStoreCacheItem<T>
     {
-        Caching.ICacheProvider CacheProvider { get; set; }
+        [DataMember]
+        public string ID { get; set; }
+        [DataMember]
+        public T[] Data { get; set; }
+        [DataMember]
+        public DateTime Created { get; set ; }
     }
 }

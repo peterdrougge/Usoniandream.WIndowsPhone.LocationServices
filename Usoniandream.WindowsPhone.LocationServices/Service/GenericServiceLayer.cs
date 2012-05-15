@@ -60,5 +60,17 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service
             criteria.Client.ExecuteAsync<Tsource>(criteria.Request, callback);
         }
 
+        private Caching.ICacheProvider cacheProvider;
+        public Caching.ICacheProvider CacheProvider
+        {
+            get
+            {
+                return cacheProvider;
+            }
+            set
+            {
+                cacheProvider = value;
+            }
+        }
     }
 }

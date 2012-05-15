@@ -131,6 +131,10 @@
       <Project>{3E277DDE-C3A5-4C59-97DD-249FEC6B5572}</Project>
       <Name>Usoniandream.WindowsPhone.LocationServices.Instagram</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Usoniandream.WindowsPhone.LocationServices.IsoStoreCache\Usoniandream.WindowsPhone.LocationServices.IsoStoreCache.csproj">
+      <Project>{D2BFC111-A1BD-4ADA-8A81-C1F4B88FB982}</Project>
+      <Name>Usoniandream.WindowsPhone.LocationServices.IsoStoreCache</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Usoniandream.WindowsPhone.LocationServices.Nokia\Usoniandream.WindowsPhone.LocationServices.Nokia.csproj">
       <Project>{0BCC743D-371D-478B-B756-0191591DF593}</Project>
       <Name>Usoniandream.WindowsPhone.LocationServices.Nokia</Name>

@@ -28,6 +28,7 @@ using Usoniandream.WindowsPhone.LocationServices.Extensions;
 using RestSharp;
 using System.Reactive.Linq;
 using System.Diagnostics;
+using System.Threading;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Service.Reactive
 {
@@ -36,6 +37,13 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Reactive
     /// </summary>
     public abstract class GenericServiceLayer : IService
     {
+        public GenericServiceLayer()
+        {}
+        public GenericServiceLayer(Caching.ICacheProvider cacheProvider)
+        {
+            CacheProvider = cacheProvider;
+        }
+
         /// <summary>
         /// Executes the request return first observable.
         /// </summary>
@@ -59,8 +67,26 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Reactive
                 Debug.WriteLine(string.Format("LocationServices - executing criteria - {0}", criteria.Client.BuildUri(criteria.Request)));
             }
 
-            return criteria.Client.ExecuteAsync<Tsource>(criteria.Request)
-                            .Select<Tsource, Ttarget>(x => criteria.Mapper.JSON2FirstModel(x));
+            if (CacheProvider != null)
+            {
+                if (CacheProvider.IsCached(criteria))
+                {
+                    if (CacheProvider.IsValid<Tsource>(criteria, criteria.CacheSettings.Duration))
+                    {
+                        return CacheProvider.GetCachedData<Ttarget>(criteria);
+                    }
+                }
+            }
+
+            var ret = criteria.Client.ExecuteAsync<Tsource>(criteria.Request);
+            return ret.Select<Tsource, Ttarget>(x => criteria.Mapper.JSON2FirstModel(x))
+                .Finally(() =>
+                {
+                    if (criteria.CacheSettings != null)
+                    {
+                        ThreadPool.QueueUserWorkItem((o) => CacheProvider.Add<Tsource>(criteria, ret));
+                    }
+                });
         }
 
         /// <summary>
@@ -86,9 +112,42 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Reactive
                 Debug.WriteLine(string.Format("LocationServices - executing criteria - {0}", criteria.Client.BuildUri(criteria.Request)));
             }
 
-            return criteria.Client.ExecuteAsync<Tsource>(criteria.Request)
-                            .SelectMany<Tsource, Ttarget>(x => criteria.Mapper.JSON2Model(x));
+            if (CacheProvider!=null)
+            {
+                if (CacheProvider.IsCached(criteria))
+                {
+                    if (CacheProvider.IsValid<Tsource>(criteria, criteria.CacheSettings.Duration))
+                    {
+                        Debug.WriteLine("returning " + criteria.GetType().FullName + " cached response");
+                        return CacheProvider.GetCachedData<Tsource>(criteria).SelectMany<Tsource, Ttarget>(x => criteria.Mapper.JSON2Model(x));
+                    }
+                }
+            }
+
+            IObservable<Tsource> ret = null;
+            ret = criteria.Client.ExecuteAsync<Tsource>(criteria.Request)
+                .Finally(() =>
+                {
+                    if (criteria.CacheSettings != null)
+                    {
+                        ThreadPool.QueueUserWorkItem((o) => CacheProvider.Add<Tsource>(criteria, ret));
+                    }
+                });
+            Debug.WriteLine("returning " + criteria.GetType().FullName + " response from calling service");
+            return ret.SelectMany<Tsource, Ttarget>(x => criteria.Mapper.JSON2Model(x));
         }
 
+        private Caching.ICacheProvider cacheProvider;
+        public Caching.ICacheProvider CacheProvider
+        {
+            get
+            {
+                return cacheProvider;
+            }
+            set
+            {
+                cacheProvider = value;
+            }
+        }
     }
 }

@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Usoniandream.WindowsPhone.L
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Usoniandream.WindowsPhone.LocationServices.Google", "Usoniandream.WindowsPhone.LocationServices.Google\Usoniandream.WindowsPhone.LocationServices.Google.csproj", "{2A154A7C-2483-4FFD-B685-E0D2557D7A2A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Usoniandream.WindowsPhone.LocationServices.IsoStoreCache", "Usoniandream.WindowsPhone.LocationServices.IsoStoreCache\Usoniandream.WindowsPhone.LocationServices.IsoStoreCache.csproj", "{D2BFC111-A1BD-4ADA-8A81-C1F4B88FB982}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -121,6 +123,12 @@ Global
 		{2A154A7C-2483-4FFD-B685-E0D2557D7A2A}.Mock|Any CPU.Build.0 = Release|Any CPU
 		{2A154A7C-2483-4FFD-B685-E0D2557D7A2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A154A7C-2483-4FFD-B685-E0D2557D7A2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2BFC111-A1BD-4ADA-8A81-C1F4B88FB982}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2BFC111-A1BD-4ADA-8A81-C1F4B88FB982}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2BFC111-A1BD-4ADA-8A81-C1F4B88FB982}.Mock|Any CPU.ActiveCfg = Release|Any CPU
+		{D2BFC111-A1BD-4ADA-8A81-C1F4B88FB982}.Mock|Any CPU.Build.0 = Release|Any CPU
+		{D2BFC111-A1BD-4ADA-8A81-C1F4B88FB982}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2BFC111-A1BD-4ADA-8A81-C1F4B88FB982}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

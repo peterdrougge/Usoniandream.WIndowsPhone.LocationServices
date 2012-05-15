@@ -19,30 +19,26 @@ using Usoniandream.WindowsPhone.LocationServices.Mappers;
 namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias
 {
     /// <summary>
-    /// base interface for all SearchCriterias
+    /// deep base interface for all SearchCriterias
     /// </summary>
-    /// <typeparam name="Ttarget">The type of the target.</typeparam>
-    /// <typeparam name="Tsource">The type of the source.</typeparam>
-    public interface ISearchCriteria<Ttarget, Tsource> : ISearchCriteriaFoundation
+    public interface ISearchCriteriaFoundation
     {
         /// <summary>
-        /// Gets the API key.
+        /// Gets the client.
         /// </summary>
-        string APIkey { get; }
+        RestSharp.RestClient Client { get; }
         /// <summary>
-        /// Gets or sets the mapper.
+        /// Gets the request.
+        /// </summary>
+        RestSharp.RestRequest Request { get; }
+        /// <summary>
+        /// Gets or sets a value indicating whether this <see cref="ISearchCriteria&lt;Ttarget, Tsource&gt;"/> is debug.
         /// </summary>
         /// <value>
-        /// The mapper.
+        ///   <c>true</c> if debug; otherwise, <c>false</c>.
         /// </value>
-        IMapper<Ttarget, Tsource> Mapper { get; set; }
-        /// <summary>
-        /// Gets or sets a value indicating whether [skip API key check].
-        /// </summary>
-        /// <value>
-        ///   <c>true</c> if [skip API key check]; otherwise, <c>false</c>.
-        /// </value>
-        bool SkipAPIKeyCheck { get; set; }
-        CriteriaCacheSettings CacheSettings { get; set; }
+        bool DebugMode { get; set; }
+
+        string Identifier { get; }
     }
 }

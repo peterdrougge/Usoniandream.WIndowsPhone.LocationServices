@@ -1,4 +1,5 @@
-﻿//
+﻿    
+//
 // Copyright (c) 2012 Peter Drougge
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,7 +14,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-
 using System;
 using System.Net;
 using System.Windows;
@@ -25,10 +25,16 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace Usoniandream.WindowsPhone.LocationServices.Models
+namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias
 {
-    public interface IService
+    public class CriteriaCacheSettings
     {
-        Caching.ICacheProvider CacheProvider { get; set; }
+        public CriteriaCacheSettings()
+        {}
+
+        public CriteriaCacheSettings(int duration)
+        { Duration = duration; }
+
+        public int Duration { get; set; }
     }
 }

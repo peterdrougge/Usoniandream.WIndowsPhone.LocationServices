@@ -69,7 +69,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias
 
         public RestClient Client { get; private set; }
         public RestRequest Request { get; private set; }
-
+        public CriteriaCacheSettings CacheSettings { get; set; }
         public IMapper<Ttarget, Tsource> Mapper { get; set; }
         
         public Dictionary<string, string> Parameters { get; set; }
@@ -114,5 +114,13 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias
 
         public bool DebugMode { get; set; }
         public bool SkipAPIKeyCheck { get; set; }
+
+        public string Identifier
+        {
+            get
+            {
+                return this.Client.BuildUri(this.Request).ToString().Replace("/", "").Replace(".", "").Replace(",", "").Replace(":","").Replace("&","").Replace("?","").Replace("=","").Replace("-","");
+            }
+        }
     }
 }
