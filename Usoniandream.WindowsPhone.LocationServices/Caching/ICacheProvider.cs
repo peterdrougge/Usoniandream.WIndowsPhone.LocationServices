@@ -55,6 +55,13 @@ namespace Usoniandream.WindowsPhone.LocationServices.Caching
         /// <param name="foundation">The criteria.</param>
         void Remove(SearchCriterias.ISearchCriteriaFoundation foundation);
         /// <summary>
+        /// Replaces the specified cached foundation.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="foundation">The foundation.</param>
+        /// <param name="result">The result.</param>
+        void Replace<T>(SearchCriterias.ISearchCriteriaFoundation foundation, IObservable<T> result);
+        /// <summary>
         /// Adds the specified criteria result to cache.
         /// </summary>
         /// <typeparam name="T"></typeparam>

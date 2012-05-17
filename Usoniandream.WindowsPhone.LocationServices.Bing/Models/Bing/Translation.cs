@@ -1,4 +1,5 @@
-﻿//
+﻿
+//
 // Copyright (c) 2012 Peter Drougge
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,7 +14,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-
 using System;
 using System.Net;
 using System.Windows;
@@ -24,30 +24,24 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
-using System.Device.Location;
 
-namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Bing
+namespace Usoniandream.WindowsPhone.LocationServices.Models.Bing
 {
-    public class AddressByPoint : SearchCriterias.SearchCriteriaBase<Models.Bing.BingMapLocation, Models.JSON.Bing.BingLocation.RootObject>
+    public class Translation : IModel
     {
-        public AddressByPoint(GeoCoordinate location)
-            : base("BING_MAPS_SERVICE_URI_LOCATION")
+        public string From { get; set; }
+        public string To { get; set; }
+
+        public object Content
         {
-
-            Location = location;
-
-            Mapper = new Mappers.Bing.BingLocation();
-
-            APIKeyResourceName = "BING_MAPS_API_KEY";
-
-            Request.Resource = "Locations/" + Location.Latitude.ToString().Replace(",", ".") + "," + Location.Longitude.ToString().Replace(",", ".");
-
-            Request.AddParameter("includeEntityTypes", "Address");
-            Request.AddParameter("o","json");
-            Request.AddParameter("key", APIkey);
-
+            get
+            {
+                return To;
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
         }
-
-        public GeoCoordinate Location { get; set; }
     }
 }

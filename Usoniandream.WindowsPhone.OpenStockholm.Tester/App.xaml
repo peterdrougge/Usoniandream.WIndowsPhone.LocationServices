@@ -20,6 +20,7 @@
         <usoniandream:ServiceAPIKey x:Key="NOKIA_APP_CODE" Value="" />
         <usoniandream:ServiceAPIKey x:Key="NOKIA_APP_ID" Value="" />
         <!-- BING -->
+        <usoniandream:ServiceAPIKey x:Key="BING_MAPS_API_KEY" Value="" />
         <usoniandream:ServiceAPIKey x:Key="BING_API_KEY" Value="" />
         <!-- GOTEBORG -->
         <usoniandream:ServiceAPIKey x:Key="GOTEBORG_DATA_API_KEY" Value="" />
@@ -36,7 +37,8 @@
         <usoniandream:ServiceURI x:Key="STHLM_DATA_SERVICE_URI_PARKINGMETER" URL="http://openstreetgs.stockholm.se/geoservice/api/" />
         <usoniandream:ServiceURI x:Key="STHLM_DATA_SERVICE_URI_PLACE" URL="http://api.stockholm.se/PlaceService" />
         <usoniandream:ServiceURI x:Key="NOKIA_SERVICE_URI_PLACES" URL="http://demo.places.nlp.nokia.com/places/v1/" />
-        <usoniandream:ServiceURI x:Key="BING_SERVICE_URI_LOCATION" URL="http://dev.virtualearth.net/REST/v1/" />
+        <usoniandream:ServiceURI x:Key="BING_MAPS_SERVICE_URI_LOCATION" URL="http://dev.virtualearth.net/REST/v1/" />
+        <usoniandream:ServiceURI x:Key="BING_SERVICE_URI_LOCATION" URL="http://api.bing.net/" />
         <usoniandream:ServiceURI x:Key="GOTEBORG_DATA_SERVICE_URI_PARKING" URL="http://data.goteborg.se/ParkingService/v1.3/" />
         <usoniandream:ServiceURI x:Key="GOTEBORG_DATA_SERVICE_URI_TRAFFICCAMERAS" URL="http://data.goteborg.se/TrafficCamera/v0.1/" />
         <usoniandream:ServiceURI x:Key="GOTEBORG_DATA_SERVICE_URI_STYROCHSTALL" URL="http://data.goteborg.se/StyrOchStall/v0.1/" />

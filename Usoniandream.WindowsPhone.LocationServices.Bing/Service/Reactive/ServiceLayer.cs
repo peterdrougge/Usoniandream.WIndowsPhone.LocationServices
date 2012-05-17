@@ -39,6 +39,15 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Bing.Reactive
         {
             return ExecuteRequestReturnFirstObservable<BingMapLocation, Models.JSON.Bing.BingLocation.RootObject>(criteria);
         }
+        /// <summary>
+        /// Translates the specified criteria.
+        /// </summary>
+        /// <param name="criteria">The criteria.</param>
+        /// <returns></returns>
+        public IObservable<Translation> Translate(SearchCriterias.Bing.Translation criteria)
+        {
+            return ExecuteRequestReturnObservable<Translation, Models.JSON.Bing.Translation.RootObject>(criteria);
+        }
 
     }
 }

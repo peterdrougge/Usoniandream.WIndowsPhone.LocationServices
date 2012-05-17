@@ -70,6 +70,7 @@
     <Compile Include="Models\GenericPhotoLocationBase.cs" />
     <Compile Include="Caching\ICacheProvider.cs" />
     <Compile Include="Models\ILocation.cs" />
+    <Compile Include="Models\IModel.cs" />
     <Compile Include="Models\IService.cs" />
     <Compile Include="Models\ServiceAPIKey.cs" />
     <Compile Include="Models\ServiceURI.cs" />

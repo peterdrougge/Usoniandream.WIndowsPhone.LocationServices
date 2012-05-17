@@ -189,5 +189,15 @@ namespace Usoniandream.WindowsPhone.LocationServices.Caching.IsoStoreCache
         }
 
         public bool Busy { get; set; }
+
+
+        public void Replace<T>(SearchCriterias.ISearchCriteriaFoundation foundation, IObservable<T> result)
+        {
+            if (this.IsCached(foundation))
+            {
+                this.Remove(foundation);
+                SaveToLocalSource<T>(foundation, result);
+            }
+        }
     }
 }

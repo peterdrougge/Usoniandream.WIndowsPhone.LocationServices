@@ -13,12 +13,15 @@ using Usoniandream.WindowsPhone.LocationServices.Models;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Tester
 {
-    public class GenericPivotItem
+    public class GenericPivotItem : GenericPivotItem<IModel>
+    {
+    }
+    public class GenericPivotItem<T>
     {
         public string Header { get; set; }
         public string Source { get; set; }
 
-        private ObservableCollection<ILocation> items;
-        public ObservableCollection<ILocation> Items { get { if (items == null) items = new ObservableCollection<ILocation>(); return items; } set { items = value; } }
+        private ObservableCollection<T> items;
+        public ObservableCollection<T> Items { get { if (items == null) items = new ObservableCollection<T>(); return items; } set { items = value; } }
     }
 }

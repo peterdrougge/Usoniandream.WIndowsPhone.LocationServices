@@ -32,7 +32,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Tester
             this.orebroservicelayer = new Service.Orebro.Reactive.ServiceLayer();
             this.flickrservicelayer = new Service.Flickr.Reactive.ServiceLayer();
             this.twitterrservicelayer = new Service.Twitter.Reactive.ServiceLayer();
-            this.instagramservicelayer = new Service.Instagram.Reactive.ServiceLayer();
+            this.instagramservicelayer = new Service.Instagram.Reactive.ServiceLayer() { CacheProvider = new LocationServices.Caching.IsoStoreCache.IsolatedStorageCacheProvider() };
         }
         private ObservableCollection<GenericPivotItem> pivotItems;
         public ObservableCollection<GenericPivotItem> PivotItems { get { if (pivotItems == null) pivotItems = new ObservableCollection<GenericPivotItem>(); return pivotItems; } set { pivotItems = value; } }
@@ -75,28 +75,59 @@ namespace Usoniandream.WindowsPhone.LocationServices.Tester
 
         public void LoadData()
         {
-            WireStockholmPivotItem();
+            //WireStockholmPivotItem();
 
-            WireGoteborgPivotItem();
+            //WireGoteborgPivotItem();
 
-            WireOrebroPivotItem();
+            //WireOrebroPivotItem();
 
-            WireNokiaPivotItem();
+            //WireNokiaPivotItem();
 
-            WireFlickrPivotItem();
+            //WireFlickrPivotItem();
 
-            WireTwitterPivotItem();
+            //WireTwitterPivotItem();
 
-            WireInstagramPivotItem();
+            //WireInstagramPivotItem();
+
+            WireBingPivotItem();
 
             this.IsDataLoaded = true;
         }
 
+        private void WireBingPivotItem()
+        {
+            IsDataLoading = true;
+            GenericPivotItem bing = new GenericPivotItem() { Header = "translation", Source = "bing" };
+            WindowsPhone.LocationServices.SearchCriterias.Bing.Translation criteria = new Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Bing.Translation("sv", "en", "en-US", "badplatser", "parklek", "samhälle");
+            var rxbing = bingservicelayer.Translate(criteria)
+                .Take(20)
+                .ObserveOnDispatcher()
+                .Finally(() =>
+                {
+                    PivotItems.Add(bing);
+                    IsDataLoading = false;
+                })
+                .Subscribe(
+                // result
+                    x =>
+                    {
+                        bing.Items.Add(x);
+                    },
+                // exception
+                    ex =>
+                    {
+                        MessageBox.Show(ex.Message);
+                    });
+
+        }
+        
         private void WireInstagramPivotItem()
         {
             IsDataLoading = true;
             GenericPivotItem instagram = new GenericPivotItem() { Header = "photos", Source = "instagram" };
-            var rxinstagram = instagramservicelayer.GetMediaByLocation(new Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Instagram.MediaByLocation(new GeoCoordinate(40.74917, -73.98529)))
+            WindowsPhone.LocationServices.SearchCriterias.Instagram.MediaByLocation criteria = new Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Instagram.MediaByLocation(new GeoCoordinate(40.74917, -73.98529)) { CacheSettings = new SearchCriterias.CriteriaCacheSettings(60 * 60 * 24)};
+            //instagramservicelayer.CacheProvider.Remove(criteria);
+            var rxinstagram = instagramservicelayer.GetMediaByLocation(criteria)
                 .Take(20)
                 .ObserveOnDispatcher()
                 .Finally(() =>

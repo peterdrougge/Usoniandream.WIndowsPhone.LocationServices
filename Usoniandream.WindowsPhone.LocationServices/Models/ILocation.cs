@@ -25,7 +25,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Models
     /// <summary>
     /// basic Location interface used by all model objects
     /// </summary>
-    public interface ILocation
+    public interface ILocation : IModel
     {
         /// <summary>
         /// Gets or sets the content.

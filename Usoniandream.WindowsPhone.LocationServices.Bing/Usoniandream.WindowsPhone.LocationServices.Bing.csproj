@@ -71,10 +71,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Mappers\Bing\BingLocation.cs" />
+    <Compile Include="Mappers\Bing\Translation.cs" />
     <Compile Include="Models\Bing\BingMapLocation.cs" />
+    <Compile Include="Models\Bing\Translation.cs" />
     <Compile Include="Models\JSON\Bing\BingLocation.cs" />
+    <Compile Include="Models\JSON\Bing\Translation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchCriterias\Bing\AddressByPoint.cs" />
+    <Compile Include="SearchCriterias\Bing\Translation.cs" />
     <Compile Include="Service\Reactive\ServiceLayer.cs" />
     <Compile Include="Service\ServiceLayer.cs" />
   </ItemGroup>
