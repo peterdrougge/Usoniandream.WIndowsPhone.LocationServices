@@ -25,6 +25,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Text;
+using Usoniandream.WindowsPhone.LocationServices.Models;
 
 namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Bing
 {
@@ -52,6 +53,24 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Bing
                 sb.Append(item + " | ");
             }
             Request.AddParameter("Query", sb.ToString().Substring(0, sb.ToString().Length-3));
+        }
+        public Translation(string sourceLanguage, string targetLanguage, string market, IModel foundation)
+            : base("BING_SERVICE_URI_LOCATION")
+        {
+            Mapper = new Mappers.Bing.Translation();
+
+            APIKeyResourceName = "BING_API_KEY";
+
+            Request.Resource = "json.aspx";
+
+            Request.AddParameter("Sources", "Translation");
+            Request.AddParameter("Version", "2.2");
+            Request.AddParameter("Market", market);
+            Request.AddParameter("Translation.SourceLanguage", sourceLanguage);
+            Request.AddParameter("Translation.TargetLanguage", targetLanguage);
+            Request.AddParameter("AppId", APIkey);
+
+            Request.AddParameter("Query", foundation.Content);
         }
     }
 }
