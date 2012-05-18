@@ -75,19 +75,19 @@ namespace Usoniandream.WindowsPhone.LocationServices.Tester
 
         public void LoadData()
         {
-            //WireStockholmPivotItem();
+            WireStockholmPivotItem();
 
-            //WireGoteborgPivotItem();
+            WireGoteborgPivotItem();
 
-            //WireOrebroPivotItem();
+            WireOrebroPivotItem();
 
-            //WireNokiaPivotItem();
+            WireNokiaPivotItem();
 
-            //WireFlickrPivotItem();
+            WireFlickrPivotItem();
 
-            //WireTwitterPivotItem();
+            WireTwitterPivotItem();
 
-            //WireInstagramPivotItem();
+            WireInstagramPivotItem();
 
             WireBingPivotItem();
 
