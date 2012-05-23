@@ -55,7 +55,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Reactive
         {
             if (String.IsNullOrWhiteSpace(criteria.Client.BaseUrl))
             {
-                throw new ArgumentException("missing 'baseurlresourcename', please check App.xaml.", "baseurlresourcename");
+                throw new ArgumentException("missing 'baseurlresourcename' (or 'baseuri'), please check App.xaml.", "baseurlresourcename");
             }
             if (String.IsNullOrWhiteSpace(criteria.APIkey) && !criteria.SkipAPIKeyCheck)
             {
@@ -73,13 +73,14 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Reactive
                 {
                     if (CacheProvider.IsValid<Tsource>(criteria, criteria.CacheSettings.Duration))
                     {
-                        return CacheProvider.GetCachedData<Ttarget>(criteria);
+                        Debug.WriteLine("returning " + criteria.GetType().FullName + " cached response");
+                        return CacheProvider.GetCachedData<Tsource>(criteria).Select<Tsource, Ttarget>(x => criteria.Mapper.JSON2FirstModel(x));
                     }
                 }
             }
 
-            var ret = criteria.Client.ExecuteAsync<Tsource>(criteria.Request);
-            return ret.Select<Tsource, Ttarget>(x => criteria.Mapper.JSON2FirstModel(x))
+            IObservable<Tsource> ret = null;
+            ret = criteria.Client.ExecuteAsync<Tsource>(criteria.Request)
                 .Finally(() =>
                 {
                     if (criteria.CacheSettings != null)
@@ -87,6 +88,8 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Reactive
                         ThreadPool.QueueUserWorkItem((o) => CacheProvider.Add<Tsource>(criteria, ret));
                     }
                 });
+            Debug.WriteLine("returning " + criteria.GetType().FullName + " response from calling service");
+            return ret.Select<Tsource, Ttarget>(x => criteria.Mapper.JSON2FirstModel(x));
         }
 
         /// <summary>
@@ -100,7 +103,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Reactive
         {
             if (String.IsNullOrWhiteSpace(criteria.Client.BaseUrl))
             {
-                throw new ArgumentException("missing 'baseurlresourcename', please check App.xaml.", "baseurlresourcename");
+                throw new ArgumentException("missing 'baseurlresourcename' (or 'baseuri'), please check App.xaml.", "baseurlresourcename");
             }
             if (String.IsNullOrWhiteSpace(criteria.APIkey) && !criteria.SkipAPIKeyCheck)
             {

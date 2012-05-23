@@ -52,6 +52,25 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias
             }
                 Client = new RestClient(((Models.ServiceURI)Application.Current.Resources[baseurlresourcename]).URL);
         }
+        public SearchCriteriaBase(Uri baseuri)
+        {
+            Request = new RestRequest();
+            if (baseuri==null)
+            {
+                throw new ArgumentException("missing 'baseuri", "baseuri");
+            }
+            Client = new RestClient(baseuri.ToString());
+        }
+        public SearchCriteriaBase(Uri baseuri, bool skipApiKeyCheck)
+        {
+            Request = new RestRequest();
+            if (baseuri == null)
+            {
+                throw new ArgumentException("missing 'baseuri", "baseuri");
+            }
+            Client = new RestClient(baseuri.ToString());
+            SkipAPIKeyCheck = skipApiKeyCheck;
+        }
         public SearchCriteriaBase(Method method)
         {
             Request = new RestRequest(method);
