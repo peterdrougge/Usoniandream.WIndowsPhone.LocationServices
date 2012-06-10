@@ -29,6 +29,5 @@ namespace Usoniandream.WindowsPhone.LocationServices.Models
 {
     public interface IService
     {
-        Caching.ICacheProvider CacheProvider { get; set; }
     }
 }

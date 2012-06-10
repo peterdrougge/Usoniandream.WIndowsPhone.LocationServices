@@ -30,7 +30,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Stockholm.P
     public class DetailedServiceUnit : PlaceBase<Models.Stockholm.Place.DetailedServiceUnit, Models.JSON.Stockholm.DetailedServiceUnit.RootObject>
     {
         public DetailedServiceUnit(string id)
-            : base()
+            : base(SearchCriteriaResultType.Single)
         {
             Mapper = new Mappers.Stockholm.Place.DetailedServiceUnit();
 

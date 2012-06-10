@@ -28,13 +28,6 @@ namespace Usoniandream.WindowsPhone.LocationServices.Models
     public interface ILocation : IModel
     {
         /// <summary>
-        /// Gets or sets the content.
-        /// </summary>
-        /// <value>
-        /// The content.
-        /// </value>
-        object Content { get; set; }
-        /// <summary>
         /// Gets or sets the location.
         /// </summary>
         /// <value>

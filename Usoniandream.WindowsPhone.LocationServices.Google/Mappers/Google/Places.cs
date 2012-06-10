@@ -69,5 +69,11 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Google
         {
             throw new NotImplementedException();
         }
+
+
+        public Models.GenericPagedResultsContainer<Models.Google.Place> JSON2PagedContainer(Models.JSON.Google.Places.RootObject root)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

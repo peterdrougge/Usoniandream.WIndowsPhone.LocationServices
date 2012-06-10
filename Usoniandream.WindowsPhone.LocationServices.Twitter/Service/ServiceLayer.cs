@@ -30,7 +30,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Twitter
 {
     public class ServiceLayer : GenericServiceLayer
     {
-        public void GetTweetsByRadius(SearchCriterias.Twitter.SearchByRadius criteria, Action<IRestResponse<Models.JSON.Twitter.Search.RootObject>> callback)
+        public void GetTweetsByRadius(SearchCriterias.Twitter.SearchByRadius criteria, Action<RestResponse<Models.JSON.Twitter.Search.RootObject>> callback)
         {
             ExecuteRequestForCallback<Models.Twitter.Tweet, Models.JSON.Twitter.Search.RootObject>(criteria, callback);
         }

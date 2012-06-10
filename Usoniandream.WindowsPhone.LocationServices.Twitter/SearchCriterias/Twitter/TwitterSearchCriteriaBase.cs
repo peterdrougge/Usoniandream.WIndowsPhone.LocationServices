@@ -28,10 +28,10 @@ using System.Device.Location;
 
 namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Twitter
 {
-    public abstract class TwitterSearchCriteriaBase<Ttarget, Tsource> : SearchCriteriaBase<Ttarget, Tsource>
+    public abstract class TwitterSearchCriteriaBase<Ttarget, Tsource> : SearchCriteriaBase<Ttarget, Tsource> where Tsource : new()
     {
-        public TwitterSearchCriteriaBase()
-            : base("TWITTER_DATA_SERVICE_URI")
+        public TwitterSearchCriteriaBase(SearchCriteriaResultType type)
+            : base("TWITTER_DATA_SERVICE_URI", type)
         {
             SetDefaultCriteriaSettings();
         }
@@ -43,20 +43,20 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Twitter
             Request.AddParameter("with_twitter_user_id", "true");
             Request.AddParameter("rpp", 100);
         }
-        public TwitterSearchCriteriaBase(string query)
-            : base("TWITTER_DATA_SERVICE_URI")
+        public TwitterSearchCriteriaBase(string query, SearchCriteriaResultType type)
+            : base("TWITTER_DATA_SERVICE_URI", type)
         {
             SetDefaultCriteriaSettings();
         }
-        public TwitterSearchCriteriaBase(DateTime since)
-            : base("TWITTER_DATA_SERVICE_URI")
+        public TwitterSearchCriteriaBase(DateTime since, SearchCriteriaResultType type)
+            : base("TWITTER_DATA_SERVICE_URI", type)
         {
             SetDefaultCriteriaSettings();
             Query = string.Format("since {0}", since.ToString("yyyy-mm-dd"));
             Request.AddParameter("q", Query);
         }
-        public TwitterSearchCriteriaBase(string query, DateTime since)
-            : base("TWITTER_DATA_SERVICE_URI")
+        public TwitterSearchCriteriaBase(string query, DateTime since, SearchCriteriaResultType type)
+            : base("TWITTER_DATA_SERVICE_URI", type)
         {
             SetDefaultCriteriaSettings();
             Query = string.Format("{0} since {1}", query, since.ToString("yyyy-mm-dd"));

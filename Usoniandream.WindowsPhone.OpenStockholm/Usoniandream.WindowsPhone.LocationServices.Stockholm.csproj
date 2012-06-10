@@ -46,8 +46,8 @@
     <Reference Include="Microsoft.Devices.Sensors" />
     <Reference Include="Microsoft.Phone" />
     <Reference Include="Microsoft.Phone.Reactive" />
-    <Reference Include="RestSharp.WindowsPhone, Version=103.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\RestSharp.103.1\lib\sl4-wp71\RestSharp.WindowsPhone.dll</HintPath>
+    <Reference Include="RestSharp.WindowsPhone">
+      <HintPath>..\lib\RestSharp 102.7\RestSharp.WindowsPhone.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Device" />
@@ -120,8 +120,6 @@
     <Compile Include="SearchCriterias\Stockholm\ServiceGuide\ServiceGuideWithPaddingBase.cs" />
     <Compile Include="SearchCriterias\Stockholm\ServiceGuide\ServiceUnits.cs" />
     <Compile Include="SearchCriterias\Stockholm\ServiceGuide\ServiceUnitTypes.cs" />
-    <Compile Include="Service\Reactive\ServiceLayer.cs" />
-    <Compile Include="Service\ServiceLayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

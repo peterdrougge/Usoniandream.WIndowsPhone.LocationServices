@@ -32,7 +32,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Goteborg.Pa
     public class CommuterParkingsByRadius : ParkingLocationsByRadiusBase<Models.Goteborg.Parking.CommuterParking, Models.JSON.Goteborg.CommuterParkings.RootObject>
     {
         public CommuterParkingsByRadius(int radius, GeoCoordinate location)
-            : base("CommuterParkings/", radius, location)
+            : base("CommuterParkings/", radius, location, SearchCriteriaResultType.Collection)
         {
             Mapper = new Mappers.Goteborg.Parking.CommuterParkings();
         }

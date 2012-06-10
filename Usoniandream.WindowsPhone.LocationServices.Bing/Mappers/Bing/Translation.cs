@@ -90,5 +90,11 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Bing
         {
             throw new NotImplementedException();
         }
+
+
+        public Models.GenericPagedResultsContainer<Models.Bing.Translation> JSON2PagedContainer(Models.JSON.Bing.Translation.RootObject root)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

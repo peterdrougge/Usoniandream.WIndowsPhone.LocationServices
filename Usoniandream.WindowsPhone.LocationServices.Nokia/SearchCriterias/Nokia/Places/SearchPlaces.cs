@@ -31,7 +31,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Nokia.Place
     public class SearchPlaces : SearchCriteriaBase<Models.Nokia.Places.Place, Models.JSON.Nokia.Places.RootObject>
     {
         public SearchPlaces(string query, GeoCoordinate location, string language)
-            : base("NOKIA_SERVICE_URI_PLACES")
+            : base("NOKIA_SERVICE_URI_PLACES", SearchCriteriaResultType.Collection)
         {
             Mapper = new Mappers.Nokia.Places.Places();
             Language = language;
@@ -50,7 +50,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Nokia.Place
             Client.AddDefaultHeader("Accept-Language", Language);
         }
         public SearchPlaces(string query, GeoCoordinate location)
-            : base("NOKIA_SERVICE_URI_PLACES")
+            : base("NOKIA_SERVICE_URI_PLACES", SearchCriteriaResultType.Collection)
         {
             Mapper = new Mappers.Nokia.Places.Places();
             Location = location;

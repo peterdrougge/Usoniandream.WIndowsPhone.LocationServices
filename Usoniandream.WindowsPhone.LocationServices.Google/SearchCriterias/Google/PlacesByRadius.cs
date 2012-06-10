@@ -31,7 +31,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Google
     public class PlacesByRadius : GoogleSearchCriteriaBase<Models.Google.Place, Models.JSON.Google.Places.RootObject>
     {
         public PlacesByRadius(GeoCoordinate location, int radius)
-            : base("search")
+            : base("search", SearchCriteriaResultType.Collection)
         {
             Mapper = new Mappers.Google.Places();
 
@@ -42,7 +42,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Google
             Request.AddParameter("radius", Radius);
         }
         public PlacesByRadius(GeoCoordinate location, int radius, string language)
-            : base("search", language)
+            : base("search", language, SearchCriteriaResultType.Collection)
         {
             Mapper = new Mappers.Google.Places();
             Location = location;

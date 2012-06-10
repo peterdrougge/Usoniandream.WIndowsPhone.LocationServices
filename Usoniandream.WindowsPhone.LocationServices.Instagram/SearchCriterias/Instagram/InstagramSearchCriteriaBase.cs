@@ -27,10 +27,10 @@ using System.Windows.Shapes;
 
 namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Instagram
 {
-    public abstract class InstagramSearchCriteriaBase<Ttarget, Tsource> : LocationServices.SearchCriterias.SearchCriteriaBase<Ttarget, Tsource>
+    public abstract class InstagramSearchCriteriaBase<Ttarget, Tsource> : LocationServices.SearchCriterias.SearchCriteriaBase<Ttarget, Tsource> where Tsource : new()
     {
-        public InstagramSearchCriteriaBase(string resource)
-            : base("INSTAGRAM_SERVICE_URI")
+        public InstagramSearchCriteriaBase(string resource, SearchCriteriaResultType type)
+            : base("INSTAGRAM_SERVICE_URI", type)
         {
             APIKeyResourceName = "INSTAGRAM_API_KEY";
             Request.Resource = resource;

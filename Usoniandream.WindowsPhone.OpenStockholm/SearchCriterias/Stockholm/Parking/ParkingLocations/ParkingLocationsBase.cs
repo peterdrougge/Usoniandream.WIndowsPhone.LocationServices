@@ -30,7 +30,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Stockholm.P
     public abstract class ParkingLocationsBase : SearchCriteriaBase<Models.Stockholm.ParkingLocation, Usoniandream.WindowsPhone.LocationServices.Models.JSON.Stockholm.ParkingPlaces.RootObject>
     {
         public ParkingLocationsBase(Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.VehicleTypeEnum vehicletype)
-            : base("STHLM_DATA_SERVICE_URI_PARKINGLOCATION")
+            : base("STHLM_DATA_SERVICE_URI_PARKINGLOCATION", SearchCriteriaResultType.Collection)
         {
             Mapper = new Usoniandream.WindowsPhone.LocationServices.Mappers.Stockholm.Parking.ParkingLocation();
             APIKeyResourceName = "STHLM_DATA_API_KEY_PARKING";

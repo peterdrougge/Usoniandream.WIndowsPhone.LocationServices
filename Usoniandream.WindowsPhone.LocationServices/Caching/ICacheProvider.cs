@@ -60,14 +60,14 @@ namespace Usoniandream.WindowsPhone.LocationServices.Caching
         /// <typeparam name="T"></typeparam>
         /// <param name="foundation">The foundation.</param>
         /// <param name="result">The result.</param>
-        void Replace<T>(SearchCriterias.ISearchCriteriaFoundation foundation, IObservable<T> result);
+        void Replace<T>(SearchCriterias.ISearchCriteriaFoundation foundation, IObservable<T> result, int duration);
         /// <summary>
         /// Adds the specified criteria result to cache.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="foundation">The criteria.</param>
         /// <param name="result">The result.</param>
-        void Add<T>(SearchCriterias.ISearchCriteriaFoundation foundation, IObservable<T> result);
+        void Add<T>(SearchCriterias.ISearchCriteriaFoundation foundation, IObservable<T> result, int duration);
         /// <summary>
         /// Gets the cached data.
         /// </summary>
@@ -75,5 +75,11 @@ namespace Usoniandream.WindowsPhone.LocationServices.Caching
         /// <param name="foundation">The criteria.</param>
         /// <returns></returns>
         IObservable<T> GetCachedData<T>(SearchCriterias.ISearchCriteriaFoundation foundation);
+
+        void Clear();
+        void ClearOutdatedItems<T>(int duration);
+        void ClearOutdatedItems(int duration);
+        void RemoveOldestEntry();
+        int CachedItemsCount { get; }
     }
 }

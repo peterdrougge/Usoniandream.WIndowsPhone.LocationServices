@@ -26,10 +26,10 @@ using System.Windows.Shapes;
 
 namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Orebro
 {
-    public abstract class OrebroSearchCriteriaBase<Ttarget, Tsource> : SearchCriteriaBase<Ttarget, Tsource>
+    public abstract class OrebroSearchCriteriaBase<Ttarget, Tsource> : SearchCriteriaBase<Ttarget, Tsource> where Tsource : new()
     {
-        public OrebroSearchCriteriaBase(int layerid)
-            : base("OREBRO_DATA_SERVICE_URI")
+        public OrebroSearchCriteriaBase(int layerid, SearchCriteriaResultType type)
+            : base("OREBRO_DATA_SERVICE_URI", type)
         {
             SkipAPIKeyCheck = true;
             Client.AddHandler("text/html", new RestSharp.Deserializers.JsonDeserializer());

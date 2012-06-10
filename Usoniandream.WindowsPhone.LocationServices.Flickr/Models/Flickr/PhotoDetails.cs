@@ -27,7 +27,7 @@ using System.Windows.Shapes;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Models.Flickr
 {
-    public class PhotoDetails : GenericPhotoLocationBase
+    public partial class PhotoDetails : GenericPhotoLocationBase
     {
         public string DateUploaded { get; set; }
     }

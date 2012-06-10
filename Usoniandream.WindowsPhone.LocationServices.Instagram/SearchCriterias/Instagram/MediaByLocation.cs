@@ -31,7 +31,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Instagram
     public class MediaByLocation : InstagramSearchCriteriaBase<Models.Instagram.Media, Models.JSON.Instagram.MediaSearch.RootObject>
     {
         public MediaByLocation(GeoCoordinate location)
-            : base("media/search")
+            : base("media/search", SearchCriteriaResultType.Collection)
         {
             Location = location;
             Mapper = new Mappers.Instagram.MediaByLocation();

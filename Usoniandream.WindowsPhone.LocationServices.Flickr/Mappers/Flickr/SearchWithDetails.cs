@@ -32,14 +32,13 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Flickr
 
         public System.Collections.Generic.IEnumerable<Models.Flickr.Photo> JSON2Model(Models.JSON.Flickr.Search.RootObject root)
         {
-            Service.Flickr.Reactive.ServiceLayer servicelayer = new Service.Flickr.Reactive.ServiceLayer();
             foreach (var item in root.photos.photo)
             {
                 yield return new Models.Flickr.Photo()
                 {
                     Content = item.title,
                     ID = item.id,
-                    Details = servicelayer.GetPhotoDetails(new SearchCriterias.Flickr.PhotoDetails(item.id)),
+                    Details = new SearchCriterias.Flickr.PhotoDetails(item.id).Execute(),
                     ImageURL = String.Format("http://farm{0}.staticflickr.com/{1}/{2}_{3}.jpg", item.farm, item.server, item.id, item.secret)
                 };
             }
@@ -61,6 +60,12 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Flickr
         }
 
         public void Dispose()
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public Models.GenericPagedResultsContainer<Models.Flickr.Photo> JSON2PagedContainer(Models.JSON.Flickr.Search.RootObject root)
         {
             throw new NotImplementedException();
         }

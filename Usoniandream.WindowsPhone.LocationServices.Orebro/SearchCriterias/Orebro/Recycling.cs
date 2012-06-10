@@ -30,7 +30,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Orebro
     public class Recycling : OrebroSearchCriteriaBase<Models.Orebro.Recycling, Models.JSON.Orebro.OrebroJSONModel.RootObject>
     {
         public Recycling()
-            : base(12)
+            : base(12, SearchCriteriaResultType.Collection)
         {
             Mapper = new Mappers.Orebro.Recycling();
         }

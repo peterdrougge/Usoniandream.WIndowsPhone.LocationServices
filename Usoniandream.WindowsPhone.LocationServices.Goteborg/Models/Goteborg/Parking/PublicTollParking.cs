@@ -27,7 +27,7 @@ using System.Windows.Shapes;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Models.Goteborg.Parking
 {
-    public class PublicTollParking : ParkingLocationBase
+    public partial class PublicTollParking : ParkingLocationBase
     {
         public string ParkingCharge { get; set; }
         public string MaxParkingTimeLimitation { get; set; }

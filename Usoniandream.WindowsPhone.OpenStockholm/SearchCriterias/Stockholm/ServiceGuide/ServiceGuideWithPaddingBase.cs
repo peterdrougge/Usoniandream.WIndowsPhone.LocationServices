@@ -29,15 +29,15 @@ using Usoniandream.WindowsPhone.GeoConverter.Positions;
 
 namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Stockholm.ServiceGuide
 {
-    public abstract class ServiceGuideWithPaddingBase<Ttarget, Tsource> : SearchCriteriaWithPaddingBase<Ttarget, Tsource>
+    public abstract class ServiceGuideWithPaddingBase<Ttarget, Tsource> : SearchCriteriaWithPaddingBase<Ttarget, Tsource> where Tsource : new()
         {
-            public ServiceGuideWithPaddingBase()
-                : base("STHLM_DATA_SERVICE_URI_SERVICEGUIDE", "{\"features\":", "}")
+            public ServiceGuideWithPaddingBase(SearchCriteriaResultType type)
+                : base("STHLM_DATA_SERVICE_URI_SERVICEGUIDE", "{\"features\":", "}", type)
             {
                 SetDefaultSearchValues();
             }
-            public ServiceGuideWithPaddingBase(GeoCoordinate pointOfOrigin, Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.ServiceGuideSortByEnum sortBy, Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.ServiceGuideSortOrderEnum sortOrder, int maxHits)
-                : base("STHLM_DATA_SERVICE_URI_SERVICEGUIDE", "{\"features\":", "}")
+            public ServiceGuideWithPaddingBase(GeoCoordinate pointOfOrigin, Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.ServiceGuideSortByEnum sortBy, Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.ServiceGuideSortOrderEnum sortOrder, int maxHits, SearchCriteriaResultType type)
+                : base("STHLM_DATA_SERVICE_URI_SERVICEGUIDE", "{\"features\":", "}", type)
             {
                 this.PointOfOrigin = pointOfOrigin;
                 this.SortBy = sortBy;

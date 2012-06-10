@@ -31,7 +31,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Stockholm.S
 {
     public class ServiceUnits : ServiceGuideWithPaddingBase<Models.Stockholm.ServiceGuide.ServiceUnit, Models.JSON.Stockholm.ServiceUnits.RootObject>
     {
-        public ServiceUnits(string id) : base()
+        public ServiceUnits(string id) : base(SearchCriteriaResultType.Collection)
         {
             Mapper = new Mappers.Stockholm.ServiceGuide.ServiceUnits();
 

@@ -35,7 +35,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Flickr
         /// </summary>
         /// <param name="criteria">The criteria.</param>
         /// <param name="callback">The callback.</param>
-        public void GetPhotosByLocation(SearchCriterias.Flickr.PhotosByLocation criteria, Action<IRestResponse<Models.JSON.Flickr.Search.RootObject>> callback)
+        public void GetPhotosByLocation(SearchCriterias.Flickr.PhotosByLocation criteria, Action<RestResponse<Models.JSON.Flickr.Search.RootObject>> callback)
         {
             ExecuteRequestForCallback<Models.Flickr.Photo, Models.JSON.Flickr.Search.RootObject>(criteria, callback);
         }
@@ -44,7 +44,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Flickr
         /// </summary>
         /// <param name="criteria">The criteria.</param>
         /// <param name="callback">The callback.</param>
-        public void GetPhotoDetails(SearchCriterias.Flickr.PhotoDetails criteria, Action<IRestResponse<Models.JSON.Flickr.Info.RootObject>> callback)
+        public void GetPhotoDetails(SearchCriterias.Flickr.PhotoDetails criteria, Action<RestResponse<Models.JSON.Flickr.Info.RootObject>> callback)
         {
             ExecuteRequestForCallback<Models.Flickr.PhotoDetails, Models.JSON.Flickr.Info.RootObject>(criteria, callback);
         }

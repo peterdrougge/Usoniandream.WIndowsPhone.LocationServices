@@ -65,5 +65,11 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Stockholm.ServiceGu
         {
             throw new NotImplementedException();
         }
+
+
+        public Models.GenericPagedResultsContainer<Models.Stockholm.ServiceGuide.ServiceUnit> JSON2PagedContainer(Models.JSON.Stockholm.ServiceUnits.RootObject root)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

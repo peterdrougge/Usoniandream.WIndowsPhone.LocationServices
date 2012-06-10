@@ -30,7 +30,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Orebro
     public class PreSchools : OrebroSearchCriteriaBase<Models.Orebro.PreSchools, Models.JSON.Orebro.OrebroJSONModel.RootObject>
     {
         public PreSchools()
-            : base(3)
+            : base(3, SearchCriteriaResultType.Collection)
         {
             Mapper = new Mappers.Orebro.PreSchools();
         }

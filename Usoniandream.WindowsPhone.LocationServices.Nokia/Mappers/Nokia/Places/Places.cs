@@ -34,6 +34,14 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Nokia.Places
 
         public System.Collections.Generic.IEnumerable<Models.Nokia.Places.Place> JSON2Model(Models.JSON.Nokia.Places.RootObject root)
         {
+            if (root==null)
+            {
+                throw new MissingMemberException("json root object is missing");
+            }
+            if (root.results == null)
+            {
+                throw new MissingMemberException("json root result collection is missing");
+            }
             foreach (var item in root.results.items)
             {
                 if (item.position!=null && item.position.Count==2)  
@@ -51,7 +59,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Nokia.Places
                         Type = item.type,
                         URL = item.href,
                         Vicinity = item.vicinity,
-                        Sponsored = item.sponsored.GetValueOrDefault(false)
+                        Sponsored = item.sponsored
                     };
                 }
             }
@@ -96,6 +104,12 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Nokia.Places
         public void Dispose()
         {
             //
+        }
+
+
+        public Models.GenericPagedResultsContainer<Models.Nokia.Places.Place> JSON2PagedContainer(Models.JSON.Nokia.Places.RootObject root)
+        {
+            throw new NotImplementedException();
         }
     }
 }

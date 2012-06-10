@@ -29,12 +29,17 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias
 {
     public class CriteriaCacheSettings
     {
-        public CriteriaCacheSettings()
-        {}
+        public CriteriaCacheSettings(Caching.ICacheProvider provider)
+        {
+            Provider = provider;
+        }
 
-        public CriteriaCacheSettings(int duration)
-        { Duration = duration; }
-
+        public CriteriaCacheSettings(Caching.ICacheProvider provider, int duration)
+        {
+            Provider = provider;
+            Duration = duration; 
+        }
+        public Caching.ICacheProvider Provider { get; set; }
         public int Duration { get; set; }
     }
 }

@@ -30,8 +30,12 @@
         <usoniandream:ServiceAPIKey x:Key="GOOGLE_PLACES_API_KEY" Value="" />
         <!-- INSTAGRAM -->
         <usoniandream:ServiceAPIKey x:Key="INSTAGRAM_API_KEY" Value="" />
+        <!-- ENIRO -->
+        <usoniandream:ServiceAPIKey x:Key="ENIRO_API_KEY" Value="" />
+        <usoniandream:ServiceAPIKey x:Key="ENIRO_API_PROFILE" Value="" />
 
         <!-- SERVICE ENDPOINTS -->
+        <usoniandream:ServiceURI x:Key="ENIRO_SERVICE_URI_COMPANYSEARCH" URL="http://api.eniro.com/cs/" />
         <usoniandream:ServiceURI x:Key="STHLM_DATA_SERVICE_URI_SERVICEGUIDE" URL="http://api.stockholm.se/ServiceGuideService" />
         <usoniandream:ServiceURI x:Key="STHLM_DATA_SERVICE_URI_PARKINGLOCATION" URL="http://openparking.stockholm.se/LTF-Tolken/v1/" />
         <usoniandream:ServiceURI x:Key="STHLM_DATA_SERVICE_URI_PARKINGMETER" URL="http://openstreetgs.stockholm.se/geoservice/api/" />

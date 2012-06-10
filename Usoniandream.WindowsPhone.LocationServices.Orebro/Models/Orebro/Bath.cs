@@ -27,7 +27,7 @@ using System.Windows.Shapes;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Models.Orebro
 {
-    public class Bath : OrebroLocationsBase
+    public partial class Bath : OrebroLocationsBase
     {
         public Bath()
             : base()

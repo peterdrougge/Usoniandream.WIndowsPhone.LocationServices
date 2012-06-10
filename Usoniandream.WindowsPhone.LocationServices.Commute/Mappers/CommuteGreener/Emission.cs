@@ -62,5 +62,11 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.CommuteGreener
         {
             throw new NotImplementedException();
         }
+
+
+        public Models.GenericPagedResultsContainer<Models.CommuteGreener.Emission> JSON2PagedContainer(Models.JSON.CommuteGreener.Emissions.RootObject root)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -33,18 +33,18 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Stockholm.P
         public string NameContains { get; protected set; }
 
         public SearchServiceUnits(string namecontains)
-            : base(null, Models.Enums.Stockholm.ServiceGuideSortByEnum.Name, Models.Enums.Stockholm.ServiceGuideSortOrderEnum.Ascending, 0)
+            : base(null, Models.Enums.Stockholm.ServiceGuideSortByEnum.Name, Models.Enums.Stockholm.ServiceGuideSortOrderEnum.Ascending, 0, SearchCriteriaResultType.Collection)
         {
             ApplyDefaultSearchCriterias(namecontains);
         }
 
         public SearchServiceUnits(string namecontains, GeoCoordinate location)
-            : base(location, Models.Enums.Stockholm.ServiceGuideSortByEnum.DistanceToGeographicalPosition, Models.Enums.Stockholm.ServiceGuideSortOrderEnum.Ascending, 0)
+            : base(location, Models.Enums.Stockholm.ServiceGuideSortByEnum.DistanceToGeographicalPosition, Models.Enums.Stockholm.ServiceGuideSortOrderEnum.Ascending, 0, SearchCriteriaResultType.Collection)
         {
             ApplyDefaultSearchCriterias(namecontains);
         }
         public SearchServiceUnits(string namecontains, GeoCoordinate location, int maxHits)
-            : base(location, Models.Enums.Stockholm.ServiceGuideSortByEnum.DistanceToGeographicalPosition, Models.Enums.Stockholm.ServiceGuideSortOrderEnum.Ascending, maxHits)
+            : base(location, Models.Enums.Stockholm.ServiceGuideSortByEnum.DistanceToGeographicalPosition, Models.Enums.Stockholm.ServiceGuideSortOrderEnum.Ascending, maxHits, SearchCriteriaResultType.Collection)
         {
             ApplyDefaultSearchCriterias(namecontains);
         }

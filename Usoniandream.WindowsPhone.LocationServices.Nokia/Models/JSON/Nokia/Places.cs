@@ -50,8 +50,8 @@ namespace Usoniandream.WindowsPhone.LocationServices.Models.JSON.Nokia.Places
         public string href { get; set; }
         public string id { get; set; }
         public string places { get; set; }
-        public double? weight { get; set; }
-        public bool? sponsored { get; set; }
+        public string weight { get; set; }
+        public bool sponsored { get; set; }
     }
 
     public class Results

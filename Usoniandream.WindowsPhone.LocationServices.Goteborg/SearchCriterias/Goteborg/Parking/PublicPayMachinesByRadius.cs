@@ -31,7 +31,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Goteborg.Pa
     public class PublicPayMachinesByRadius : ParkingLocationsByRadiusBase<Models.Goteborg.Parking.PublicPayMachine, Models.JSON.Goteborg.PublicPayMachines.RootObject>
     {
         public PublicPayMachinesByRadius(int radius, GeoCoordinate location)
-            : base("PublicPayMachines/", radius, location)
+            : base("PublicPayMachines/", radius, location, SearchCriteriaResultType.Collection)
         {
             Mapper = new Mappers.Goteborg.Parking.PublicPayMachines();
         }

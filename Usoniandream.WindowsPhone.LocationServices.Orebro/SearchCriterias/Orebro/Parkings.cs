@@ -29,7 +29,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Orebro
     public class Parkings : OrebroSearchCriteriaBase<Models.Orebro.Parking, Models.JSON.Orebro.OrebroJSONModel.RootObject>
     {
         public Parkings()
-            : base(9)
+            : base(9, SearchCriteriaResultType.Collection)
         {
             Mapper = new Mappers.Orebro.Parkings();
         }

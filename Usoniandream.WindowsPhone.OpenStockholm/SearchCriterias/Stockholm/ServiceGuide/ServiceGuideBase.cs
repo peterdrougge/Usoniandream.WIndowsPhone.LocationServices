@@ -29,15 +29,15 @@ using Usoniandream.WindowsPhone.GeoConverter.Positions;
 
 namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Stockholm.ServiceGuide
 {
-    public abstract class ServiceGuideBase<Ttarget, Tsource> : SearchCriteriaBase<Ttarget, Tsource>
+    public abstract class ServiceGuideBase<Ttarget, Tsource> : SearchCriteriaBase<Ttarget, Tsource> where Tsource : new()
     {
-        public ServiceGuideBase()
-            : base("STHLM_DATA_SERVICE_URI_SERVICEGUIDE")
+        public ServiceGuideBase(SearchCriteriaResultType type)
+            : base("STHLM_DATA_SERVICE_URI_SERVICEGUIDE", type)
         {
             SetDefaultSearchValues();
         }
-        public ServiceGuideBase(GeoCoordinate pointOfOrigin, Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.ServiceGuideSortByEnum sortBy, Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.ServiceGuideSortOrderEnum sortOrder, int maxHits)
-            : base("STHLM_DATA_SERVICE_URI_SERVICEGUIDE")
+        public ServiceGuideBase(GeoCoordinate pointOfOrigin, Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.ServiceGuideSortByEnum sortBy, Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.ServiceGuideSortOrderEnum sortOrder, int maxHits, SearchCriteriaResultType type)
+            : base("STHLM_DATA_SERVICE_URI_SERVICEGUIDE", type)
         {
             this.PointOfOrigin = pointOfOrigin;
             this.SortBy = sortBy;

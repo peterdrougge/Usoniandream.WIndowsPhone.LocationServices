@@ -24,6 +24,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Usoniandream.WindowsPhone.LocationServices.Models;
+using Usoniandream.WindowsPhone.LocationServices.Extensions;
 using RestSharp;
 using System.Diagnostics;
 
@@ -41,7 +42,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service
         /// <typeparam name="Tsource">The type of the source.</typeparam>
         /// <param name="criteria">The criteria.</param>
         /// <param name="callback">The callback.</param>
-        public void ExecuteRequestForCallback<Ttarget, Tsource>(SearchCriterias.ISearchCriteria<Ttarget, Tsource> criteria, Action<IRestResponse<Tsource>> callback) where Tsource : new()
+        public void ExecuteRequestForCallback<Ttarget, Tsource>(SearchCriterias.ISearchCriteria<Ttarget, Tsource> criteria, Action<RestResponse<Tsource>> callback) where Tsource : new()
         {
             if (String.IsNullOrWhiteSpace(criteria.Client.BaseUrl))
             {

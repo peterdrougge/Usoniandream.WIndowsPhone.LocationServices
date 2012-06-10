@@ -27,7 +27,7 @@ using System.Windows.Shapes;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Models.Stockholm.ServiceGuide
 {
-    public class ServiceUnit : Base.ServiceUnitBase
+    public partial class ServiceUnit : Base.ServiceUnitBase
     {
     }
 }

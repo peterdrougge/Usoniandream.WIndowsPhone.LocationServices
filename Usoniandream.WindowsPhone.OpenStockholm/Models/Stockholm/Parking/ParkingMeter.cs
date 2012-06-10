@@ -30,7 +30,7 @@ using System.Device.Location;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Models.Stockholm
 {
-    public class ParkingMeter : ILocation
+    public partial class ParkingMeter : ILocation
     {
         public ParkingMeter()
         {}

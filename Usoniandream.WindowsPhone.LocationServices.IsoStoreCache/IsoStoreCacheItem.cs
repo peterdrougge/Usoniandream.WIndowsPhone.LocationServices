@@ -29,13 +29,15 @@ using System.Runtime.Serialization;
 namespace Usoniandream.WindowsPhone.LocationServices.Caching.IsoStoreCache
 {
     [DataContract]
-    public class IsoStoreCacheItem<T>
+    public class IsoStoreCacheItem<T> : GenericCacheItem<T>
     {
         [DataMember]
-        public string ID { get; set; }
+        public override string ID { get; set; }
         [DataMember]
-        public T[] Data { get; set; }
+        public override T[] Data { get; set; }
         [DataMember]
-        public DateTime Created { get; set ; }
+        public override DateTime Created { get; set; }
+        [DataMember]
+        public override DateTime Expires { get; set; }
     }
 }

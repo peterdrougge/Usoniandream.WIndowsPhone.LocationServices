@@ -44,8 +44,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Devices.Sensors" />
-    <Reference Include="RestSharp.WindowsPhone, Version=103.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\RestSharp.103.1\lib\sl4-wp71\RestSharp.WindowsPhone.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=4.0.8.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\lib\RestSharp 102.7\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json.WindowsPhone">
+      <HintPath>..\lib\RestSharp 102.7\Newtonsoft.Json.WindowsPhone.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp.WindowsPhone, Version=102.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\RestSharp 102.7\RestSharp.WindowsPhone.dll</HintPath>
     </Reference>
     <Reference Include="System.Device" />
     <Reference Include="System.Observable" />
@@ -63,10 +70,12 @@
     <Reference Include="mscorlib.extensions" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Caching\GenericCacheItem.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Extensions\ObservableExtensions.cs" />
     <Compile Include="Mappers\IMapper.cs" />
     <Compile Include="Models\GenericLocationBase.cs" />
+    <Compile Include="Models\GenericPagedResultsContainer.cs" />
     <Compile Include="Models\GenericPhotoLocationBase.cs" />
     <Compile Include="Caching\ICacheProvider.cs" />
     <Compile Include="Models\ILocation.cs" />

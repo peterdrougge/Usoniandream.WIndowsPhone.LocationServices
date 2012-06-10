@@ -30,23 +30,24 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Stockholm.S
 {
     public class SearchServiceUnits : ServiceGuideWithPaddingBase<Models.Stockholm.ServiceGuide.ServiceUnit, Models.JSON.Stockholm.ServiceUnits.RootObject>
     {
-        public SearchServiceUnits(string namecontains) : base(null, Models.Enums.Stockholm.ServiceGuideSortByEnum.Name, Models.Enums.Stockholm.ServiceGuideSortOrderEnum.Ascending, 0)
+        public SearchServiceUnits(string namecontains)
+            : base(null, Models.Enums.Stockholm.ServiceGuideSortByEnum.Name, Models.Enums.Stockholm.ServiceGuideSortOrderEnum.Ascending, 0, SearchCriteriaResultType.Collection)
         {
             ApplyDefaultSearchValues(namecontains);
         }
         public SearchServiceUnits(string namecontains, int maxHits)
-            : base(null, Models.Enums.Stockholm.ServiceGuideSortByEnum.Name, Models.Enums.Stockholm.ServiceGuideSortOrderEnum.Ascending, maxHits)
+            : base(null, Models.Enums.Stockholm.ServiceGuideSortByEnum.Name, Models.Enums.Stockholm.ServiceGuideSortOrderEnum.Ascending, maxHits, SearchCriteriaResultType.Collection)
         {
             ApplyDefaultSearchValues(namecontains);
         }
 
         public SearchServiceUnits(string namecontains, GeoCoordinate location)
-            : base(location, Models.Enums.Stockholm.ServiceGuideSortByEnum.DistanceToGeographicalPosition, Models.Enums.Stockholm.ServiceGuideSortOrderEnum.Ascending, 0)
+            : base(location, Models.Enums.Stockholm.ServiceGuideSortByEnum.DistanceToGeographicalPosition, Models.Enums.Stockholm.ServiceGuideSortOrderEnum.Ascending, 0, SearchCriteriaResultType.Collection)
         {
             ApplyDefaultSearchValues(namecontains);
         }
         public SearchServiceUnits(string namecontains, GeoCoordinate location, int maxHits)
-            : base(location, Models.Enums.Stockholm.ServiceGuideSortByEnum.DistanceToGeographicalPosition, Models.Enums.Stockholm.ServiceGuideSortOrderEnum.Ascending, maxHits)
+            : base(location, Models.Enums.Stockholm.ServiceGuideSortByEnum.DistanceToGeographicalPosition, Models.Enums.Stockholm.ServiceGuideSortOrderEnum.Ascending, maxHits, SearchCriteriaResultType.Collection)
         {
             ApplyDefaultSearchValues(namecontains);
         }

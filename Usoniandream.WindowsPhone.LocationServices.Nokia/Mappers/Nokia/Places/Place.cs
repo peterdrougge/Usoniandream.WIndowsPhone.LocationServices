@@ -104,5 +104,11 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Nokia.Places
         {
             throw new NotImplementedException();
         }
+
+
+        public Models.GenericPagedResultsContainer<Models.Nokia.Places.PlaceDetails> JSON2PagedContainer(Models.JSON.Nokia.Place.RootObject root)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

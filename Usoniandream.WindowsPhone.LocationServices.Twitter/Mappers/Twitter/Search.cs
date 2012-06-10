@@ -112,5 +112,11 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Twitter
         {
             throw new NotImplementedException();
         }
+
+
+        public Models.GenericPagedResultsContainer<Models.Twitter.Tweet> JSON2PagedContainer(Models.JSON.Twitter.Search.RootObject root)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -31,7 +31,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Goteborg.Tr
     public class TrafficCameras : SearchCriteriaWithPaddingBase<Models.Goteborg.TrafficCamera.TrafficCamera, Models.JSON.Goteborg.TrafficCameras.RootObject>
     {
         public TrafficCameras()
-            : base("GOTEBORG_DATA_SERVICE_URI_TRAFFICCAMERAS", "{\"features\":", "}")
+            : base("GOTEBORG_DATA_SERVICE_URI_TRAFFICCAMERAS", "{\"features\":", "}", SearchCriteriaResultType.Collection)
         {
             APIKeyResourceName = "GOTEBORG_DATA_API_KEY";
             Mapper = new Mappers.Goteborg.TrafficCamera.TrafficCameras(APIkey);

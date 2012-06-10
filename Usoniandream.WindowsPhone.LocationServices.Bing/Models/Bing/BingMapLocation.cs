@@ -28,7 +28,7 @@ using System.Device.Location;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Models.Bing
 {
-    public class BingMapLocation : ILocation
+    public partial class BingMapLocation : ILocation
     {
         public string Address { get; set; }
         public string FormattedAddress { get; set; }

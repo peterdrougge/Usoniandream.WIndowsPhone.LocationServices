@@ -66,5 +66,11 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Goteborg.StyrOchSta
         {
             throw new NotImplementedException();
         }
+
+
+        public Models.GenericPagedResultsContainer<Models.Goteborg.StyrOchStall.BikeStation> JSON2PagedContainer(Models.JSON.Goteborg.BikeStations.RootObject root)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

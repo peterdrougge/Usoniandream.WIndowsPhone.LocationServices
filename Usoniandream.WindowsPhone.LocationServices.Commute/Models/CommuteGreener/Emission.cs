@@ -26,7 +26,7 @@ using System.Windows.Shapes;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Models.CommuteGreener
 {
-    public class Emission : ILocation
+    public partial class Emission : ILocation
     {
         public object Content { get; set; }
         public int RoutedDistance { get; set; }

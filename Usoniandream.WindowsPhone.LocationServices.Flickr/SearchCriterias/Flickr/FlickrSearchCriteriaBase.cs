@@ -27,10 +27,10 @@ using System.Windows.Shapes;
 
 namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Flickr
 {
-    public abstract class FlickrSearchCriteriaBase<Ttarget, Tsource> : SearchCriteriaBase<Ttarget, Tsource>
+    public abstract class FlickrSearchCriteriaBase<Ttarget, Tsource> : SearchCriteriaBase<Ttarget, Tsource> where Tsource : new()
     {
-        public FlickrSearchCriteriaBase(string method)
-            : base("FLICKR_DATA_SERVICE_URI")
+        public FlickrSearchCriteriaBase(string method, SearchCriteriaResultType type)
+            : base("FLICKR_DATA_SERVICE_URI", type)
         {
             base.APIKeyResourceName = "FLICKR_DATA_API_KEY";
             

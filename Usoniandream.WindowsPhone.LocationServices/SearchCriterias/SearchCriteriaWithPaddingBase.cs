@@ -28,36 +28,36 @@ using RestSharp;
 
 namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias
 {
-    public abstract class SearchCriteriaWithPaddingBase<Ttarget, Tsource> : SearchCriteriaBase<Ttarget, Tsource>
+    public abstract class SearchCriteriaWithPaddingBase<Ttarget, Tsource> : SearchCriteriaBase<Ttarget, Tsource> where Tsource : new()
     {
         private void AddPaddingToResponse(IRestResponse response)
         {
             response.Content = string.Format("{0}{1}{2}", this.StartPadding, response.Content, this.EndPadding);
         }
 
-        public SearchCriteriaWithPaddingBase(string startpadding, string endpadding)
-            : base()
+        public SearchCriteriaWithPaddingBase(string startpadding, string endpadding, SearchCriteriaResultType type)
+            : base(type)
         {
             Request.OnBeforeDeserialization = AddPaddingToResponse;
             StartPadding = startpadding;
             EndPadding = endpadding;
         }
-        public SearchCriteriaWithPaddingBase(Method method, string startpadding, string endpadding)
-            : base(method)
+        public SearchCriteriaWithPaddingBase(Method method, string startpadding, string endpadding, SearchCriteriaResultType type)
+            : base(method, type)
         {
             Request.OnBeforeDeserialization = AddPaddingToResponse;
             StartPadding = startpadding;
             EndPadding = endpadding;
         }
-        public SearchCriteriaWithPaddingBase(string baseurlresourcename, string startpadding, string endpadding)
-            : base(baseurlresourcename)
+        public SearchCriteriaWithPaddingBase(string baseurlresourcename, string startpadding, string endpadding, SearchCriteriaResultType type)
+            : base(baseurlresourcename, type)
         {
             Request.OnBeforeDeserialization = AddPaddingToResponse;
             StartPadding = startpadding;
             EndPadding = endpadding;
         }
-        public SearchCriteriaWithPaddingBase(Method method, string baseurlresourcename, string startpadding, string endpadding)
-            : base(method, baseurlresourcename)
+        public SearchCriteriaWithPaddingBase(Method method, string baseurlresourcename, string startpadding, string endpadding, SearchCriteriaResultType type)
+            : base(method, baseurlresourcename, type)
         {
             Request.OnBeforeDeserialization = AddPaddingToResponse;
             StartPadding = startpadding;

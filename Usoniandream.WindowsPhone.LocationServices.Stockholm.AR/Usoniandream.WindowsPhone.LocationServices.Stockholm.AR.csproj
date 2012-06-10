@@ -47,8 +47,9 @@
       <HintPath>..\lib\GART.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Devices.Sensors" />
-    <Reference Include="RestSharp.WindowsPhone, Version=103.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\RestSharp.103.1\lib\sl4-wp71\RestSharp.WindowsPhone.dll</HintPath>
+    <Reference Include="RestSharp.WindowsPhone, Version=102.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\RestSharp 102.7\RestSharp.WindowsPhone.dll</HintPath>
     </Reference>
     <Reference Include="System.Device" />
     <Reference Include="System.Observable" />

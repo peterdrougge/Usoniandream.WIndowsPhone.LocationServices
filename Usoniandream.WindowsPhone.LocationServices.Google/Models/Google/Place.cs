@@ -27,7 +27,7 @@ using System.Windows.Shapes;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Models.Google
 {
-    public class Place : GenericLocationBase
+    public partial class Place : GenericLocationBase
     {
 
         public string PhoneNumber { get; set; }

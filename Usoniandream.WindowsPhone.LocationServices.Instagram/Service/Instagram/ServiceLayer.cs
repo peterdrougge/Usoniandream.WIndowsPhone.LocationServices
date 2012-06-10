@@ -35,7 +35,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Instagram
         /// </summary>
         /// <param name="criteria">The criteria.</param>
         /// <param name="callback">The callback.</param>
-        public void GetMediaByLocation(SearchCriterias.Instagram.MediaByLocation criteria, Action<IRestResponse<Models.JSON.Instagram.MediaSearch.RootObject>> callback)
+        public void GetMediaByLocation(SearchCriterias.Instagram.MediaByLocation criteria, Action<RestResponse<Models.JSON.Instagram.MediaSearch.RootObject>> callback)
         {
             ExecuteRequestForCallback<Models.Instagram.Media, Models.JSON.Instagram.MediaSearch.RootObject>(criteria, callback);
         }
@@ -45,7 +45,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Instagram
         /// </summary>
         /// <param name="criteria">The criteria.</param>
         /// <param name="callback">The callback.</param>
-        public void GetPlacesByLocation(SearchCriterias.Instagram.PlacesByLocation criteria, Action<IRestResponse<Models.JSON.Instagram.Locations.RootObject>> callback)
+        public void GetPlacesByLocation(SearchCriterias.Instagram.PlacesByLocation criteria, Action<RestResponse<Models.JSON.Instagram.Locations.RootObject>> callback)
         {
             ExecuteRequestForCallback<Models.Instagram.Location, Models.JSON.Instagram.Locations.RootObject>(criteria, callback);
         }
@@ -55,7 +55,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Instagram
         /// </summary>
         /// <param name="criteria">The criteria.</param>
         /// <param name="callback">The callback.</param>
-        public void GetMediaDetails(SearchCriterias.Instagram.MediaDetails criteria, Action<IRestResponse<Models.JSON.Instagram.MediaDetails.RootObject>> callback)
+        public void GetMediaDetails(SearchCriterias.Instagram.MediaDetails criteria, Action<RestResponse<Models.JSON.Instagram.MediaDetails.RootObject>> callback)
         {
             ExecuteRequestForCallback<Models.Instagram.MediaDetails, Models.JSON.Instagram.MediaDetails.RootObject>(criteria, callback);
         }

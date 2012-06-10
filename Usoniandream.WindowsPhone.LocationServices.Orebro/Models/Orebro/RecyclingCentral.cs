@@ -27,7 +27,7 @@ using System.Windows.Shapes;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Models.Orebro
 {
-    public class RecyclingCentral : OrebroLocationsBase
+    public partial class RecyclingCentral : OrebroLocationsBase
     {
         public RecyclingCentral()
             :base()

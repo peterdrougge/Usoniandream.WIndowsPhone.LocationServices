@@ -27,7 +27,7 @@ using System.Windows.Shapes;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Models.Google
 {
-    public class EventDetails : GenericLocationBase
+    public partial class EventDetails : GenericLocationBase
     {
 
         public int Duration { get; set; }

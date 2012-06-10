@@ -26,7 +26,7 @@ using System.Windows.Shapes;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Models.Orebro
 {
-    public class Parking : OrebroLocationsBase
+    public partial class Parking : OrebroLocationsBase
     {
         public Parking()
             : base()

@@ -31,14 +31,14 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Google
     public class PlaceDetails : GoogleSearchCriteriaBase<Models.Google.PlaceDetails, Models.JSON.Google.Place.RootObject>
     {
         public PlaceDetails(string reference)
-            : base("details")
+            : base("details", SearchCriteriaResultType.Single)
         {
             Mapper = new Mappers.Google.PlaceDetails();
             Reference = reference;
             Request.AddParameter("reference", reference);
         }
         public PlaceDetails(string reference, string language)
-            : base("details", language)
+            : base("details", language, SearchCriteriaResultType.Single)
         {
             Mapper = new Mappers.Google.PlaceDetails();
             Reference = reference;

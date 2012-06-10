@@ -32,5 +32,6 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers
         IEnumerable<Ttarget> JSON2Model(IEnumerable<Tsource> root);
         Ttarget JSON2FirstModel(Tsource root);
         Ttarget JSON2LastModel(Tsource root);
+        Models.GenericPagedResultsContainer<Ttarget> JSON2PagedContainer(Tsource root);
     }
 }

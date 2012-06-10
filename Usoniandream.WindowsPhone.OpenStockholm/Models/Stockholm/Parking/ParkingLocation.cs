@@ -32,7 +32,7 @@ using System.Device.Location;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Models.Stockholm
 {
-    public class ParkingLocation : ILocation
+    public partial class ParkingLocation : ILocation
     {
         public virtual GeoCoordinate Location { get; set; }
         public virtual object Content { get; set; }

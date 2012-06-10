@@ -54,8 +54,15 @@
     <Reference Include="Microsoft.Phone" />
     <Reference Include="Microsoft.Phone.Controls" />
     <Reference Include="Microsoft.Phone.Interop" />
-    <Reference Include="RestSharp.WindowsPhone, Version=103.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\lib\RestSharp.WindowsPhone.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=4.0.8.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\lib\RestSharp 102.7\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json.WindowsPhone">
+      <HintPath>..\lib\RestSharp 102.7\Newtonsoft.Json.WindowsPhone.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp.WindowsPhone, Version=102.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\RestSharp 102.7\RestSharp.WindowsPhone.dll</HintPath>
     </Reference>
     <Reference Include="System.Device" />
     <Reference Include="System.Observable" />
@@ -114,6 +121,10 @@
     <ProjectReference Include="..\Usoniandream.WindowsPhone.LocationServices.Commute\Usoniandream.WindowsPhone.LocationServices.Commute.csproj">
       <Project>{21DFEDF9-532E-49FF-A3BE-DED56E87844E}</Project>
       <Name>Usoniandream.WindowsPhone.LocationServices.Commute</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Usoniandream.WIndowsPhone.LocationServices.Eniro\Usoniandream.WindowsPhone.LocationServices.Eniro.csproj">
+      <Project>{864511B1-3B36-4BC1-80FD-05868D727433}</Project>
+      <Name>Usoniandream.WindowsPhone.LocationServices.Eniro</Name>
     </ProjectReference>
     <ProjectReference Include="..\Usoniandream.WindowsPhone.LocationServices.Flickr\Usoniandream.WindowsPhone.LocationServices.Flickr.csproj">
       <Project>{44BD70F3-D6E6-4429-8F8E-FD9D1C39D5E3}</Project>

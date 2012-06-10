@@ -72,5 +72,11 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Orebro
         {
             throw new NotImplementedException();
         }
+
+
+        public Models.GenericPagedResultsContainer<Models.Orebro.PreSchools> JSON2PagedContainer(Models.JSON.Orebro.OrebroJSONModel.RootObject root)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

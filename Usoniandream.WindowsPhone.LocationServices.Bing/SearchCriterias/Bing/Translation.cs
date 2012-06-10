@@ -32,7 +32,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Bing
     public class Translation : SearchCriterias.SearchCriteriaBase<Models.Bing.Translation, Models.JSON.Bing.Translation.RootObject>
     {
         public Translation(string sourceLanguage, string targetLanguage, string market, params string[] translate)
-            : base("BING_SERVICE_URI_LOCATION")
+            : base("BING_SERVICE_URI_LOCATION", SearchCriteriaResultType.Collection)
         {
             Mapper = new Mappers.Bing.Translation();
 
@@ -55,7 +55,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Bing
             Request.AddParameter("Query", sb.ToString().Substring(0, sb.ToString().Length-3));
         }
         public Translation(string sourceLanguage, string targetLanguage, string market, IModel foundation)
-            : base("BING_SERVICE_URI_LOCATION")
+            : base("BING_SERVICE_URI_LOCATION", SearchCriteriaResultType.Collection)
         {
             Mapper = new Mappers.Bing.Translation();
 

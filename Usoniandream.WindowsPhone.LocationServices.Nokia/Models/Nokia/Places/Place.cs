@@ -28,7 +28,7 @@ using System.Device.Location;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Models.Nokia.Places
 {
-    public class Place : ILocation
+    public partial class Place : ILocation
     {
         public double Distance { get; set; }
         public string Title { get; set; }

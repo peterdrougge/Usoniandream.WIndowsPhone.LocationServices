@@ -27,7 +27,7 @@ using System.Windows.Shapes;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Models.Twitter
 {
-    public class Tweet : GenericLocationBase
+    public partial class Tweet : GenericLocationBase
     {
 
         public object Id { get; set; }

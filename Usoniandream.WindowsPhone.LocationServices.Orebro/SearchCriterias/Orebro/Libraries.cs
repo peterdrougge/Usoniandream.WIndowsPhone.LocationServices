@@ -30,7 +30,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Orebro
     public class Libraries : OrebroSearchCriteriaBase<Models.Orebro.Library, Models.JSON.Orebro.OrebroJSONModel.RootObject>
     {
         public Libraries()
-            :base (2)
+            : base(2, SearchCriteriaResultType.Collection)
         {
             Mapper = new Mappers.Orebro.Libraries();
         }

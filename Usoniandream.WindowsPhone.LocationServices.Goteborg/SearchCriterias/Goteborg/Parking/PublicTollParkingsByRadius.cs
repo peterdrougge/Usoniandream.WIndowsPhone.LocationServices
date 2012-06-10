@@ -31,7 +31,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Goteborg.Pa
     public class PublicTollParkingsByRadius : ParkingLocationsByRadiusBase<Models.Goteborg.Parking.PublicTollParking, Models.JSON.Goteborg.PublicTollParkings.RootObject>
     {
         public PublicTollParkingsByRadius(int radius, GeoCoordinate location)
-            : base("PublicTollParkings/", radius, location)
+            : base("PublicTollParkings/", radius, location, SearchCriteriaResultType.Collection)
         {
             Mapper = new Mappers.Goteborg.Parking.PublicTollParkings();
         }

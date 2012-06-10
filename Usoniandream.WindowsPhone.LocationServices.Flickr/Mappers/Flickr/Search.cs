@@ -62,5 +62,11 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Flickr
         {
             throw new NotImplementedException();
         }
+
+
+        public Models.GenericPagedResultsContainer<Models.Flickr.Photo> JSON2PagedContainer(Models.JSON.Flickr.Search.RootObject root)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

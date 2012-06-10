@@ -35,7 +35,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Google
         /// </summary>
         /// <param name="criteria">The criteria.</param>
         /// <param name="callback">The callback.</param>
-        public void GetPlacesByRadius(SearchCriterias.Google.PlacesByRadius criteria, Action<IRestResponse<Models.JSON.Google.Places.RootObject>> callback)
+        public void GetPlacesByRadius(SearchCriterias.Google.PlacesByRadius criteria, Action<RestResponse<Models.JSON.Google.Places.RootObject>> callback)
         {
             ExecuteRequestForCallback<Models.Google.Place, Models.JSON.Google.Places.RootObject>(criteria, callback);
         }
@@ -44,7 +44,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Google
         /// </summary>
         /// <param name="criteria">The criteria.</param>
         /// <param name="callback">The callback.</param>
-        public void GetPlaceDetails(SearchCriterias.Google.PlaceDetails criteria, Action<IRestResponse<Models.JSON.Google.Place.RootObject>> callback)
+        public void GetPlaceDetails(SearchCriterias.Google.PlaceDetails criteria, Action<RestResponse<Models.JSON.Google.Place.RootObject>> callback)
         {
             ExecuteRequestForCallback<Models.Google.PlaceDetails, Models.JSON.Google.Place.RootObject>(criteria, callback);
         }
@@ -53,7 +53,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.Google
         /// </summary>
         /// <param name="criteria">The criteria.</param>
         /// <param name="callback">The callback.</param>
-        public void GetEventDetails(SearchCriterias.Google.EventDetails criteria, Action<IRestResponse<Models.JSON.Google.EventDetails.RootObject>> callback)
+        public void GetEventDetails(SearchCriterias.Google.EventDetails criteria, Action<RestResponse<Models.JSON.Google.EventDetails.RootObject>> callback)
         {
             ExecuteRequestForCallback<Models.Google.EventDetails, Models.JSON.Google.EventDetails.RootObject>(criteria, callback);
         }

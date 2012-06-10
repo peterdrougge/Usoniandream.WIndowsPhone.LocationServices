@@ -27,7 +27,7 @@ using System.Windows.Shapes;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Models.Goteborg.Parking
 {
-    public class CommuterParking : ParkingLocationBase
+    public partial class CommuterParking : ParkingLocationBase
     {
         public int? FreeSpaces { get; set; }
         public DateTime? FreeSpacesDate { get; set; }

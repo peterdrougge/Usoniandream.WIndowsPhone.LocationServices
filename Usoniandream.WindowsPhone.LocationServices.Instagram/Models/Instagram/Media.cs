@@ -27,7 +27,7 @@ using System.Windows.Shapes;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Models.Instagram
 {
-    public class Media : GenericPhotoLocationBase
+    public partial class Media : GenericPhotoLocationBase
     {
         public string UserName { get; set; }
         public string UserId { get; set; }

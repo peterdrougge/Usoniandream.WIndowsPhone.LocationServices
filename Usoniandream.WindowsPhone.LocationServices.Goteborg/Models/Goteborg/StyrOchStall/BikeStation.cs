@@ -27,7 +27,7 @@ using System.Device.Location;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Models.Goteborg.StyrOchStall
 {
-    public class BikeStation : ILocation
+    public partial class BikeStation : ILocation
     {
         public object Content { get; set; }
         public GeoCoordinate Location { get; set; }

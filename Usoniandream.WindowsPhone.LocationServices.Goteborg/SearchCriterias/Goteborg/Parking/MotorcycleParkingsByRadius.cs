@@ -31,7 +31,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Goteborg.Pa
     public class MotorcycleParkingsByRadius: ParkingLocationsByRadiusBase<Models.Goteborg.Parking.MotorcycleParking, Models.JSON.Goteborg.MotorcyleParkings.RootObject>
     {
         public MotorcycleParkingsByRadius(int radius, GeoCoordinate location)
-            : base("MCParkings/", radius, location)
+            : base("MCParkings/", radius, location, SearchCriteriaResultType.Collection)
         {
             Mapper = new Mappers.Goteborg.Parking.MotorcycleParking();
         }

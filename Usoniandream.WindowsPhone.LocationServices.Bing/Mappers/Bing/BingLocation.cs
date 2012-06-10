@@ -78,5 +78,11 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Bing
             // clean up..
         }
 
+
+
+        public Models.GenericPagedResultsContainer<Models.Bing.BingMapLocation> JSON2PagedContainer(Models.JSON.Bing.BingLocation.RootObject root)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

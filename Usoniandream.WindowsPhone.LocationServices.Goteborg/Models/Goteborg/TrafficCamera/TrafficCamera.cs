@@ -27,7 +27,7 @@ using System.Windows.Media.Imaging;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Models.Goteborg.TrafficCamera
 {
-    public class TrafficCamera : ILocation
+    public partial class TrafficCamera : ILocation
     {
         public int ID { get; set; }
         public int StorageDurationMinutes { get; set; }

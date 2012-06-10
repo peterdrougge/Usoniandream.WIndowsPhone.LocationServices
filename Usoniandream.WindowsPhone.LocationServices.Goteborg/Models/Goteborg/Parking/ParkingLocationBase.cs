@@ -29,7 +29,7 @@ using System.Device.Location;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Models.Goteborg.Parking
 {
-    public class ParkingLocationBase : ILocation
+    public abstract class ParkingLocationBase : ILocation
     {
         public object Content { get; set; }
         public GeoCoordinate Location { get; set; }

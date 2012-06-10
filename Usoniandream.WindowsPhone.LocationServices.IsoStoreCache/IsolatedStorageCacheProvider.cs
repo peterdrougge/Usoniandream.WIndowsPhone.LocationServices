@@ -31,11 +31,13 @@ using System.Linq;
 using System.Reactive.Linq;
 using System.Diagnostics;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Caching.IsoStoreCache
 {
     public class IsolatedStorageCacheProvider : ICacheProvider
     {
+        private string cachefoldername = "cache";
 
         public bool IsValid<T>(SearchCriterias.ISearchCriteriaFoundation foundation, int duration)
         {
@@ -53,6 +55,8 @@ namespace Usoniandream.WindowsPhone.LocationServices.Caching.IsoStoreCache
 
         public bool IsCached(SearchCriterias.ISearchCriteriaFoundation foundation)
         {
+            EnsureCacheFolderExists();
+
             var filename = GetFilename(foundation);
             using (var iso = IsolatedStorageFile.GetUserStoreForApplication())
             {
@@ -66,8 +70,28 @@ namespace Usoniandream.WindowsPhone.LocationServices.Caching.IsoStoreCache
             return false;
         }
 
+        private void EnsureCacheFolderExists()
+        {
+            using (var iso = IsolatedStorageFile.GetUserStoreForApplication())
+            {
+                try
+                {
+                if (!iso.DirectoryExists(cachefoldername))
+                {
+                    iso.CreateDirectory(cachefoldername);
+                }
+                }
+                catch (IsolatedStorageException ex)
+                {
+                    Debug.WriteLine(ex.Message + " " + ex.InnerException);
+                }
+            }
+        }
+
         public void Remove(SearchCriterias.ISearchCriteriaFoundation foundation)
         {
+            EnsureCacheFolderExists();
+
             var filename = GetFilename(foundation);
             using (var iso = IsolatedStorageFile.GetUserStoreForApplication())
             {
@@ -79,7 +103,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Caching.IsoStoreCache
             }
         }
 
-        public void Add<T>(SearchCriterias.ISearchCriteriaFoundation foundation, System.IObservable<T> result)
+        public void Add<T>(SearchCriterias.ISearchCriteriaFoundation foundation, System.IObservable<T> result, int duration)
         {
             SaveToLocalSource<T>(foundation, result);
         }
@@ -100,11 +124,22 @@ namespace Usoniandream.WindowsPhone.LocationServices.Caching.IsoStoreCache
 
         protected virtual string GetFilename(SearchCriterias.ISearchCriteriaFoundation foundation)
         {
-            return String.Format("{0}.xml", foundation.Identifier);
+            string ret = String.Format("{0}.xml", foundation.Identifier);
+            if (ret.Length > 140)
+            {
+                ret = ret.Substring(ret.Length - 140, 140);
+            }
+            return cachefoldername + "/" + ret;
         }
         protected virtual void GetItemFromLocalSource<T>(SearchCriterias.ISearchCriteriaFoundation foundation, Action<IsoStoreCacheItem<T>> callback)
         {
+            EnsureCacheFolderExists();
+
             var filename = GetFilename(foundation);
+            GetFileFromStorage<T>(filename, callback);
+        }
+        protected virtual void GetFileFromStorage<T>(string filename, Action<IsoStoreCacheItem<T>> callback)
+        {
             Object deserialized = null;
             IsoStoreCacheItem<T> result = null;
 
@@ -155,8 +190,10 @@ namespace Usoniandream.WindowsPhone.LocationServices.Caching.IsoStoreCache
 
             Busy = true;
 
-                // note we might want to do all this work on another thread in a real system
-                var filename = GetFilename(foundation);
+            EnsureCacheFolderExists();
+            
+            // note we might want to do all this work on another thread in a real system
+            var filename = GetFilename(foundation);
 
             List<T> col = new List<T>(items.ToEnumerable<T>());
 
@@ -191,12 +228,114 @@ namespace Usoniandream.WindowsPhone.LocationServices.Caching.IsoStoreCache
         public bool Busy { get; set; }
 
 
-        public void Replace<T>(SearchCriterias.ISearchCriteriaFoundation foundation, IObservable<T> result)
+        public void Replace<T>(SearchCriterias.ISearchCriteriaFoundation foundation, IObservable<T> result, int duration)
         {
             if (this.IsCached(foundation))
             {
                 this.Remove(foundation);
                 SaveToLocalSource<T>(foundation, result);
+            }
+        }
+
+
+        public void Clear()
+        {
+            using (var iso = IsolatedStorageFile.GetUserStoreForApplication())
+            {
+                if (iso.DirectoryExists(cachefoldername))
+                {
+                    iso.DeleteDirectory(cachefoldername);
+                    Debug.WriteLine(" all cache entries removed");
+                }
+            }
+        }
+
+        public void ClearOutdatedItems(int duration)
+        {
+            EnsureCacheFolderExists();
+
+            ThreadPool.QueueUserWorkItem((t) =>
+                {
+                    using (var iso = IsolatedStorageFile.GetUserStoreForApplication())
+                    {
+                        foreach (var file in iso.GetFileNames(cachefoldername + "\\*"))
+                        {
+                            var fileinfo = iso.GetCreationTime(file);
+                            if (fileinfo != null)
+                            {
+                                if (fileinfo.AddSeconds(duration) < DateTime.Now)
+                                {
+                                    try
+                                    {
+                                        iso.DeleteFile(file);
+                                        Debug.WriteLine("deleted outdated " + file);
+                                    }
+                                    catch (IsolatedStorageException ex)
+                                    {
+                                        Debug.WriteLine(ex.Message + " " + ex.InnerException);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+        }
+        public void ClearOutdatedItems<T>(int duration)
+        {
+            EnsureCacheFolderExists();
+
+            ThreadPool.QueueUserWorkItem((t) =>
+            {
+                using (var iso = IsolatedStorageFile.GetUserStoreForApplication())
+                {
+                    foreach (var file in iso.GetFileNames(cachefoldername + "\\*"))
+                    {
+                        GetFileFromStorage<T>(file, (o) =>
+                        {
+                            if (o != null)
+                            {
+                                if (o.Created.AddSeconds(duration) < DateTime.Now)
+                                {
+                                    try
+                                    {
+                                        iso.DeleteFile(file);
+                                        Debug.WriteLine("deleted outdated " + file);
+                                    }
+                                    catch (IsolatedStorageException ex)
+                                    {
+                                        Debug.WriteLine(ex.Message + " " + ex.InnerException);
+                                    }
+                                }
+                            }
+                        });
+                    }
+                }
+            });
+        }
+        public void RemoveOldestEntry()
+        {
+            using (var iso = IsolatedStorageFile.GetUserStoreForApplication())
+            {
+                Dictionary<string, DateTimeOffset> list = new Dictionary<string,DateTimeOffset>();
+                foreach (var file in iso.GetFileNames(cachefoldername + "\\*"))
+                {
+                    list.Add(file, iso.GetCreationTime(file));
+                }
+                if (list.Count > 0)
+                {
+                    list.OrderBy(x => x.Value);
+                    iso.DeleteFile(list.FirstOrDefault().Key);
+                }
+            }
+        }
+        public int CachedItemsCount
+        {
+            get 
+            {
+                using (var iso = IsolatedStorageFile.GetUserStoreForApplication())
+                {
+                    return iso.GetFileNames(cachefoldername + "\\*").Count();
+                }
             }
         }
     }

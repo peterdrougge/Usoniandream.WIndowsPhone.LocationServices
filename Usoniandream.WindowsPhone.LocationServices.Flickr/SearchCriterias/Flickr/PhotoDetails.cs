@@ -30,7 +30,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Flickr
     public class PhotoDetails : FlickrSearchCriteriaBase<Models.Flickr.PhotoDetails, Models.JSON.Flickr.Info.RootObject>
     {
         public PhotoDetails(string id)
-            : base("flickr.photos.getInfo")
+            : base("flickr.photos.getInfo", SearchCriteriaResultType.Single)
         {
             Id = id;
             Mapper = new Mappers.Flickr.Info();

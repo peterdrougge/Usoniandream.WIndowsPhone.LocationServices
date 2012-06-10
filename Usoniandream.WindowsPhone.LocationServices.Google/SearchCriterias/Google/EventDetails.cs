@@ -30,7 +30,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Google
     public class EventDetails : GoogleSearchCriteriaBase<Models.Google.EventDetails, Models.JSON.Google.EventDetails.RootObject>
     {
         public EventDetails(string reference, string eventId)
-            : base("event/details")
+            : base("event/details", SearchCriteriaResultType.Single)
         {
             Mapper = new Mappers.Google.EventDetails();
             Reference = reference;
@@ -39,7 +39,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Google
             Request.AddParameter("event_id", eventId);
         }
         public EventDetails(string reference, string eventId, string language)
-            : base("event/details", language)
+            : base("event/details", language, SearchCriteriaResultType.Single)
         {
             Mapper = new Mappers.Google.EventDetails();
             Reference = reference;

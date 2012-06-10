@@ -31,7 +31,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Instagram
     public class PlacesByLocation : InstagramSearchCriteriaBase<Models.Instagram.Location, Models.JSON.Instagram.Locations.RootObject>
     {
         public PlacesByLocation(GeoCoordinate location)
-            : base("locations/search")
+            : base("locations/search", SearchCriteriaResultType.Collection)
         {
             Mapper = new Mappers.Instagram.PlacesByLocation();
             Location = location;

@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Usoniandream.WindowsPhone.L
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Usoniandream.WindowsPhone.LocationServices.IsoStoreCache", "Usoniandream.WindowsPhone.LocationServices.IsoStoreCache\Usoniandream.WindowsPhone.LocationServices.IsoStoreCache.csproj", "{D2BFC111-A1BD-4ADA-8A81-C1F4B88FB982}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Usoniandream.WindowsPhone.LocationServices.Eniro", "Usoniandream.WIndowsPhone.LocationServices.Eniro\Usoniandream.WindowsPhone.LocationServices.Eniro.csproj", "{864511B1-3B36-4BC1-80FD-05868D727433}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +131,12 @@ Global
 		{D2BFC111-A1BD-4ADA-8A81-C1F4B88FB982}.Mock|Any CPU.Build.0 = Release|Any CPU
 		{D2BFC111-A1BD-4ADA-8A81-C1F4B88FB982}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2BFC111-A1BD-4ADA-8A81-C1F4B88FB982}.Release|Any CPU.Build.0 = Release|Any CPU
+		{864511B1-3B36-4BC1-80FD-05868D727433}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{864511B1-3B36-4BC1-80FD-05868D727433}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{864511B1-3B36-4BC1-80FD-05868D727433}.Mock|Any CPU.ActiveCfg = Release|Any CPU
+		{864511B1-3B36-4BC1-80FD-05868D727433}.Mock|Any CPU.Build.0 = Release|Any CPU
+		{864511B1-3B36-4BC1-80FD-05868D727433}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{864511B1-3B36-4BC1-80FD-05868D727433}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

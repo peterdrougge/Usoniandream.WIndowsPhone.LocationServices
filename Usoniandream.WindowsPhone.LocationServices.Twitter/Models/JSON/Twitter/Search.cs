@@ -66,7 +66,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Models.JSON.Twitter.Search
 
     public class RootObject
     {
-        public double completed_in { get; set; }
+        public string completed_in { get; set; }
         public long max_id { get; set; }
         public string max_id_str { get; set; }
         public string next_page { get; set; }

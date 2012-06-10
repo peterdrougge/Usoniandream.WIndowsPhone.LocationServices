@@ -67,5 +67,11 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Goteborg.Parking
         {
             throw new NotImplementedException();
         }
+
+
+        public Models.GenericPagedResultsContainer<Models.Goteborg.Parking.PublicTimeParking> JSON2PagedContainer(Models.JSON.Goteborg.PublicTimeParkings.RootObject root)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

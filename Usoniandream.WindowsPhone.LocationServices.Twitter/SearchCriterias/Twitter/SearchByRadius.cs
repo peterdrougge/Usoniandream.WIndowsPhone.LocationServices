@@ -39,7 +39,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Twitter
         /// <param name="location">The location.</param>
         /// <param name="radiusKilometer">The radius in kilometers.</param>
         public SearchByRadius(GeoCoordinate location, double radiusKilometer)
-            : base()
+            : base(SearchCriteriaResultType.Collection)
         {
             SetDefaultCriteria(location, radiusKilometer);
         }
@@ -50,7 +50,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Twitter
         /// <param name="location">The location.</param>
         /// <param name="radiusKilometer">The radius in kilometers.</param>
         public SearchByRadius(string query, GeoCoordinate location, double radiusKilometer)
-            : base(query)
+            : base(query, SearchCriteriaResultType.Collection)
         {
             SetDefaultCriteria(location, radiusKilometer);
         }
@@ -62,7 +62,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Twitter
         /// <param name="radiusKilometer">The radius in kilometers.</param>
         /// <param name="since">date to go back when searching.</param>
         public SearchByRadius(string query, GeoCoordinate location, double radiusKilometer, DateTime since)
-            : base(query, since)
+            : base(query, since, SearchCriteriaResultType.Collection)
         {
             SetDefaultCriteria(location, radiusKilometer);
         }

@@ -34,7 +34,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.Service.CommuteGreener
         /// </summary>
         /// <param name="criteria">The criteria.</param>
         /// <param name="callback">The callback.</param>
-        public void GetEmissionBetweenLocations(SearchCriterias.CommuteGreener.EmissionBetweenLocations criteria, Action<IRestResponse<Models.JSON.CommuteGreener.Emissions.RootObject>> callback)
+        public void GetEmissionBetweenLocations(SearchCriterias.CommuteGreener.EmissionBetweenLocations criteria, Action<RestResponse<Models.JSON.CommuteGreener.Emissions.RootObject>> callback)
         {
             ExecuteRequestForCallback<Models.CommuteGreener.Emission, Models.JSON.CommuteGreener.Emissions.RootObject>(criteria, callback);
         }

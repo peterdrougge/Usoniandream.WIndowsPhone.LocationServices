@@ -78,5 +78,11 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Stockholm.Parking
             // clean up if needed..
         }
 
+
+
+        public Models.GenericPagedResultsContainer<Models.Stockholm.ParkingLocation> JSON2PagedContainer(Models.JSON.Stockholm.ParkingPlaces.RootObject root)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

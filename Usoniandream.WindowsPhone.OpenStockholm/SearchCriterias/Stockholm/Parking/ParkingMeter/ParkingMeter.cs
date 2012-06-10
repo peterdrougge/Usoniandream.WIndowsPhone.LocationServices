@@ -31,7 +31,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Stockholm.P
     {
      
         public ParkingMeter()
-            : base("STHLM_DATA_SERVICE_URI_PARKINGMETER")
+            : base("STHLM_DATA_SERVICE_URI_PARKINGMETER", SearchCriteriaResultType.Collection)
         {
             Mapper = new Usoniandream.WindowsPhone.LocationServices.Mappers.Stockholm.Parking.ParkingMeter();
             APIKeyResourceName = "STHLM_DATA_API_KEY_PARKING";

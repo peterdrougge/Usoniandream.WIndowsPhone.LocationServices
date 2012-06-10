@@ -30,7 +30,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Instagram
     public class MediaDetails : InstagramSearchCriteriaBase<Models.Instagram.MediaDetails, Models.JSON.Instagram.MediaDetails.RootObject>
     {
         public MediaDetails(string id)
-            : base("media/" + id)
+            : base("media/" + id, SearchCriteriaResultType.Single)
         {
             Mapper = new Mappers.Instagram.MediaDetails();
             Id = id;

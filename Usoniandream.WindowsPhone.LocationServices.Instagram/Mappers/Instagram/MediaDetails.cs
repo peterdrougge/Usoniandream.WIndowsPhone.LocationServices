@@ -70,5 +70,11 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Instagram
         {
             throw new NotImplementedException();
         }
+
+
+        public Models.GenericPagedResultsContainer<Models.Instagram.MediaDetails> JSON2PagedContainer(Models.JSON.Instagram.MediaDetails.RootObject root)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

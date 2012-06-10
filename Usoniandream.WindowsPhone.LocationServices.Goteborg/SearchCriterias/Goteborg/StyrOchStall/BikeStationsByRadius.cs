@@ -30,7 +30,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Goteborg.St
     public class BikeStationsByRadius : SearchCriteriaBase<Models.Goteborg.StyrOchStall.BikeStation, Models.JSON.Goteborg.BikeStations.RootObject>
     {
         public BikeStationsByRadius(int radius, GeoCoordinate location)
-            : base("GOTEBORG_DATA_SERVICE_URI_STYROCHSTALL")
+            : base("GOTEBORG_DATA_SERVICE_URI_STYROCHSTALL", SearchCriteriaResultType.Collection)
         {
             APIKeyResourceName = "GOTEBORG_DATA_API_KEY";
             Location = location;

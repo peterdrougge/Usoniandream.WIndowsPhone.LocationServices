@@ -45,8 +45,9 @@
   <ItemGroup>
     <Reference Include="Microsoft.Devices.Sensors" />
     <Reference Include="Microsoft.Phone" />
-    <Reference Include="RestSharp.WindowsPhone, Version=103.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\RestSharp.103.1\lib\sl4-wp71\RestSharp.WindowsPhone.dll</HintPath>
+    <Reference Include="RestSharp.WindowsPhone, Version=102.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\RestSharp 102.7\RestSharp.WindowsPhone.dll</HintPath>
     </Reference>
     <Reference Include="System.Device" />
     <Reference Include="System.Observable" />
@@ -81,8 +82,6 @@
     <Compile Include="SearchCriterias\Nokia\Places\Place.cs" />
     <Compile Include="SearchCriterias\Nokia\Places\Places.cs" />
     <Compile Include="SearchCriterias\Nokia\Places\SearchPlaces.cs" />
-    <Compile Include="Service\Reactive\ServiceLayer.cs" />
-    <Compile Include="Service\ServiceLayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Usoniandream.WindowsPhone.LocationServices\Usoniandream.WindowsPhone.LocationServices.csproj">

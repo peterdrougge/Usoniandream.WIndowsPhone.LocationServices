@@ -29,7 +29,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Stockholm.P
 {
     public class ServiceUnitTypes : PlaceWithPaddingBase<Models.Stockholm.Place.ServiceUnitType, Models.JSON.Stockholm.ServiceGuide.ServiceUnitTypes.RootObject>
     {
-        public ServiceUnitTypes() : base()
+        public ServiceUnitTypes() : base(SearchCriteriaResultType.Collection)
         {
             Mapper = new Mappers.Stockholm.Place.ServiceUnitTypes();
             Request.Resource += "/ServiceUnitTypes/json/";

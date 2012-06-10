@@ -27,7 +27,7 @@ using System.Windows.Shapes;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Models.Bing
 {
-    public class Translation : IModel
+    public partial class Translation : IModel
     {
         public string From { get; set; }
         public string To { get; set; }

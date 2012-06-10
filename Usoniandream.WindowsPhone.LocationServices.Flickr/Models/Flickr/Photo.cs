@@ -28,7 +28,7 @@ using System.Windows.Media.Imaging;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Models.Flickr
 {
-    public class Photo : GenericPhotoLocationBase
+    public partial class Photo : GenericPhotoLocationBase
     {
         public IObservable<PhotoDetails> Details { get; set; }
     }

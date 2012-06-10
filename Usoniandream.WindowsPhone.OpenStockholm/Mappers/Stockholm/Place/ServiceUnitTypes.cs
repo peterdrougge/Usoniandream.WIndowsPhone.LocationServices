@@ -74,5 +74,11 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Stockholm.Place
             }
         }
 
+
+
+        public Models.GenericPagedResultsContainer<Models.Stockholm.Place.ServiceUnitType> JSON2PagedContainer(Models.JSON.Stockholm.ServiceGuide.ServiceUnitTypes.RootObject root)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

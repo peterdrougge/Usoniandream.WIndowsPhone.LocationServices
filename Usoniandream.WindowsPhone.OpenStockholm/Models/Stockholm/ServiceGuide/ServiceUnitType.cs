@@ -22,7 +22,7 @@ using System.Device.Location;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Models.Stockholm.ServiceGuide
 {
-    public class ServiceUnitType : Base.ServiceUnitTypeBase
+    public partial class ServiceUnitType : Base.ServiceUnitTypeBase
     {
     }
 }

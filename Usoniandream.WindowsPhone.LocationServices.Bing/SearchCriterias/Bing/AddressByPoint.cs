@@ -31,9 +31,8 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Bing
     public class AddressByPoint : SearchCriterias.SearchCriteriaBase<Models.Bing.BingMapLocation, Models.JSON.Bing.BingLocation.RootObject>
     {
         public AddressByPoint(GeoCoordinate location)
-            : base("BING_MAPS_SERVICE_URI_LOCATION")
+            : base("BING_MAPS_SERVICE_URI_LOCATION", SearchCriteriaResultType.Single)
         {
-
             Location = location;
 
             Mapper = new Mappers.Bing.BingLocation();

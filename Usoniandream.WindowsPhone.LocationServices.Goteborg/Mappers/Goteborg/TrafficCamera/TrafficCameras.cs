@@ -69,5 +69,11 @@ namespace Usoniandream.WindowsPhone.LocationServices.Mappers.Goteborg.TrafficCam
         {
             throw new NotImplementedException();
         }
+
+
+        public Models.GenericPagedResultsContainer<Models.Goteborg.TrafficCamera.TrafficCamera> JSON2PagedContainer(Models.JSON.Goteborg.TrafficCameras.RootObject root)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

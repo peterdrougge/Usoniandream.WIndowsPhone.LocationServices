@@ -29,16 +29,16 @@ using Usoniandream.WindowsPhone.GeoConverter.Positions;
 
 namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Stockholm.Place
 {
-    public abstract class PlaceWithPaddingBase<Ttarget, Tsource> : SearchCriteriaWithPaddingBase<Ttarget, Tsource>
+    public abstract class PlaceWithPaddingBase<Ttarget, Tsource> : SearchCriteriaWithPaddingBase<Ttarget, Tsource> where Tsource : new()
     {
-        public PlaceWithPaddingBase()
-            : base("STHLM_DATA_SERVICE_URI_PLACE", "{\"features\":", "}")
+        public PlaceWithPaddingBase(SearchCriteriaResultType type)
+            : base("STHLM_DATA_SERVICE_URI_PLACE", "{\"features\":", "}", type)
         {
             ApplyDefaultSearchValues();
 
         }
-        public PlaceWithPaddingBase(GeoCoordinate pointOfOrigin, Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.ServiceGuideSortByEnum sortBy, Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.ServiceGuideSortOrderEnum sortOrder, int maxHits)
-            : base("STHLM_DATA_SERVICE_URI_PLACE", "{\"features\":", "}")
+        public PlaceWithPaddingBase(GeoCoordinate pointOfOrigin, Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.ServiceGuideSortByEnum sortBy, Usoniandream.WindowsPhone.LocationServices.Models.Enums.Stockholm.ServiceGuideSortOrderEnum sortOrder, int maxHits, SearchCriteriaResultType type)
+            : base("STHLM_DATA_SERVICE_URI_PLACE", "{\"features\":", "}", type)
         {
             this.PointOfOrigin = pointOfOrigin;
             this.SortBy = sortBy;

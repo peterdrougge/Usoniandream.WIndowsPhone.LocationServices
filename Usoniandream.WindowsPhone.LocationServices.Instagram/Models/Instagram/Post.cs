@@ -27,7 +27,7 @@ using System.Windows.Shapes;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Models.Instagram
 {
-    public class Post : GenericLocationBase
+    public partial class Post : GenericLocationBase
     {
 
     }

@@ -22,6 +22,6 @@ using System.Device.Location;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Models.Stockholm.Place
 {
-    public class ServiceUnitType : Base.ServiceUnitTypeBase
+    public partial class ServiceUnitType : Base.ServiceUnitTypeBase
     {}
 }

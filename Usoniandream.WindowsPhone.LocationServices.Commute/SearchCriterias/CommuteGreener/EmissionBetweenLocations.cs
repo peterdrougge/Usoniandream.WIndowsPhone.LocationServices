@@ -30,7 +30,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.CommuteGree
     public class EmissionBetweenLocations : SearchCriteriaBase<Models.CommuteGreener.Emission, Models.JSON.CommuteGreener.Emissions.RootObject>
     {
         public EmissionBetweenLocations(GeoCoordinate startlocation, GeoCoordinate endlocation)
-            : base("COMMUTEGREENER_DATA_SERVICE_URI")
+            : base("COMMUTEGREENER_DATA_SERVICE_URI", SearchCriteriaResultType.Collection)
         {
             SkipAPIKeyCheck = true;
             APIKeyResourceName = "NO NEED FOR A KEY - IT'S PUBLIC";

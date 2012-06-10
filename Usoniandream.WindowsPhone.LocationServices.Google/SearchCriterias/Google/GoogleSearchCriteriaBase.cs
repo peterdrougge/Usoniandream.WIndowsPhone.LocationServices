@@ -27,18 +27,18 @@ using System.Windows.Shapes;
 
 namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Google
 {
-    public abstract class GoogleSearchCriteriaBase<Ttarget, Tsource> : SearchCriteriaBase<Ttarget, Tsource>
+    public abstract class GoogleSearchCriteriaBase<Ttarget, Tsource> : SearchCriteriaBase<Ttarget, Tsource> where Tsource : new()
     {
-        public GoogleSearchCriteriaBase(string resource)
-            : base("GOOGLE_PLACES_SERVICE_URI")
+        public GoogleSearchCriteriaBase(string resource, SearchCriteriaResultType type)
+            : base("GOOGLE_PLACES_SERVICE_URI", type)
         {
             APIKeyResourceName = "GOOGLE_PLACES_API_KEY";
             Request.Resource = resource + "/json/";
             Request.AddParameter("sensor", "true");
             Request.AddParameter("key", APIkey);
         }
-        public GoogleSearchCriteriaBase(string resource, string language)
-            : base("GOOGLE_PLACES_SERVICE_URI")
+        public GoogleSearchCriteriaBase(string resource, string language, SearchCriteriaResultType type)
+            : base("GOOGLE_PLACES_SERVICE_URI", type)
         {
             APIKeyResourceName = "GOOGLE_PLACES_API_KEY";
             Request.Resource = resource + "/json/";

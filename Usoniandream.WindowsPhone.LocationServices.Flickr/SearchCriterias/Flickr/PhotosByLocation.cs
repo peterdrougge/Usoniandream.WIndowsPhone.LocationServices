@@ -31,7 +31,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Flickr
     public class PhotosByLocation : FlickrSearchCriteriaBase<Models.Flickr.Photo, Models.JSON.Flickr.Search.RootObject>
     {
         public PhotosByLocation(GeoCoordinate location, bool fetchdetails)
-            : base("flickr.photos.search")
+            : base("flickr.photos.search", SearchCriteriaResultType.Collection)
         {
             Location = location;
             if (fetchdetails)

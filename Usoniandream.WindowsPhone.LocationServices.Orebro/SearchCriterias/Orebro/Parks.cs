@@ -31,7 +31,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Orebro
     public class Parks : OrebroSearchCriteriaBase<Models.Orebro.Park, Models.JSON.Orebro.OrebroJSONModel.RootObject>
     {
         public Parks()
-            : base(8)
+            : base(8, SearchCriteriaResultType.Collection)
         {
             Mapper = new Mappers.Orebro.Parks();
         }

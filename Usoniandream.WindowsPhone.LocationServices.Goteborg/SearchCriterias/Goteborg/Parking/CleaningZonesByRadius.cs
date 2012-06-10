@@ -31,7 +31,7 @@ namespace Usoniandream.WindowsPhone.LocationServices.SearchCriterias.Goteborg.Pa
     public class CleaningZonesByRadius : ParkingLocationsByRadiusBase<Models.Goteborg.Parking.CleaningZone, Models.JSON.Goteborg.CleaningZones.RootObject>
     {
         public CleaningZonesByRadius(int radius, GeoCoordinate location)
-            : base("CleaningZones/", radius, location)
+            : base("CleaningZones/", radius, location, SearchCriteriaResultType.Collection)
         {
             Mapper = new Mappers.Goteborg.Parking.CleaningZones();
         }

@@ -27,7 +27,7 @@ using System.Windows.Shapes;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Models.Nokia.Places
 {
-        public class Category
+    public partial class Category
         {
             public Category()
             {}

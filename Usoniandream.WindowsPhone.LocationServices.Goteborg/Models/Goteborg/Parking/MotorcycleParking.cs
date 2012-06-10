@@ -27,7 +27,7 @@ using System.Windows.Shapes;
 
 namespace Usoniandream.WindowsPhone.LocationServices.Models.Goteborg.Parking
 {
-    public class MotorcycleParking : ParkingLocationBase
+    public partial class MotorcycleParking : ParkingLocationBase
     {
         public int ParkableLength { get; set; }
     }
